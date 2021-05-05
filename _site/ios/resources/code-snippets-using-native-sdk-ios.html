@@ -1,0 +1,1586 @@
+﻿<!doctype html>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="In diesem Thema finden Sie eine Sammlung von Codeausschnitten, die Sie als Referenz bei der Entwicklung mit dem SDK nützlich finden können. Weitere detaillierte Lösungen finden Sie in den Beispielen für iOS-Player.">
+  
+  <title>Codefragmente mit dem Native SDK für iOS</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">  
+  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&amp;display=swap">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/prism.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/styles.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/landing-page.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/tabs.css">
+  <link rel="stylesheet" href="/assets/css/local.css">
+  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&display=swap">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/381443caa8.js" crossorigin="anonymous"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/google-analytics.js"></script>
+  <script src="/assets/js/sajari-head.js"></script>
+</head>
+
+<body class="body">
+
+<header>
+  <div class="div-header">
+    <a href="/"><img class="product-logo" src="https://support.brightcove.com/site-assets/images/site/product-logos/Video_Cloud_Logo.svg" alt="Produkt-Logo" style="max-height: 100px;max-width: 232px;"/></a>
+<!-- GTranslate: https://gtranslate.io/ -->
+<select onchange="doGTranslate(this);"><option value="">Sprache wählen</option><option value="en|en" translate="No">English</option><option value="en|zh-TW" translate="No">繁體中文</option><option value="en|fr" translate="No">Français</option><option value="en|de" translate="No">Deutsche</option><option value="en|ja" translate="No">日本語</option><option value="en|ko" translate="No">한국어</option><option value="en|es" translate="No">Español</option></select>
+
+<script>
+/* <![CDATA[ */
+function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
+/* ]]> */
+</script>
+
+    
+
+
+    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?"><img src="https://support.brightcove.com/site-assets/images/site/support.png" alt="Support"/> Kontaktieren Sie Support</a> <span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span> <a href="https://status.brightcove.com/"><img src="https://support.brightcove.com/site-assets/images/site/status.png" alt="Systemstatus"/> Systemstatus</a></span> <br/>
+    
+  </div>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb arr-right">
+      
+      <li class="breadcrumb-item"><a href="/">Nach Hause</a></li>
+      
+      
+      
+      <li class="breadcrumb-item"><a href="/ios/resources/">Ressourcen</a></li>
+      
+      <li class="breadcrumb-item active" aria-current="page">Codefragmente mit dem Native SDK für iOS</li>
+    </ol>
+  </nav>
+</header>
+<div class="container">
+    <div class="row">
+            <div class="col-sm-3 left-side-bar">
+        <select id="site_select" class="bcls-select" style="margin-right: 1rem;">
+          <option value="">Weitere Brightcove Docs</option>
+          
+            
+              <option value="https://support.brightcove.com">Dokumentation Home</option>
+            
+          
+            
+              <option value="https://audience.support.brightcove.com">Brightcove Publikum</option>
+            
+          
+            
+              <option value="https://beacon.support.brightcove.com">Brightcove Leuchtfeuer</option>
+            
+          
+            
+              <option value="https://campaign.support.brightcove.com">Brightcove Kampagne</option>
+            
+          
+            
+              <option value="https://engage.support.brightcove.com">Brightcove Engage</option>
+            
+          
+            
+              <option value="https://live.support.brightcove.com">Brightcove Live</option>
+            
+          
+            
+              <option value="https://gallery.support.brightcove.com">Brightcove Gallery</option>
+            
+          
+            
+              <option value="https://ssai.support.brightcove.com">Brightcove SSAI</option>
+            
+          
+            
+              <option value="https://social.support.brightcove.com">Brightcove Social</option>
+            
+          
+            
+              <option value="https://studio.support.brightcove.com">Video Cloud Studio</option>
+            
+          
+            
+              <option value="https://player.support.brightcove.com">Brightcove Spieler-Entwicklung</option>
+            
+          
+            
+              <option value="https://apis.support.brightcove.com">APIs für Video Cloud-Plattform</option>
+            
+          
+            
+              <option value="https://sdks.support.brightcove.com">Videocloud-Geräte-SDKs</option>
+            
+          
+            
+              <option value="https://integrations.support.brightcove.com">Integrationen und CMS-Konnektoren</option>
+            
+          
+            
+              <option value="https://general.support.brightcove.com">Video Cloud — Allgemeine Informationen</option>
+            
+          
+            
+              <option value="https://zencoder.support.brightcove.com">Zencoder</option>
+            
+          
+        </select>
+
+        <nav class="sidenav" id="side_nav">
+          
+            
+            <h5><a href="/index.html">Nach Hause</a></h5>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/getting-started/index.html">Erste Schritte <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/getting-started/brightcove-native-player-sdks.html">Die native Brightcove SDKs</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/native-video-playback.html">Native Videowiedergabe</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/brightcove-native-sdk-features.html">Native SDK-Funktionen</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/brightcove-native-sdks-feature-support.html">Tabelle zur Funktionsunterstützung</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/running-sample-apps-native-sdk-android.html">Ausführen von Android Beispiel-Apps</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/running-sample-apps-native-sdk-ios.html">Ausführen von iOS-/tvOS-Beispielanwendungen</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/brightcove-native-sdks-training-videos.html">Native SDK-Schulungsvideos</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/features/index.html">Funktionen <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/features/using-360deg-videos-native-sdks.html">360-Grad-Video</a></li>
+                  
+                
+                  
+                    <li><a href="/features/advertising-sdks.html">Werbung</a></li>
+                  
+                
+                  
+                    <li><a href="/features/analytics-sdks.html">Analytics</a></li>
+                  
+                
+                  
+                    <li><a href="/features/using-captions-brightcove-native-sdks.html">Bildunterschriften</a></li>
+                  
+                
+                  
+                    <li><a href="/features/connected-tv-set-top-box-apps.html">Verbundenes</a></li>
+                  
+                
+                  
+                    <li><a href="/features/content-security-drm-native-player-sdks.html">Content-Sicherheit (DRM)</a></li>
+                  
+                
+                  
+                    <li><a href="/features/cross-device-resume-sdks.html">Geräteübergreifender Lebenslauf</a></li>
+                  
+                
+                  
+                    <li><a href="/features/live-streams-native-sdks.html">Livestreams</a></li>
+                  
+                
+                  
+                    <li><a href="/features/multiple-audio-tracks-native-sdks.html">Mehrere Audiospuren</a></li>
+                  
+                
+                  
+                    <li><a href="/features/offline-playback-native-player-sdks.html">Offline Wiedergabe</a></li>
+                  
+                
+                  
+                    <li><a href="/features/brightcove-native-player-controls.html">Spieler-Steu</a></li>
+                  
+                
+                  
+                    <li><a href="/features/picture-picture-native-sdks.html">Bild-in-Bild</a></li>
+                  
+                
+                  
+                    <li><a href="/features/video-formats-and-captioning-native-sdks.html">Videoformate und Untertitel</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/android/index.html">Android-Entwicklung <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/android/basics/index.html">Grundlagen <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/android/basics/overview-brightcove-player-sdk-android.html">v6.16.0: Übersicht über das Spieler-SDK für Android</a></li>
+                        
+                        <li><a href="/android/basics/architecture-brightcove-player-sdk-android.html">Die Architektur</a></li>
+                        
+                        <li><a href="/android/basics/android-understanding-brightcoveplayer-class.html">BrightCovePlayer Klasse</a></li>
+                        
+                        <li><a href="/android/basics/android-choosing-video-view.html">Auswählen einer Videoansicht</a></li>
+                        
+                        <li><a href="/android/basics/android-brightcove-registration.html">Brightcove Registrierung</a></li>
+                        
+                        <li><a href="/android/basics/understanding-events-native-sdk-android.html">Verstehen von Ereign</a></li>
+                        
+                        <li><a href="/android/basics/android-working-media-content.html">Arbeiten mit Medieninhalten</a></li>
+                        
+                        <li><a href="/android/basics/training-demand-developing-brightcove-native-player-sdk-android.html">Native SDK-Schulungsvideos</a></li>
+                        
+                        <li><a href="/android/basics/step-step-simple-video-app-using-native-sdk-android.html">Schritt für Schritt: Einfache Video-App</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/android/advertising/index.html">Werbung <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/android/advertising/android-ad-ui-customization-server-side-ad-insertion-ssai.html">Anpassung der Anzeigenbenutzung mit SSAI</a></li>
+                        
+                        <li><a href="/features/appending-ad-query-params-native-sdks.html">Anzeigenabfrageparameter anhängen</a></li>
+                        
+                        <li><a href="/features/ima-open-measurement-native-sdks.html">IMA Offene Messung</a></li>
+                        
+                        <li><a href="/android/advertising/migrating-to-ima-plugin-6-15-0.html">IMA Plugin 6.15.0</a></li>
+                        
+                        <li><a href="/features/implementing-client-side-ads-native-sdks.html">Implementierung von clientseitigen Anzeigen (CSAI)</a></li>
+                        
+                        <li><a href="/features/implementing-server-side-ads-native-player-sdks.html">Implementierung von serverseitigen Anzeigen (SSAI)</a></li>
+                        
+                        <li><a href="/android/advertising/using-pulse-plugin-native-sdk-android.html">Invidi Pulse Plugin</a></li>
+                        
+                        <li><a href="/android/advertising/ssai-plugin-native-sdk-android.html">SSAI-Plugin für Android</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/android/analytics/index.html">Analytics <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/android/analytics/analytics-related-offline-playback-native-sdks.html">Analysen im Zusammenhang mit Offline-Wiedergabe</a></li>
+                        
+                        <li><a href="/android/analytics/sending-brightcove-analytics-native-sdk-android.html">Brightcove Analytics senden</a></li>
+                        
+                        <li><a href="/features/viewing-brightcove-analytics-player-sdks.html">Anzeigen von Brightcove Analytics</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/android/captions/index.html">Bildunterschriften <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/android/captions/removing-android-captions-background-image.html">Entfernen des Hintergrundbilds „Untertitel“</a></li>
+                        
+                        <li><a href="/android/captions/selecting-captions-programmatically-native-sdk-android.html">Programmatische Auswahl von Untertiteln</a></li>
+                        
+                        <li><a href="/features/synchronizing-webvtt-captions.html">Synchronisieren von WebVTT-Beschriftungen</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/android/tv/index.html">Angeschlossenes Fernsehen <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/android/tv/cast-plugin-native-sdk-android.html">Chromecast-Plugin</a></li>
+                        
+                        <li><a href="/features/connected-tv-set-top-box-apps.html">Verbundene TV-Apps</a></li>
+                        
+                        <li><a href="/android/tv/customizing-android-tv-controls.html">Anpassen der Steuerelemente für Android TV</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/android/content-protection/index.html">Schutz von Inhalten <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/features/content-security-drm-native-player-sdks.html">Content-Sicherheit (DRM)</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/android/framework/index.html">Rahmen <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/android/framework/android-adding-viewmanaging-layout.html">Hinzufügen von Ansicht/Verwalten von Layout</a></li>
+                        
+                        <li><a href="/android/framework/android-pie-support-native-sdk-android.html">Android Pie Unterstützung</a></li>
+                        
+                        <li><a href="/android/framework/creating-plugin-native-sdk-android.html">Erstellen eines Plugins</a></li>
+                        
+                        <li><a href="/android/framework/migrating-exoplayer-2-framework.html">Migrieren auf ExoPlayer 2 Framework</a></li>
+                        
+                        <li><a href="/android/framework/resizing-video-view.html">Ändern der Größe der Videoansicht</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/android/live/index.html">Lebe <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/features/using-live-ssai-native-sdks.html">Verwenden von Live SSAI</a></li>
+                        
+                        <li><a href="/features/using-player-enhancements-live-ssai-native-sdks.html">Spieler-Verbesserungen für Live SSAI</a></li>
+                        
+                        <li><a href="/features/client-side-ads-with-live-ssai.html">Clientseitige Pre-Roll-Anzeigen mit Live SSAI</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/android/playback/index.html">wiedergabe <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/android/playback/hevc-selection-native-sdk-android.html">HEVC-Auswahl</a></li>
+                        
+                        <li><a href="/android/playback/hls-playback-native-sdk-android.html">HLS-Wiedergabe</a></li>
+                        
+                        <li><a href="/features/localization-with-native-sdks.html">Lokalisierung des Spielers</a></li>
+                        
+                        <li><a href="/android/playback/android-managing-player-controls.html">Verwalten von Spielersteuer</a></li>
+                        
+                        <li><a href="/android/playback/multiple-audio-tracks-offline-playback-native-sdk-android.html">Mehrere Audiospuren für Offline-Wiedergabe</a></li>
+                        
+                        <li><a href="/features/offline-playback-native-player-sdks.html">Offline Wiedergabe</a></li>
+                        
+                        <li><a href="/android/playback/handling-orientation-change-native-sdk-android.html">Änderung der Orientierung</a></li>
+                        
+                        <li><a href="/android/playback/android-source-selection.html">Auswahl der Quelle</a></li>
+                        
+                        <li><a href="/android/playback/video-and-playlist-objects-json.html">Video- und Playlist-Objekte von JSON</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/android/troubleshooting/index.html">Problembehandlung <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/android/troubleshooting/error-messages-native-sdk-android.html">Leitfaden für Fehlermeldungen</a></li>
+                        
+                        <li><a href="/android/troubleshooting/removing-android-log-messages.html">Entfernen von Android-Protokollnachrichten</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/android/resources/index.html">Ressourcen <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="https://github.com/BrightcoveOS/android-player-samples">Android Codebeispiele</a></li>
+                        
+                        <li><a href="/android/resources/code-snippets-using-native-sdk-android.html">Code-Snippets</a></li>
+                        
+                        <li><a href="https://docs.brightcove.com/android-sdk/javadoc/index.html">Natives SDK für Android-Referenz</a></li>
+                        
+                        <li><a href="https://docs.brightcove.com/index.html">Plugin-Re</a></li>
+                        
+                        <li><a href="/android/resources/brightcove-player-sdk-android-previous-sdk-information.html">Frühere Versionen</a></li>
+                        
+                        <li><a href="/android/resources/brightcove-native-sdk-android-release-notes.html">Anmerkungen zur</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/ios/index.html">iOS Entwicklung <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/ios/basics/index.html">Grundlagen <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/ios/basics/overview-brightcove-player-sdk-ios.html">v6.8.1: Player-SDK für iOS Überblick</a></li>
+                        
+                        <li><a href="/ios/basics/architecture-brightcove-player-sdk-ios.html">Die Architektur</a></li>
+                        
+                        <li><a href="/ios/basics/ios-brightcove-registration.html">Brightcove Registrierung</a></li>
+                        
+                        <li><a href="/ios/basics/ios-working-media-content.html">Arbeiten mit Medieninhalten</a></li>
+                        
+                        <li><a href="/ios/basics/understanding-events-native-sdk-ios.html">Verstehen von Ereign</a></li>
+                        
+                        <li><a href="/ios/basics/training-demand-developing-brightcove-native-player-sdk-ios.html">Native SDK-Schulungsvideos</a></li>
+                        
+                        <li><a href="/ios/basics/step-step-simple-video-app-using-objective-c.html">Schritt für Schritt: Einfache Video-App mit Objective-C</a></li>
+                        
+                        <li><a href="/ios/basics/step-step-simple-video-app-using-swift.html">Schritt für Schritt: Einfache Video-App mit Swift</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/ios/advertising/index.html">Werbung <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/features/implementing-client-side-ads-native-sdks.html">Implementierung von clientseitigen Anzeigen (CSAI)</a></li>
+                        
+                        <li><a href="/features/implementing-server-side-ads-native-player-sdks.html">Implementierung von serverseitigen Anzeigen (SSAI)</a></li>
+                        
+                        <li><a href="/features/appending-ad-query-params-native-sdks.html">Anzeigenabfrageparameter anhängen</a></li>
+                        
+                        <li><a href="/features/ima-open-measurement-native-sdks.html">IMA Offene Messung</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/ios/analytics/index.html">Analytics <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/ios/analytics/sending-brightcove-analytics-native-sdk-ios.html">Brightcove Analytics senden</a></li>
+                        
+                        <li><a href="/features/viewing-brightcove-analytics-player-sdks.html">Anzeigen von Brightcove Analytics</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/ios/captions/index.html">Bildunterschriften <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/features/synchronizing-webvtt-captions.html">Synchronisieren von WebVTT-Beschriftungen</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/ios/tv/index.html">Angeschlossenes Fernsehen <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="https://github.com/brightcove/brightcove-player-sdk-ios-googlecast">Chromecast-Plugin</a></li>
+                        
+                        <li><a href="/features/connected-tv-set-top-box-apps.html">Verbundene TV-Apps</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/ios/content-protection/index.html">Schutz von Inhalten <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/features/content-security-drm-native-player-sdks.html">Content-Sicherheit (DRM)</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/ios/framework/index.html">Rahmen <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/ios/framework/working-app-transport-security-ats.html">Arbeiten mit App Transport Security (ATS)</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/ios/live/index.html">Lebe <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/features/using-live-ssai-native-sdks.html">Verwenden von Live SSAI</a></li>
+                        
+                        <li><a href="/features/using-player-enhancements-live-ssai-native-sdks.html">Spieler-Verbesserungen für Live SSAI</a></li>
+                        
+                        <li><a href="/features/client-side-ads-with-live-ssai.html">Clientseitige Pre-Roll-Anzeigen mit Live SSAI</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/ios/playback/index.html">wiedergabe <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/features/localization-with-native-sdks.html">Lokalisierung des Spielers</a></li>
+                        
+                        <li><a href="/features/offline-playback-native-player-sdks.html">Offline Wiedergabe</a></li>
+                        
+                        <li><a href="/ios/playback/ios-source-selection.html">Auswahl der Quelle</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/ios/troubleshooting/index.html">Problembehandlung <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/ios/troubleshooting/error-handling-native-sdk-ios.html">Umgang mit Fehlern</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/ios/resources/index.html">Ressourcen <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="https://github.com/BrightcoveOS/ios-player-samples">iOS Codebeispiele</a></li>
+                        
+                        <li><a href="/ios/resources/code-snippets-using-native-sdk-ios.html">Code-Snippets</a></li>
+                        
+                        <li><a href="https://docs.brightcove.com/ios-sdk/index.html">Native SDK für iOS Referenz</a></li>
+                        
+                        <li><a href="https://docs.brightcove.com/index.html">Plugin-Re</a></li>
+                        
+                        <li><a href="https://github.com/brightcove/brightcove-player-sdk-ios/blob/master/CHANGELOG.md">Anmerkungen zur</a></li>
+                        
+                        <li><a href="/ios/resources/brightcove-player-sdk-ios-previous-sdk-information.html">Frühere Versionen</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/tvos/index.html">tvOS Entwicklung <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/tvos/basics/index.html">Grundlagen <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/tvos/basics/overview-brightcove-player-sdk-tvos.html">v6.8.1: Übersicht Spieler-SDK für tvOS</a></li>
+                        
+                        <li><a href="/ios/basics/architecture-brightcove-player-sdk-ios.html">Die Architektur</a></li>
+                        
+                        <li><a href="/ios/basics/ios-brightcove-registration.html">Brightcove Registrierung</a></li>
+                        
+                        <li><a href="/ios/basics/ios-working-media-content.html">Arbeiten mit Medieninhalten</a></li>
+                        
+                        <li><a href="/ios/basics/understanding-events-native-sdk-ios.html">Verstehen von Ereign</a></li>
+                        
+                        <li><a href="/features/connected-tv-set-top-box-apps.html">Verbundene TV-Apps</a></li>
+                        
+                        <li><a href="/ios/basics/training-demand-developing-brightcove-native-player-sdk-ios.html">Native SDK-Schulungsvideos</a></li>
+                        
+                        <li><a href="/tvos/basics/step-step-simple-tv-video-app-using-swift.html">Schritt für Schritt: Einfache TV-Video-App mit Swift</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/tvos/advertising/index.html">Werbung <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/features/implementing-client-side-ads-native-sdks.html">Implementierung von clientseitigen Anzeigen (CSAI)</a></li>
+                        
+                        <li><a href="/features/implementing-server-side-ads-native-player-sdks.html">Implementierung von serverseitigen Anzeigen (SSAI)</a></li>
+                        
+                        <li><a href="/features/appending-ad-query-params-native-sdks.html">Anzeigenabfrageparameter anhängen</a></li>
+                        
+                        <li><a href="/features/ima-open-measurement-native-sdks.html">IMA Offene Messung</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/tvos/analytics/index.html">Analytics <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/ios/analytics/sending-brightcove-analytics-native-sdk-ios.html">Brightcove Analytics senden</a></li>
+                        
+                        <li><a href="/features/viewing-brightcove-analytics-player-sdks.html">Anzeigen von Brightcove Analytics</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/tvos/captions/index.html">Bildunterschriften <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/features/synchronizing-webvtt-captions.html">Synchronisieren von WebVTT-Beschriftungen</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/tvos/content-protection/index.html">Schutz von Inhalten <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/features/content-security-drm-native-player-sdks.html">Content-Sicherheit (DRM)</a></li>
+                        
+                        <li><a href="/tvos/content-protection/adding-fairplay-protection-your-apple-tv-apps.html">Apple TV mit FairPlay</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/tvos/framework/index.html">Rahmen <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/ios/framework/working-app-transport-security-ats.html">Arbeiten mit App Transport Security (ATS)</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/tvos/live/index.html">Lebe <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/features/using-live-ssai-native-sdks.html">Verwenden von Live SSAI</a></li>
+                        
+                        <li><a href="/features/using-player-enhancements-live-ssai-native-sdks.html">Spieler-Verbesserungen für Live SSAI</a></li>
+                        
+                        <li><a href="/features/client-side-ads-with-live-ssai.html">Clientseitige Pre-Roll-Anzeigen mit Live SSAI</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/tvos/playback/index.html">wiedergabe <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/tvos/playback/apple-tv-ui-controls-native-sdk-tvos.html">Apple TV-UI-Steuer</a></li>
+                        
+                        <li><a href="/features/localization-with-native-sdks.html">Lokalisierung des Spielers</a></li>
+                        
+                        <li><a href="/ios/playback/ios-source-selection.html">Auswahl der Quelle</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/tvos/troubleshooting/index.html">Problembehandlung <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/ios/troubleshooting/error-handling-native-sdk-ios.html">Umgang mit Fehlern</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/tvos/resources/index.html">Ressourcen <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="https://github.com/BrightcoveOS/ios-player-samples/tree/master/Player/AppleTV">Basic Apple TV-Beispiel</a></li>
+                        
+                        <li><a href="https://github.com/BrightcoveOS/ios-player-samples/tree/master/SSAI/BasicSSAItvOSPlayer">Apple TV mit SSAI</a></li>
+                        
+                        <li><a href="https://docs.brightcove.com/ios-sdk/index.html">Native SDK für iOS Referenz</a></li>
+                        
+                        <li><a href="https://docs.brightcove.com/index.html">Plugin-Re</a></li>
+                        
+                        <li><a href="https://github.com/brightcove/brightcove-player-sdk-ios/blob/master/CHANGELOG.md">Anmerkungen zur</a></li>
+                        
+                        <li><a href="/tvos/resources/brightcove-player-sdk-tvos-previous-sdk-information.html">Frühere Versionen</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/developer-support/index.html">Unterstützung von Entwicklern <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/developer-support/announcements/index.html">Ankündigungen <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/developer-support/announcements/native-sdk-android-will-eol-support-exoplayer-1.html">Android SDK EOL-Unterstützung für ExoPlayer 1</a></li>
+                        
+                        <li><a href="/developer-support/announcements/announcement-brightcove-sdk-android-version-support.html">Unterstützung für Android-Versionen</a></li>
+                        
+                        <li><a href="/developer-support/announcements/apple-announces-new-app-submission-requirement.html">Apple-App-Einreich</a></li>
+                        
+                        <li><a href="/developer-support/announcements/native-sdk-ios-eol-support-iostvos-10.html">iOS SDK EOL Unterstützung für iOS/tvOS 10</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/developer-support/questions/index.html">Fragen und Probleme <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="https://groups.google.com/forum/#!forum/brightcove-native-player-sdks">SDK-Entwicklerforum-Archiv</a></li>
+                        
+                        <li><a href="/developer-support/questions/faq-brightcove-native-player-sdks.html">Häufig gestellte Fragen</a></li>
+                        
+                        <li><a href="/developer-support/questions/release-notes-brightcove-native-sdks.html">Anmerkungen zur</a></li>
+                        
+                        <li><a href="/developer-support/questions/known-issues-brightcove-native-player-sdks.html">Bekannte Probleme</a></li>
+                        
+                        <li><a href="/developer-support/questions/report-issue-brightcove-native-sdks.html">Ein Problem melden</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/support/index.html">unterstützung <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    
+                  
+                
+                  
+                    <li><a href="/support/viewing-brightcove-system-status-page.html">Anzeigen der Seite „Systemstatus von Brightcove“</a></li>
+                  
+                
+                  
+                    <li><a href="/support/contact-sales.html">Kontakt mit dem Vertrieb</a></li>
+                  
+                
+                  
+                    <li><a href="/support/opening-case-with-brightcove-support.html">Einen Supportfall öffnen</a></li>
+                  
+                
+              </ul>
+            
+          
+      </nav>
+    </div>
+    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
+  <!-- bootstrap layout -->
+
+<p id="bc_veggie_burger_wrapper" style="display: none;"><img id="bc_veggie_burger" src="/assets/images/feather/menu.svg" alt="Menü „Navigation"/></p>
+
+<!-- search bar -->
+<div id="nav-search-box" style="margin-top: 1rem;"></div>
+<!-- in-page navigation for narrow screens -->
+<details class="centered-inpage-nav" id="centered_inpage_nav">
+  <summary><h6 class="toc">Inhalt der Seite</h6></summary>
+  <nav id="centered_toc"></nav>
+  <ul id="centered_in_page_toc" class="list-none"></ul>
+</details>
+<!-- open in new tab/window -->
+<a id="open_new_tab" href="#" target="_blank" style="display: none;"><img src="/assets/images/feather/external-link.svg" alt="in neuem Tab öffnen" style="margin-top:4em;width: 1.5em;"/></a>
+
+
+
+  
+    
+
+
+<h1>Codefragmente mit dem Native SDK für iOS</h1>
+<article class="bcls-article">
+  <summary>In diesem Thema finden Sie eine Sammlung von Codeausschnitten, die Sie als Referenz bei der Entwicklung mit dem SDK nützlich finden können. Weitere detaillierte Lösungen finden Sie in den <a href="https://github.com/BrightcoveOS/ios-player-samples">Beispielen für iOS-Player</a>.</summary>
+
+<section class="bcls-section" id="top">
+<h3>Inhaltsverzeichnis</h3>
+<!-- <h5 class="bcls-question">Accessibility</h5>
+
+<ul class="bcls-answer">
+	<li><a href="#VoiceOver_support">VoiceOver support</a></li>
+</ul> -->
+<details style="padding:0;">
+    <summary>Advertising</summary>
+   <ul>
+      <li><a href="#Media_progress_values">Werte des Medienfortschritts</a></li>
+    </ul>
+</details>
+<br/>
+
+<details style="padding:0;">
+    <summary>Analytics</summary>
+    <ul>
+      <li><a href="#Google_Analytics">Google-Analysen</a></li>
+    </ul>
+</details>
+<br/>
+
+<details style="padding:0;">
+    <summary>Untertitel</summary>
+    <ul>
+      <li><a href="#Customizing_the_closed_captions_button">Anpassen der Schaltfläche „Untertitel“</a></li>
+    </ul>
+</details>
+<br/>
+
+<details style="padding:0;">
+    <summary>Content-Sicherheit (DRM)</summary>
+   <ul>
+      <li><a href="#Displaying_FairPlay_content_on_an_external_screen">Anzeigen von FairPlay-Inhalten auf einem externen Bildschirm</a></li>
+    </ul>
+</details>
+<br/>
+
+<details style="padding:0;">
+    <summary>Cue-Points</summary>
+    <ul>
+      <li><a href="#Programmatically_adding_cue_points">Programmatisches Hinzufügen von Cue-Points</a></li>
+    </ul>
+</details>
+<br/>
+
+<details style="padding:0;">
+    <summary>Playback</summary>
+    <ul>
+      <li><a href="#Custom_controls_for_AirPlay">Benutzerdefinierte Steuerelemente für AirPlay</a></li>
+      <li><a href="#Limiting_the_bitrate">Begrenzung der Bitrate</a></li>
+      <li><a href="#Looping_a_video">Looping eines Videos</a></li>
+      <li><a href="#Media_progress_values">Werte des Medienfortschritts</a></li>
+      <!-- <li><a href="#Setting_the_buffer_size">Setting the buffer size</a></li> -->
+      <li><a href="#Paging_with_the_Playback_API">Paging mit der Playback-API</a></li>
+      <li><a href="#Removing_the_player">Entfernen des Spielers</a></li>
+      <li><a href="#Setting_the_playback_rate">Einstellen der Wiedergaberate</a></li>
+      <li><a href="#Setting_VR_Goggles_mode_for_360_videos">Einstellen des VR-Schutzbrillen-Modus für 360°-Videos</a></li>
+    </ul>
+</details>
+<br/>
+
+<details style="padding:0;">
+    <summary>Wiedergabelisten</summary>
+   <ul>
+      <li><a href="#Managing_videos_in_a_playlist">Verwalten von Videos in einer Playlist</a></li>
+    </ul>
+</details>
+<br/>
+
+<details style="padding:0;">
+    <summary>Gestaltung</summary>
+    <ul>
+      <li><a href="#Changing_the_background_color">Ändern der Hintergrundfarbe</a></li>
+    </ul>
+</details>
+<br/>
+</section>
+
+<section class="bcls-section">
+<h2 id="Custom_controls_for_AirPlay">Benutzerdefinierte Steuerelemente für AirPlay</h2>
+
+<p>Wenn Sie die <a href="https://docs.brightcove.com/ios-sdk/index.html#PlayerUI">Brightcove PlayerUI-Steuerelemente</a> verwenden, sind Sie alle bereit. Die AirPlay-Funktionalität funktioniert sofort einsatzbereit und ermöglicht es Benutzern, Videos mit Apple TV auf hochauflösende Displays zu streamen.</p>
+
+<p>Wenn Sie benutzerdefinierte Steuerelemente verwenden, können Sie die folgenden Schritte ausführen:</p>
+
+<ol class="bcls-tasklist-restart">
+	<li>
+	<p>Erfahren Sie mehr über AirPlay in <a href="">der Entwickler-Dokumentation von Apple für AirPlay</a>.</p>
+	</li>
+	<li>
+	<p>Verwenden Sie die <code translate="No">allowsExternalPlayback </code> Eigenschaft des Playback-Controllers, um die <code translate="No">allowsExternalPlayback </code> Eigenschaft des AVPlayer festzulegen:</p>
+
+	<pre>
+<code class="language-swift" translate="No"><a href="https://docs.brightcove.com/ios-sdk/Protocols/BCOVPlaybackController.html#//api/name/allowsExternalPlayback">_playbackController.allowsExternalPlayback = YES;</a></code></pre>
+	</li>
+	<li>
+	<p>Richten Sie eine AirPlay-Router-Steuerung ein und übernehmen Sie die Auswahl. Einzelheiten finden Sie im <a href="https://developer.apple.com/library/content/documentation/AudioVideo/Conceptual/AirPlayGuide/Introduction/Introduction.html">AirPlay-Übersichtsdokument von Apple</a> .</p>
+	</li>
+</ol>
+</section>
+
+<section class="bcls-section">
+<h2 id="Customizing_the_closed_captions_button">Anpassen der Schaltfläche „Untertitel“</h2>
+
+<p>Der <a href="https://docs.brightcove.com/ios-sdk/index.html#PlayerUI">BcovPlayerUI-Beispielcode</a> zeigt Ihnen, wie Sie den Brightcove Player anpassen können, wenn Sie das Native SDK für iOS verwenden. Weitere Informationen finden Sie im Abschnitt <a href="https://docs.brightcove.com/ios-sdk/index.html#PlayerUI">PlayerUI-Steuerelemente anpassen</a> des Referenzdokuments des Native SDK.</p>
+
+<p>Gehen Sie folgendermaßen vor, um die Schaltfläche für Untertitel mit PlayerUI anzupassen:</p>
+
+<ol class="bcls-tasklist-restart">
+	<li>
+	<p>Beginnen Sie mit der <a href="https://github.com/BrightcoveOS/ios-player-samples/tree/master/Player/VideoCloudBasicPlayer">Basic Video Playback App</a>.</p>
+	</li>
+	<li>
+	<p>Ersetzen Sie Ihre Werte für den Richtlinienschlüssel, die Konto-ID und die Video-ID. Wählen Sie ein Video aus Ihrem Konto aus, das Textspuren enthält.</p>
+	</li>
+	<li>
+	<p>Richten Sie die Spieleransicht mit einem Standard-VOD-Layout ein:</p>
+
+	<pre class="line-numbers">
+<code class="language-objectivec" translate="No">// Set up our player view. Create with a standard VOD layout.
+BCOVPUIPlayerView *playerView = [[BCOVPUIPlayerView alloc] initWithPlaybackController:self.playbackController options:nil controlsView:
+[BCOVPUIBasicControlView basicControlViewWithVODLayout] ];</code></pre>
+	</li>
+	<li>
+	<p>Der <code translate="No">closedCaptionButton</code> wird als a deklariert <code translate="No">BCOVPUIButton</code> , was eine Unterklasse von ist <code translate="No">UIButton</code> und drei zusätzliche Anpassungsmethoden hinzufügt. Wenn Sie die BcovPlayerUI-Steuerelemente anpassen, sollten Sie die Native Player-APIs überall dort verwenden, wo sie verfügbar sind. Ihr benutzerdefinierter Code sollte ähnlich wie folgt aussehen:</p>
+
+	<pre class="line-numbers">
+<code class="language-objectivec" translate="No">// Customize the CC button.
+BCOVPUIButton *ccButton = playerView.controlsView.closedCaptionButton;
+ccButton.titleLabel.font = [UIFont systemFontOfSize:14.];
+ccButton.primaryTitle = @"CC";
+[ccButton showPrimaryTitle:YES];</code></pre>
+	</li>
+</ol>
+</section>
+
+<section class="bcls-section">
+<h2 id="Displaying_FairPlay_content_on_an_external_screen">Anzeigen von FairPlay-Inhalten auf einem externen Bildschirm</h2>
+
+<p>Wenn ein externes Display über einen AV-Adapter und ein HDMI-Kabel mit einem iOS-Gerät verbunden ist, besteht das Standardverhalten darin, den iOS-Bildschirm zu spiegeln. Die Ausnahme ist, wenn Sie FairPlay-geschütztes Video verwenden, das Apple vor dem Spiegeln verhindert (<a href="https://developer.apple.com/videos/play/wwdc2015/502/">WWDC 2015, Session 502</a>).</p>
+
+<p>Um FairPlay-geschützte Videos anzuzeigen, legen Sie die AVPlayer-Eigenschaften fest, die über den Brightcove Playback Controller bereitgestellt werden, damit FairPlay-Videos auf einem externen Display abgespielt werden können. Das Video wird im Vollbildmodus wiedergegeben. Hier ist ein Beispiel für das Festlegen dieser Eigenschaften:</p>
+
+<pre>
+<code class="language-swift" translate="No"><a href="https://docs.brightcove.com/ios-sdk/Protocols/BCOVPlaybackController.html#//api/name/usesExternalPlaybackWhileExternalScreenIsActive">playbackController.allowsExternalPlayback = YES;
+playbackController.usesExternalPlaybackWhileExternalScreenIsActive = YES;</a></code></pre>
+</section>
+
+<section class="bcls-section">
+<h2 id="Google_Analytics">Google-Analytics</h2>
+
+<p>Wenn Sie den Brightcove Player und die Katalogklasse verwenden, werden Videoanalysen automatisch erfasst und in Ihrem Video Cloud Analytics-Modul angezeigt. Für zusätzliche Metriken können Sie Ihrer App Google Analytics hinzufügen.</p>
+
+<p>Um Google Analytics in Ihre App zu integrieren, führen Sie die folgenden Schritte aus:</p>
+
+<ol class="bcls-tasklist-restart">
+	<li>Lesen Sie das Dokument von Google, um <a href="https://developers.google.com/analytics/devguides/collection/ios/v3/#get-config">Analytics zu Ihrer iOS-App hinzuzufügen</a>.</li>
+	<li>
+	<p>Hier ist eine Möglichkeit, wie Sie Google Analytics verwenden können, um die Videowiedergabe mit dem Firebase SDK von Google zu verfolgen:</p>
+
+	<pre class="line-numbers" data-start="1">
+<code class="language-swift" translate="No">// This snippet shows one way to track video playback
+// using the Firebase SDK from Google Analytics with
+// the lifecycle event playback controller delegate method.
+- (void)playbackController:(id&lt;BCOVPlaybackController&gt;)controller playbackSession:(id&lt;BCOVPlaybackSession&gt;)session didReceiveLifecycleEvent:(BCOVPlaybackSessionLifecycleEvent *)lifecycleEvent
+{
+// Common parameters
+NSString *video_name = session.video.properties[kBCOVVideoPropertyKeyName];
+NSString *video_ID = session.video.properties[kBCOVVideoPropertyKeyId];
+
+// Session is ready to play
+if ([kBCOVPlaybackSessionLifecycleEventReady isEqualToString:lifecycleEvent.eventType])
+{
+	[FIRAnalytics logEventWithName:@"bcov_video_ready"
+    parameters:@{
+        @"bcov_video_name": video_name,
+        @"bcov_video_id": video_ID
+    }];
+}
+
+// Session encountered an error
+if ([kBCOVPlaybackSessionLifecycleEventError isEqualToString:lifecycleEvent.eventType])
+{
+	NSError *error = lifecycleEvent.properties[kBCOVPlaybackSessionEventKeyError];
+	int error_code = error.code;
+	[FIRAnalytics logEventWithName:@"bcov_video_playback_error"
+    parameters:@{
+        @"bcov_video_name": video_name,
+        @"bcov_video_id": video_ID,
+        @"bcov_video_error_code": @(error_code)
+    }];
+}
+
+// Session has completed
+if ([kBCOVPlaybackSessionLifecycleEventTerminate isEqualToString:lifecycleEvent.eventType])
+{
+	[FIRAnalytics logEventWithName:@"bcov_video_terminate"
+    parameters:@{
+        @"bcov_video_name": video_name,
+        @"bcov_video_id": video_ID
+     }];
+}
+}</code></pre>
+	</li>
+</ol>
+
+<p>&nbsp;</p>
+</section>
+
+<section class="bcls-section">
+<h2 id="Limiting_the_bitrate">Begrenzung der Bitrate</h2>
+
+<p>Sie können nicht steuern, welche Quelle (Wiedergabeversion) im HLS-Manifest vom ausgewählt wird <code translate="No">AVPlayer </code>, aber Sie können bei der Wiedergabe eine Bitratenobergrenze setzen. Dies verhindert, dass der Spieler Quellen (Wiedergaben) mit einer Bitrate über der angegebenen Bitrate verwendet.</p>
+
+<p>Setzen Sie den <code translate="No">preferredPeakBitRate </code> auf das gewünschte Limit des Netzbandbreitenverbrauchs in Bit pro Sekunde für den gegebenen Wert <code translate="No">AVPlayerItem </code>.</p>
+
+<p>Verwenden Sie eine der folgenden Erklärungen:</p>
+
+<pre class="line-numbers">
+<code class="language-swift" translate="No">// Swift
+var preferredPeakBitRate: Double
+// Obj-C
+@property(nonatomic) double preferredPeakBitRate</code></pre>
+</section>
+
+<section class="bcls-section">
+<h2 id="Looping_a_video">Looping eines Videos</h2>
+
+<p>In einigen Fällen möchten Sie möglicherweise, dass ein Video automatisch wiedergegeben wird. Um dies zu tun, können Sie das Lebenszyklusereignis „Ende des Videos“ abrufen, zum Anfang gehen und erneut spielen.</p>
+
+<p>Dieser Code geht davon aus, dass Sie den Delegaten des PlaybackControllers mit dieser Methode auf das Objekt gesetzt haben:</p>
+
+<pre class="line-numbers">
+<code class="language-swift" translate="No">- (void)playbackController:(id&lt;BCOVPlaybackController&gt;)controller playbackSession:(id&lt;BCOVPlaybackSession&gt;)session didReceiveLifecycleEvent:(BCOVPlaybackSessionLifecycleEvent *)lifecycleEvent
+{
+  if ([kBCOVPlaybackSessionLifecycleEventEnd isEqualToString:lifecycleEvent.eventType])
+  {
+    [controller seekToTime:kCMTimeZero completionHandler:^(BOOL finished) {
+    if (finished)
+    	{
+        [controller play];
+    	}
+    }];
+  }
+}</code></pre>
+</section>
+
+<section class="bcls-section">
+<h2 id="Managing_videos_in_a_playlist">Verwalten von Videos in einer Playlist</h2>
+
+<p>Eine Möglichkeit, eine Wiedergabeliste mit Videos zu verwalten, besteht darin, die Videoobjekte in einer Tabelle zu speichern. Wenn der Benutzer ein Video aus der Tabelle auswählt, enthält die Tabellenzeile das Videoobjekt.</p>
+
+<p>Hier ist eine Übersicht darüber, wie es funktioniert:</p>
+
+<ol class="bcls-tasklist-restart">
+	<li>
+	<p>Rufen Sie eine Playlist von Ihrem Konto ab.</p>
+
+	<pre class="line-numbers">
+<code class="language-objectivec" translate="No">- (void)retrievePlaylist
+{
+[self.refreshControl beginRefreshing];
+
+// Retrieve a playlist through the BCOVPlaybackService
+BCOVPlaybackServiceRequestFactory *playbackServiceRequestFactory = [[BCOVPlaybackServiceRequestFactory alloc]         initWithAccountId:kDynamicDeliveryAccountID
+		policyKey:kDynamicDeliveryPolicyKey];
+BCOVPlaybackService *playbackService = [[BCOVPlaybackService alloc] initWithRequestFactory:playbackServiceRequestFactory];
+
+[playbackService findPlaylistWithReferenceID:kDynamicDeliveryPlaylistRefID
+		parameters:nil
+		completion:^(BCOVPlaylist *playlist, NSDictionary *jsonResponse, NSError *error)
+{
+	 [self.refreshControl endRefreshing];
+
+	 NSLog(@"JSON Response:\n%@", jsonResponse);
+
+	 if (playlist)
+	 {
+      self.currentVideos = playlist.videos.mutableCopy;
+      self.currentPlaylistTitle = playlist.properties[@"name"];
+      self.currentPlaylistDescription = playlist.properties[@"description"];
+
+      NSLog(@"Retrieved playlist containing %d videos", (int)self.currentVideos.count);
+
+      [self usePlaylist:self.currentVideos];
+	 }
+	 else
+	 {
+      NSLog(@"No playlist for ID %@ was found.", kDynamicDeliveryPlaylistRefID);
+	 }
+
+}];
+}</code></pre>
+	</li>
+	<li>
+	<p>Initialisieren Sie die Container erneut, die Informationen zu den Videos in der aktuellen Wiedergabeliste speichern.</p>
+	</li>
+	<li>
+	<p>Wenn die Tabellensicht ausgewählt ist, wird der Index der Zeile verwendet, um eine neue zu erstellen <code translate="No">videoDictionary</code>. Fragen Sie als Nächstes das Wörterbuch nach dem Video. Wenn das Video nicht Null ist, laden Sie das Video in den <code translate="No">playbackController</code>.</p>
+
+	<pre class="line-numbers">
+<code class="language-objectivec" translate="No">// Play the video in this row when selected
+- (IBAction)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath
+{
+NSDictionary *videoDictionary = self.videosTableViewData[ (int)indexPath.row ];
+BCOVVideo *video = videoDictionary[@"video"];
+
+  if (video != nil)
+  {
+  	[self.playbackController setVideos:@[ video ]];
+  }
+}</code></pre>
+	</li>
+</ol>
+
+<p>Um mit Wiedergabelisten zu arbeiten, können Sie die Wiedergabeliste in einem anderen Objekt wie einer Tabelle speichern. Basierend auf der Benutzerinteraktion können Sie durch die Indizes des Objekts navigieren und das entsprechende Video auswählen.</p>
+
+<aside class="bcls-aside bcls-aside--tip">Ein vollständiges Codebeispiel finden Sie im Beispiel des <a href="https://github.com/BrightcoveOS/ios-player-samples/tree/master/Offline">Offline Players</a> .</aside>
+</section>
+
+<section class="bcls-section">
+<h2 id="Media_progress_values">Werte des Medienfortschritts</h2>
+
+<p>Während der Medienwiedergabe können die Werte, die der Fortschrittsmethode des Player SDK gemeldet werden, einen Anfangswert von negativer Unendlichkeit und einen Endwert der positiven Unendlichkeit enthalten. Diese Werte werden bei der Verarbeitung von Pre-Roll- und Postroll-Anzeigen verwendet.</p>
+
+<p>Wenn diese Werte für Sie nicht wichtig sind oder Ihre eigene Fortschrittsverfolgung stören, können sie mit einer bedingten Aussage wie dieser leicht ignoriert werden:</p>
+
+<pre class="line-numbers">
+<code class="language-swift" translate="No"><a href="https://docs.brightcove.com/ios-sdk/Protocols/BCOVPlaybackControllerBasicDelegate.html#//api/name/playbackController:playbackSession:didProgressTo:">- (void)playbackController:(id&lt;BCOVPlaybackController&gt;)controller playbackSession:(id&lt;BCOVPlaybackSession&gt;)session didProgressTo:(NSTimeInterval)progress
+{
+if (progress &lt; 0.0 || progress &gt;= INFINITY)
+return;
+// Your code here
+}</a></code></pre>
+</section>
+
+<section class="bcls-section">
+<h2 id="Paging_with_the_Playback_API">Paging mit der Playback-API</h2>
+
+<p>Wenn Sie Ihre Video Cloud-Inhalte von der Playback-API abrufen, können Sie Paging für eine Playlist implementieren.</p>
+
+<p>Um eine Reihe von Videos in einer Wiedergabeliste zu blättern, verwenden Sie die folgenden Anforderungs-URL-Parameter:</p>
+
+<ul>
+	<li><code translate="No"><a href="https://apis.support.brightcove.com/playback/getting-started/overview-playback-api.html#playlistRequests">limit</a> </code> - definiert die Anzahl der Videos, die von der Playback-API zurückgegeben werden sollen</li>
+	<li><code translate="No"><a href="https://apis.support.brightcove.com/playback/getting-started/overview-playback-api.html#playlistRequests">offset</a> </code> - legt die Anzahl der Videos fest, die in einer Playlist aus der Playback-API übersprungen werden sollen</li>
+</ul>
+
+<p>In diesem Beispiel werden 6 Videos zurückgegeben, beginnend mit dem 10. Video in der Playlist:</p>
+
+<pre class="line-numbers">
+<code class="language-objectivec" translate="No">NSDictionary *params =
+@{
+@"limit": @6,
+@"offset": @9
+};
+[playbackService findPlaylistWithReferenceID:playlistRefID
+parameters:params
+completion:^(BCOVPlaylist *playlist, NSDictionary *jsonResponse, NSError *error)
+{ ...</code></pre>
+</section>
+
+<section class="bcls-section">
+<h2 id="Programmatically_adding_cue_points">Programmatisches Hinzufügen von Cue-Points</h2>
+
+<p>Video Cloud-Kunden können einem Video mit Video Cloud Studio Cue-Points hinzufügen, wie im Dokument <a href="https://studio.support.brightcove.com/media/working-cue-points-media-module.html">Cue-Points zu Videos hinzufügen</a> gezeigt.</p>
+
+<p>Sie können Ihrem Video auch programmgesteuert Cue-Points hinzufügen. Der folgende Code fügt dem von der Playback-API zurückgegebenen Video vierteljährliche Intervall-Cue-Points hinzu:</p>
+
+<pre class="line-numbers">
+<code class="language-swift" translate="No"><a href="https://docs.brightcove.com/ios-sdk/Protocols/BCOVVideo.html">// programmatically add cue points to a video
+- (void)requestContentFromPlaybackService
+{
+[self.service findVideoWithVideoID:kViewControllerVideoID parameters:nil completion:^(BCOVVideo *video, NSDictionary *jsonResponse, NSError *error) {
+if (video)
+{
+<span class="bcls-highlight">// Get the video duration from the properties dictionary
+NSNumber *durationNumber = video.properties[@"duration"]; // milliseconds
+float duration = durationNumber.floatValue / 1000.0; // convert to seconds
+video = [video update:^(id&lt;BCOVMutableVideo&gt; mutableVideo)
+{
+// Add quarterly interval cue points of your own type
+BCOVCuePoint *cp1 = [[BCOVCuePoint alloc] initWithType:@"<span class="bcls-input">your cue point type</span>" position:CMTimeMake(duration * 250, 1000)];
+BCOVCuePoint *cp2 = [[BCOVCuePoint alloc] initWithType:@"<span class="bcls-input">your cue point type</span>" position:CMTimeMake(duration * 500, 1000)];
+BCOVCuePoint *cp3 = [[BCOVCuePoint alloc] initWithType:@"<span class="bcls-input">your cue point type</span>" position:CMTimeMake(duration * 750, 1000)];
+BCOVCuePoint *cp4 = [[BCOVCuePoint alloc] initWithType:@"<span class="bcls-input">your cue point type</span>" position:CMTimeMake(duration * 1000, 1000)];
+// Create new cue point collection using existing cue points and new cue points
+NSMutableArray *newCuePoints = [[NSMutableArray alloc] initWithArray:mutableVideo.cuePoints.array];
+[newCuePoints addObject:cp1];
+[newCuePoints addObject:cp2];
+[newCuePoints addObject:cp3];
+[newCuePoints addObject:cp4];
+mutableVideo.cuePoints = [[BCOVCuePointCollection alloc] initWithArray:newCuePoints];
+}];</span>
+[self.playbackController setVideos:@[ video ]];
+}
+else
+{
+NSLog(@"ViewController Debug - Error retrieving video: `%@`", error);
+}
+}];
+}</a></code></pre>
+
+<p>Beachten Sie, dass der Wert von ein beliebiger String-Wert sein <code translate="No">your cue point type </code> kann, den Sie möchten, solange Sie keines der <a href="/ios/basics/overview-brightcove-player-sdk-ios.html#Integrations">iOS-Plugins</a>verwenden. Einzelheiten finden Sie im Dokument <a href="https://docs.brightcove.com/ios-sdk/Protocols/BCOVCuePoint.html#//api/name/type">BCovCuePoint Protocol Reference</a> .</p>
+
+<p>Wenn Sie Cue-Points mit dem IMA-Plugin verwenden, erfahren Sie mehr darüber im Abschnitt <a href="https://github.com/brightcove/brightcove-player-sdk-ios-ima#vast-and-vmapserver-side-ad-rules">VAST und vMap/Server Side Ad Rules</a> des IMA-Plugins für das native SDK für iOS-Notizen. Die <a href="https://github.com/brightcove/brightcove-player-sdk-ios-ima/blob/06bb6f8dff6075340737017a966ad19b20bf6adb/ios/BrightcoveIMA.framework/Headers/BCOVIMAComponent.h#L39-L42">IMA-Beispielanwendung</a> zeigt Ihnen den für IMA-Wert-Cue-Points erforderlichen Wert.</p>
+
+<p>Der folgende Code lauscht auf Ihre Cue-Points und zeigt eine Meldung an:</p>
+
+<pre class="line-numbers">
+<code class="language-swift" translate="No"><a href="https://docs.brightcove.com/ios-sdk/Protocols/BCOVCuePoint.html">// listen for cue points and display them
+-(void)playbackController:(id&lt;BCOVPlaybackController&gt;)controller playbackSession:(id&lt;BCOVPlaybackSession&gt;)session didPassCuePoints:(NSDictionary *)cuePointInfo {
+BCOVCuePointCollection *cpc = cuePointInfo[@"kBCOVPlaybackSessionEventKeyCuePoints"];
+for (BCOVCuePoint *cp in cpc) {
+  if ([cp.type isEqualToString:@"<span class="bcls-input">your cue point type</span>"])
+    {
+    NSLog(@"Found your cue point at %f", CMTimeGetSeconds(cp.position));
+    }
+  }
+}</a></code></pre>
+</section>
+<!-- <section class="bcls-section" id="Setting_the_buffer_size">
+		<h2>Setting the buffer size</h2>
+		<p>You may consider increasing the buffer length to eliminate buffering in the player if the delivery of the next segment is delayed from the CDN. But, you may not be able to do anything better manually that HLS already does.</p>
+		<p>The <code translate="No">AVPlayer</code> contains the <code translate="No">AVPlayerItem</code>, essentially the video being played, that contains the <code translate="No">loadedTimeRanges</code> property. This tells you how much is buffered.</p>
+		<p>HLS is designed to play right away and drop quality if it can't keep up. This way, it does not need to preload a buffer. If it can't keep up, it will load as much of the video as it can at the best quality to prevent interruption.</p>
+		</section> -->
+
+<section class="bcls-section">
+<h2 id="Removing_the_player">Entfernen des Spielers</h2>
+
+<p>Es kann Fälle geben, in denen Sie den Spieler und die Ansicht entfernen möchten.</p>
+<p>
+  Wenn Sie den View-Controller freigeben, der Eigentümer eines ist, <code translate="No">BCOVPlaybackController</code> wird auch der Wiedergabecontroller freigegeben. Entfernen Sie dazu die Player-Ansicht aus der Superview und stellen Sie den Zeiger für den Wiedergabe-Controller auf <code translate="No">nil</code>.
+</p>
+<p>
+  Hier ist ein Codebeispiel:
+</p>
+
+<pre>
+<code class="language-objectivec" translate="No">playerView?.removeFromSuperview()
+playerView = nil
+playbackController = nil</code></pre>
+</section>
+
+<section class="bcls-section">
+<h2 id="Setting_the_playback_rate">Einstellen der Wiedergaberate</h2>
+
+<p>Um die Wiedergaberate zu steuern, können Sie die <code translate="No">rate </code> Eigenschaft für die <code translate="No">AVPlayer </code> Klasse festlegen, die in der Sitzung verfügbar ist.</p>
+
+<p>Standardmäßig kann die Spielrate nur in regelmäßigen Intervallen (0,50, 0,67, 1,0, 1,25, 1,50 und 2,0) eingestellt werden. Durch Festlegen des <a href="https://developer.apple.com/documentation/avfoundation/avaudiotimepitchalgorithm">AudioTimePitchAlgorithmus</a> können Sie detailliertere Ratenwerte (wie 1,7) verwenden. Weitere Details finden Sie in dieser <a href="https://stackoverflow.com/questions/6630356/avplayer-rate-property-does-not-work">Stackoverflow-Diskussion</a>.</p>
+
+<pre>
+<code class="language-objectivec" translate="No">avPlayerItem.audioTimePitchAlgorithm = AVAudioTimePitchAlgorithmVarispeed;</code></pre>
+
+<aside class="bcls-aside bcls-aside--information">
+  <p>
+    Obwohl in diesem Beispiel der <code translate="No">varispeed</code> Eigenschaftstyp verwendet wird, verfügt die <a href="https://developer.apple.com/documentation/avfoundation/avaudiotimepitchalgorithm">AVAudioTimepitchAlgorithmus-Klasse</a> über 4 Eigenschaftstypen, die Sie verwenden können:
+  </p>
+  <ul>
+    <li>
+      <a href="https://developer.apple.com/documentation/avfoundation/avaudiotimepitchalgorithm/1621212-lowqualityzerolatency">NiedrigQualityZerolatenz</a>
+    </li>
+    <li>
+      <a href="https://developer.apple.com/documentation/avfoundation/avaudiotimepitchalgorithm/1388153-spectral">spektral</a>
+    </li>
+    <li>
+      <a href="https://developer.apple.com/documentation/avfoundation/avaudiotimepitchalgorithm/1387220-timedomain">TimeDomäne</a>
+    </li>
+    <li>
+      <a href="https://developer.apple.com/documentation/avfoundation/avaudiotimepitchalgorithm/1387887-varispeed">varispeed</a>
+    </li>
+  </ul>
+  <p>
+    Beachten Sie, dass die <code translate="No">varispeed</code> Option keine Tonhöhenkorrektur bietet. Dies kann dazu führen, dass Audio mit einer hohen Wiedergaberate wie 1,7 unnatürlich hoch ist. Wählen Sie die Immobilienoption, die Ihren Anforderungen am besten entspricht.
+  </p>
+</aside>
+
+<p>Für a <code translate="No">BCOVPlaybackSession </code> würde Ihr Code ähnlich aussehen wie folgt:</p>
+
+<pre class="line-numbers">
+<code class="language-objectivec" translate="No">- (void)playbackController:(id&lt;BCOVPlaybackController&gt;)controller
+  playbackSession:(id&lt;BCOVPlaybackSession&gt;)session didReceiveLifecycleEvent:(BCOVPlaybackSessionLifecycleEvent *)lifecycleEvent {
+
+  if ( [lifecycleEvent.eventType isEqualToString:kBCOVPlaybackSessionLifecycleEventReady] ) {
+    NSLog(@"%@ at time %f", kBCOVPlaybackSessionLifecycleEventReady, CMTimeGetSeconds([session.player currentTime]));
+    AVPlayerItem * avPlayerItem = [session.player currentItem];
+    avPlayerItem.audioTimePitchAlgorithm = AVAudioTimePitchAlgorithmVarispeed;
+    session.player.rate = 1.7;
+  }
+}</code></pre>
+
+<aside class="bcls-aside bcls-aside--information">
+  Das native SDK für iOS unterstützt keine negativen Werte für die Wiedergaberate (dh wir unterstützen das Rückwärtsspielen von Videos nicht).
+<!-- <p>Notes</p>
+<ul>
+  <li>For iOS6, a stream can only play at 2X if <code translate="No">session.player.currentItem.canPlayFastForward </code> returns <strong>YES</strong>.</li>
+	<li>For iOS7, you can play up to 2X always, but it won't go higher unless <code translate="No">session.player.currentItem.canPlayFastForward </code> returns <strong>Yes</strong>.</li>
+	<li>For more information about managing playback, see Apple's <a href="https://developer.apple.com/library/ios/documentation/AVFoundation/Reference/AVPlayer_Class/index.html#//apple_ref/occ/instp/AVPlayer/rate">AVPlayer Class Reference</a>.</li>
+</ul> -->
+</aside>
+</section>
+
+<section class="bcls-section">
+<h2 id="Setting_VR_Goggles_mode_for_360_videos">Einstellen des VR-Schutzbrillen-Modus für 360°-Videos</h2>
+
+<p>Wenn Sie ein 360°-Video abspielen, können Benutzer die Taste Video 360 in der Steuerungsleiste auswählen, um in den VR-Goggle-Modus zu wechseln. Möglicherweise möchten Sie dies auch programmgesteuert tun, bevor die Wiedergabe beginnt. Sie können dies tun, indem Sie die aktualisieren <code translate="No">BCOVPlaybackController </code> Protokolle <code translate="No">viewProjection </code> Eigenschaft wie folgt:</p>
+
+<pre class="line-numbers">
+<code class="language-objectivec" translate="No"><a href="https://docs.brightcove.com/ios-sdk/Protocols/BCOVPlaybackController.html">- (void)playbackController:(id&lt;BCOVPlaybackController&gt;)controller didAdvanceToPlaybackSession:(id&lt;BCOVPlaybackSession&gt;)session
+{
+BCOVVideo360ViewProjection *viewProjection = [self.playbackController.viewProjection copy];
+[viewProjection setProjectionStyle:BCOVVideo360ProjectionStyleVRGoggles];
+[self.playbackController setViewProjection:viewProjection];
+}</a></code></pre>
+
+<aside class="bcls-aside bcls-aside--information">Beachten Sie, dass Sie den Projektionsstil des Controllers in der <code translate="No">didAdvanceToPlaybackSession </code> Delegate-Methode festlegen müssen.</aside>
+</section>
+<!-- <section class="bcls-section">
+<h2 id="VoiceOver_support">VoiceOver support</h2>
+
+<p>Apple's <a href="https://www.apple.com/accessibility/iphone/vision/">VoiceOver app</a>, which is integrated in iOS, allows visually impaired users to hear a description of everything that is on the screen.</p>
+
+<p>The built-in playback controls for Brightcove Native SDK for iOS come with accessibility labels which have no default text values. If you want to take advantage of VoiceOver, you can add your own custom text values. The UIControl objects can be found in the following:</p>
+
+<ul>
+	<li>All the normal playback controls are found in the <a href="https://docs.brightcove.com/ios-sdk/Classes/BCOVPUIPlayerView.html#//api/name/controlsView">BCOVPUIBasicControlView *controlsView</a> property of the <a href="https://docs.brightcove.com/ios-sdk/Classes/BCOVPUIPlayerView.html">BCOVPUIPlayerView</a>.</li>
+	<li>All of the ad controls are found in the <a href="https://docs.brightcove.com/ios-sdk/Classes/BCOVPUIPlayerView.html#//api/name/adControlsView">BCOVPUIAdControlView *adControlsView</a> property of the <a href="https://docs.brightcove.com/ios-sdk/Classes/BCOVPUIPlayerView.html">BCOVPUIPlayerView</a>.</li>
+</ul>
+
+<p>This example shows how to customize the accessibility values for the play button:</p>
+
+<pre class="line-numbers">
+<code class="language-objectivec" translate="No"><a href="https://docs.brightcove.com/ios-sdk/Classes/BCOVPUIPlayerView.html#//api/name/controlsView">// After creating the BCOVPUIPlayerView, store it in a playerView property
+// Then set the accessibilityLabel and accessibilityHint properties
+self.playerView.controlsView.playbackButton.accessibilityLabel = @"Playback Button";
+self.playerView.controlsView.playbackButton.accessibilityHint = @"Play or pause the video";</a>
+</code></pre>
+
+<aside class="bcls-aside bcls-aside--information">If you are using your own playback controls, then you have to add VoiceOver support yourself.</aside>
+</section> -->
+
+<section class="bcls-section">
+<h2 id="Changing_the_background_color">Ändern der Hintergrundfarbe</h2>
+
+<p>Wenn Sie ein Video im Hochformat wiedergeben, bemerken Sie möglicherweise einen schwarzen Rand oben und unterhalb des Players. Die Player-Ansicht hat die Größe des Bildschirms, aber das Video nimmt nur einen kleinen Teil der Mitte der Player-Ansicht ein. Die sichtbaren Teile rund um das Video sind der Hintergrund der Player-Ebene.</p>
+
+<p>Das ist normales <code translate="No">AVPlayer </code> Verhalten. Es verkleinert Ihr Video so, dass es in die Player-Ebene passt, und der Rest ist der Hintergrund der Player-Ebene.</p>
+
+<p>Sie können den Hintergrund der Player-Ebene mit dem folgenden Code ändern:</p>
+
+<pre class="line-numbers">
+<code class="language-objectivec" translate="No">(void)playbackController:(id&lt;BCOVPlaybackController&gt;)controller didAdvanceToPlaybackSession:(id&lt;BCOVPlaybackSession&gt;)session
+{
+session.playerLayer.backgroundColor = UIColor.whiteColor.CGColor;
+}</code></pre>
+
+<p>Setzen Sie die Hintergrundfarbe auf Weiß sollte wie folgt aussehen:</p>
+
+<figure class="bcls-figure"><img class="bcls-image--no-border" alt="Hintergrundfarbe" src="//learning-services-media.brightcove.com/doc-assets/device-sdks/ios/snippets/ios-bkgd-color.png"/>
+<figcaption class="bcls-caption--image">Individuelle Hintergrundfarbe</figcaption>
+</figure>
+</section>
+</article>
+
+<!-- complete bootstrap layout -->
+    </div>
+    <div class="col-sm-2 right-side-bar">
+      
+      <nav class="right-side-nav" id="right_side_nav">
+        <h6 class="toc">Inhalt der Seite</h6>
+        <ul id="in_page_nav" class="list-none"></ul>
+      </nav>
+      
+    </div>
+  </div>
+</div>
+
+<hr>
+<footer class="bcls-footer" role="contentinfo">  <div class="row">
+    <div class="region region-footer-top-center col-md-12">
+      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
+
+        <h2>Brightcove Support-Service</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://status.brightcove.com">Systemstatus</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?">Kontakt mit dem Support</a>
+          </li>
+          <li>
+            <a href="https://support.brightcove.com/">DOKUMENTATION</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
+
+        <h2>Schulungen</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://studio.support.brightcove.com/training/online-training-courses.html">Online-Kurse</a>
+          </li>
+          <li>
+            <a href="https://studio.support.brightcove.com/training/register-training.html">Für einen Kurs anmelden</a>
+          </li>
+          <li>
+            <a href="https://university.brightcove.com/">Brightcove Universität</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
+
+        <h2>Brightcove</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://www.brightcove.com">brightcove.com</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?">Kontaktiere uns</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="region region-footer-bottom-center col-md-12">
+      <div class="bcls-copyright footer-menu">
+        <table>
+          <tr>
+            <td>
+              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> Brightcove Inc. Alle Rechte vorbehalten.</div>
+            </td>
+            <td><a href="https://www.brightcove.com/en/legal/privacy">Privacy</a> | <a href="https://www.brightcove.com/en/terms-and-conditions">Allgemeine Geschäftsbedingungen</a></td>
+            <td>
+              <div class="gf-links-cols footer-menu">
+                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+      
+  var searchBox = sajari.init({
+    mode: "search-box",
+    project: "1588255093746585379", // Set this to your project.
+    collection: "brightcove-documenation", // Set this to your collection.
+    instantPipeline: "autocomplete", // Pipeline used as you type
+    inputPlaceholder: "Search", // Input element placeholder
+    maxSuggestions: 5, // Maximum number of suggestions to show
+    attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
+  });
+  
+    searchBox("sub", "pipeline.search-sent", function (_, query) {
+      window.location = "/search.html?q=" + encodeURIComponent(query.q);
+    });
+  
+
+</script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/https-fix.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/setDate.js"></script>
+  
+  <script src="https://support.brightcove.com/site-assets/js/site/prism.js"></script>
+  
+  <script src="https://support.brightcove.com/site-assets/js/site/site.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/tabs.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/toc.js"></script>
+  <script src="/assets/js/sites_nav.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/bcls-utils.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/local-link-fix.js"></script>
+  <script src="/assets/js/feedback.js"></script>
+  
+  <script src="/assets/js/sajari-search-foot.js"></script>
+  
+  <!-- <script src="/assets/js/sajari-index.js"></script> -->
+  <style>
+    a.sj-paginator__page-number.sj-paginator__page-number--current.css-so0ov7 {
+      background-color: lightblue;
+    }
+    div.sj-tabs__tab {
+      margin-top: 3rem;
+      margin-left: .3rem;
+      border-top-left-radius: .4rem;
+      border-top-right-radius: .4rem;
+      background-color:#e8e8e8;
+    }
+
+    div.sj-tabs__tab.sj-tabs__tab--selected {
+      border-bottom-color: crimson;
+      background-color: #f8f8f8;
+    }
+
+    p.sj-results__result__description.css-p9jvyt {
+      font-size: 1rem;
+    }
+
+    .sj-result__text.css-31l7gp h3 {
+      color: navy;
+      font-size: 1.4rem;
+    }
+    </style>
+
+</body>
+
+</html>
