@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Brightcove Native Player für iOS-Referenz</title>
+
+	<link rel="stylesheet" href="css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title"> <a href="index.html">Brightcove Native Player für iOS </a> </h1>
+
+			<p id="developer-home">
+				Brightcove<a href="index.html"></a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="hierarchy.html">Hierarchie</a></li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview-contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">Brightcove Native Player für iOS-Referenz</h1>
+
+					
+					<div class="section section-overview index-overview">
+						
+						
+						<h1>IMA-Plug-in für Brightcove Player SDK für iOS, Version 6.9.0.1697</h1> <h1>Anforderungen</h1>
+
+<ul>
+<li>Xcode 11.0+</li>
+<li>BOGEN</li>
+</ul>
+
+
+<h1>Unterstützte Plattformen</h1>
+
+<p>iOS 11.0 und höher.</p>
+
+Installation<h1></h1>
+
+<p>Das IMA-Plug-in für Brightcove Player SDK bietet ein dynamisches Bibliotheksframework für die Installation.</p>
+
+<p>Das IMA-Plug-in unterstützt Version 3.12.1 des Google IMA SDK für iOS und Version 4.3.2 des Google IMA SDK für tvOS.</p>
+
+<h2>Kakaoschoten</h2>
+
+<p>Sie können verwenden <a href="http://cocoapods.org">Kakaoschoten</a> um das IMA-Plug-in für Brightcove Player SDK zu Ihrem Projekt hinzuzufügen. Sie finden die neuesten <code>Brightcove-Player-IMA</code> Podspec <a href="https://github.com/brightcove/BrightcoveSpecs/tree/master/Brightcove-Player-IMA">Hier</a>. Der Pod integriert automatisch die richtige Version von IMA. CocoaPods 1.0 oder neuer ist erforderlich.</p>
+
+<p>Beispiel für eine CocoaPod-Poddatei:</p>
+
+<pre><code>Quelle 'https://github.com/brightcove/BrightcoveSpecs.git' use_frameworks! Plattform: ios, '11.0' Ziel 'MyIMAPlayer' do pod 'Brightcove-Player-IMA' Ende </code></pre>
+
+<p>Ab IMA-Version 3.4.1 wird AdMob als eigenständiges dynamisches Framework veröffentlicht und kann nicht mehr als Teil des IMA-Plug-ins für das Brightcove Native Player SDK installiert werden. Als solches gibt es kein a . mehr <code>Für AdMob</code> Unterspezifikation für die Podspec. Um AdMob zu verwenden, laden Sie es herunter und fügen Sie es manuell zu Ihrem Projekt hinzu oder fügen Sie das <code>Google-Mobile-Ads-SDK</code> CocoaPod in Ihr Podfile:</p>
+
+<pre><code>Pod 'Google-Mobile-Ads-SDK' </code></pre>
+
+<p>Wenn Sie Ihre Installation aktualisieren,&rsquo;Es ist eine gute Idee, die lokale Kopie Ihres BrightcoveSpecs-Repositorys zu aktualisieren, damit Sie lokal über die neuesten Podspecs verfügen, genau wie Sie Ihr CococaPods-Master-Repository aktualisieren würden.</p>
+
+<p>Normalerweise, wenn Sie verwenden <code>Pod-Update</code> im Terminal geschieht dies automatisch, oder Sie können alternativ explizit mit aktualisieren <code>Pod-Repo-Update Brightcove</code>. (Ihr BrightcoveSpecs-Repository kann einen anderen Namen haben, wenn Sie es explizit zu Ihrer Liste der Podspecs-Repositorys hinzugefügt haben.)</p>
+
+<h2>Handbuch</h2>
+
+<p>So fügen Sie Ihrem Projekt das IMA-Plug-in für Brightcove Player SDK manuell hinzu:</p>
+
+<ol>
+<li>Laden Sie die . herunter <a href="https://github.com/brightcove/brightcove-player-sdk-ios/releases">Brightcove Player-SDK</a> Rahmen.</li>
+<li>Laden Sie die . herunter <a href="https://github.com/brightcove/brightcove-player-sdk-ios-ima/releases">IMA-Plug-in für Brightcove Player SDK</a> Rahmen.</li>
+<li>Laden Sie die . herunter <a href="https://developers.google.com/interactive-media-ads/docs/sdks/ios/download">Google IMA</a> Rahmen.</li>
+<li>Auf der &ldquo;Allgemein&rdquo; Registerkarte Ihres Anwendungsziels, fügen Sie die <strong>dynamisch</strong> Framework, BrightcovePlayerSDK.framework, aus dem Brightcove Player SDK-Download zur Liste der <strong>Frameworks, Bibliotheken, eingebettete Inhalte</strong>. Das dynamische Framework BrightcovePlayerSDK.framework befindet sich im Verzeichnis ios/dynamic des Downloads.</li>
+<li>Auf der &ldquo;Allgemein&rdquo; Registerkarte Ihres Anwendungsziels, fügen Sie BrightcoveIMA.framework aus dem IMA-Plug-in für den Brightcove Player SDK-Download zur Liste der <strong>Frameworks, Bibliotheken, eingebettete Inhalte</strong>.</li>
+<li>Auf der &ldquo;Allgemein&rdquo; Registerkarte Ihres Anwendungsziels, fügen Sie GoogleInteractiveMediaAds.framework aus dem Google IMA-Download zur Liste der . hinzu <strong>Frameworks, Bibliotheken, eingebettete Inhalte</strong>.</li>
+<li>Auf der &ldquo;Build-Einstellungen&rdquo; Registerkarte Ihres Anwendungsziels stellen Sie sicher, dass die &ldquo;Framework-Suchpfade&rdquo; die Pfade zu den Frameworks einschließen. Dies sollte automatisch erfolgen, es sei denn, das Framework ist in einem anderen Stammverzeichnis als Ihr Projekt gespeichert.</li>
+<li>Auf der &ldquo;Build-Einstellungen&rdquo; Registerkarte Ihres Anwendungsziels:
+
+<ul>
+<li>Sicher gehen, dass <code>-ObjC</code> wurde hinzugefügt &ldquo;Andere Linker-Flags&rdquo; Einstellung bauen.</li>
+</ul>
+</li>
+</ol>
+
+
+<h2>Importe</h2>
+
+<p>Das IMA-Plug-in für Brightcove Player SDK kann auf verschiedene Weise in Code importiert werden. <code>@import BrightcoveIMA;</code> , <code>#import &lt;BrightcoveIMA/BrightcoveIMA.h&gt;</code> oder <code>#import &lt;BrightcoveIMA/[spezifische Klasse].h&gt;</code>. Sie können die importieren <code>GoogleInteractiveMediaAnzeigen</code> und <code>BrightcovePlayerSDK</code> Module in ähnlicher Weise.</p>
+
+<h1>Schnellstart</h1>
+
+<p>Das BrightcoveIMA-Plugin ist eine Brücke zwischen <a href="https://developers.google.com/interactive-media-ads/docs/sdks/ios/download">Google IMA iOS SDK v3</a> und der <a href="https://github.com/brightcove/brightcove-player-sdk-ios">Brightcove Player-SDK für iOS</a>. Dieses Snippet zeigt seine grundlegende Verwendung mit VMAP-Anzeigenregeln.</p>
+
+<pre><code>[1] IMASettings *imaSettings = [[IMASettings alloc] init]; imaSettings.ppid = kViewControllerIMAPublisherID; imaSettings.language = kViewControllerIMALanguage; IMAAdsRenderingSettings *renderSettings = [[IMAAdsRenderingSettings alloc] init]; renderSettings.webOpenerPresentingController = self; UIView *videoContainerView = &lt;UIView des Videocontainers&gt;; NSString *adTag = &lt;Anzeigen-Tag&gt;; [2] BCOVIMAAdsRequestPolicy *adsRequestPolicy = [BCOVIMAAdsRequestPolicy adsRequestPolicyWithVMAPAdTagUrl:adTag]; BCOVPlayerSDKManager *manager = [BCOVPlayerSDKManager sharedManager]; id&lt;BCOVPlaybackController&gt; controller = [3] [manager createIMAPlaybackControllerWithSettings:imaSettings adsRenderingSettings:renderSettings adsRequestPolicy:adsRequestPolicy adContainer:videoContainerView viewController:self begleitenSlots:nil viewStrategy:nil]; controller.delegate = selbst; [videoContainerView addSubview:controller.view]; NSString *policyKey = &lt;Ihr-Richtlinien-Schlüssel&gt;; NSString *accountId = &lt;Ihre-Konto-ID&gt;; NSString *videoID = &lt;Ihre-Video-ID&gt;; BCOVPlaybackService *playbackService = [[BCOVPlaybackService alloc] initWithAccountId:accountID policyKey:policyKey]; [playbackService findVideoWithVideoID:videoID Parameter:nil Vervollständigung:^(BCOVVideo *video, NSDictionary *jsonResponse, NSError *error) { [controller setVideos:@[ video ]]; [controller play]; }]; </code></pre>
+
+<p>Den Code in Schritte zerlegen:</p>
+
+<ol>
+<li>Erstellen Sie dieselben IMA-Einstellungen, Anzeigen-Rendering-Einstellungen, die Sie erstellen würden, wenn Sie Google verwenden&rsquo;s IMA iOS SDK direkt. Diese sind erforderlich.</li>
+<li><a href="Classes/BCOVIMAAdsRequestPolicy.html">BCOVIMAAdsRequestPolicy</a> bietet Methoden zum Angeben von VAST- oder VMAP-Anzeigenregeln. Wählen Sie die entsprechende Methode aus, um Ihre Anzeigenrichtlinie auszuwählen.</li>
+<li>BrightcoveIMA fügt BCOVPlaybackManager einige Kategoriemethoden hinzu. Die erste davon ist <code>-createIMAPlaybackControllerWithSettings:adsRenderingSettings:adsRequestPolicy:adContainer:companionSlots:viewStrategy:</code>. Verwenden Sie diese Methode, um Ihren Wiedergabe-Controller zu erstellen.</li>
+</ol>
+
+
+<h1>Spielen und pausieren</h1>
+
+<p>Das Brightcove IMA-Plug-in implementiert eine benutzerdefinierte Wiedergabe- und Pausenlogik, um ein möglichst reibungsloses Anzeigenerlebnis zu gewährleisten. Daher müssen Sie sicherstellen, dass Sie die Wiedergabemethode auf dem <code>BCOVPlaybackController</code> oder der <code>[BCOVSessionProviderExtension ima_play]</code> oder <code>[BCOVSessionProviderExtension ima_pause]</code> (<a href="https://github.com/brightcove/brightcove-player-sdk-ios-ima/blob/master/ios/BrightcoveIMA.framework/Headers/BCOVIMAComponent.h">BCOVSessionProviderErweiterung</a> und nicht der AVPlayer.</p>
+
+<p>Als Beispiel: Aufruf von Play zum ersten Mal auf <code>BCOVPlaybackController</code> ermöglicht BCOVIMA, Preroll-Anzeigen zu verarbeiten, ohne dass der Inhalt vor dem Preroll abgespielt wird. Weitere Informationen darüber, wie BCOVIMA den Standard überschreibt <code>BCOVPlaybackController</code> Methoden, bitte überprüfen Sie aus <a href="https://github.com/brightcove/brightcove-player-sdk-ios-ima/blob/master/ios/BrightcoveIMA.framework/Headers/BCOVIMAComponent.h">BCOVSessionProviderErweiterung</a>.</p>
+
+<h1>Verwenden der integrierten PlayerUI</h1>
+
+<p>In deiner <code>UIViewController</code> , ein ... kreieren <code>BCOVPUIPlayerView</code> -Eigenschaft namens Player-Ansicht, um die Wiedergabesteuerelemente, die Videoinhaltsansicht und eine spezielle Ansicht zu enthalten, in der IMA seine Anzeigen schalten kann.</p>
+
+<pre><code>// Player-View von PlayerUI @property (nonatomic) BCOVPUIPlayerView *playerView; </code></pre>
+
+<p>Erstellen Sie dann Ihre Spieleransicht; liefern einen Null-Wiedergabe-Controller, der später hinzugefügt wird. Diese Playeransicht enthält sowohl die Videoinhaltsansicht als auch die Ansicht, die Wiedergabesteuerelemente und Anzeigensteuerelemente anzeigt. Dieses Setup ist gleich, egal welches Plugin Sie verwenden. Richten Sie die Player-Ansicht so ein, dass sie dem Video-Container aus Ihrem Layout entspricht (<code>videoView</code> ) bei der Größenänderung.</p>
+
+<pre><code>// Kontrollansicht erstellen und konfigurieren. BCOVPUIBasicControlView *controlView = [BCOVPUIBasicControlView basicControlViewWithVODLayout]; // Erstellen Sie die Player-Ansicht mit einem Null-Wiedergabe-Controller. self.playerView = [[BCOVPUIPlayerView alloc] initWithPlaybackController:nil options:nil controlView:controlView]; // BCOVPUIPlayerView zu Ihrer Videoansicht hinzufügen. [self.videoView addSubview:self.playerView]; </code></pre>
+
+<p>Du&rsquo;Sie müssen das Layout für die Player-Ansicht einrichten, Sie können dies mit Auto Layout oder der älteren Springs &amp; Struts-Methode tun.</p>
+
+<p><strong>Federn &amp; Streben</strong> <code> self.playerView.frame = self.videoView.bounds; self.playerView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth; </code></p>
+
+<p><strong>Automatisches Layout</strong> <code> self.playerView.translatesAutoresizingMaskIntoConstraints = NEIN; [NSLayoutConstraint activateConstraints:@[ [self.playerView.topAnchor ConstraintEqualToAnchor:self.videoView.topAnchor], [self.playerView.rightAnchor ConstraintEqualToAnchor:self.videoView.rightAnchor], [self.playerView.leftAnchor ConstraintEqualToAnchor:self.videoView.leftAnchor] , [self.playerView.bottomAnchor-EinschränkungEqualToAnchor:self.videoView.bottomAnchor], ]]; </code></p>
+
+<p>Das Erstellen des Wiedergabe-Controllers ist IMA-spezifisch. Erstellen Sie Ihren Wiedergabe-Controller wie oben, aber übergeben Sie anstelle Ihrer Video-Container-Ansicht die <code>contentOverlayView</code> aus der Spieleransicht als dein <code>AnzeigenContainer</code>. Die <code>contentOverlayView</code> ist eine spezielle Ansicht, die zum Überlagern von Ansichten über den Hauptvideoinhalt verwendet wird.</p>
+
+<pre><code>// Erstellen Sie den Wiedergabecontroller. id&lt;BCOVPlaybackController&gt; controller = [manager createIMAPlaybackControllerWithSettings:imaSettings adsRenderingSettings:renderSettings adsRequestPolicy:adsRequestPolicy adContainer:self.playerView.contentOverlayView // spezielle Ansicht für IMA-Anzeigeninhalte viewController:self CompanionSlots:nil viewStrategy:nil]; controller.delegate = selbst; // Weisen Sie der Player-Ansicht einen neuen Playback-Controller zu. // Dies verknüpft die Sitzung des PlayerControllers mit der PlayerUI. // Sie können diese Player-Ansicht beibehalten und ihm neue // Wiedergabe-Controller zuweisen, während sie erstellt werden. self.playerView.playbackController = self.playbackController; </code></pre>
+
+<p>Beim Abspielen von Videos mit Anzeigen sehen Sie jetzt die PlayerUI-Steuerelemente während der Wiedergabe von Videoinhalten sowie Anzeigenmarkierungen im Timeline-Scrubber (nur VMAP-Anzeigen).</p>
+
+<p>Die PlayerUI ist hochgradig anpassbar. Weitere Informationen und Beispielcode finden Sie unter <strong>Benutzerdefinierte Layouts</strong> Abschnitt in der Datei README.md der <a href="https://github.com/brightcove/brightcove-player-sdk-ios">Brightcove Native Player SDK-Repository</a>.</p>
+
+<h1>Suche ohne Werbung</h1>
+
+<p>Verwenden <code>-[BCOVPlaybackController seekWithoutAds:(CMTime)seekToTime completeHandler:(void (^)(BOOL beendet))completion]</code> um die Wiedergabe zu einem bestimmten Zeitpunkt fortzusetzen, ohne den Benutzer zu zwingen, zuvor geplante Anzeigen anzusehen <code>searchToTime</code>.</p>
+
+<p>In Vorbereitung für <code>seekWithoutAds:completionHandler:</code> , deaktivieren <code>automatisches Abspielen</code> beim Einrichten der <code>BCOVPlaybackController</code>.</p>
+
+<p>Apple empfiehlt, zu warten, bis sich der Status eines AVPlayerItems in spielbereit ändert, bevor das AVPlayerItem verwendet wird. Rufen Sie daher an <code>seekWithoutAds:completionHandler:</code> in dem <code>kBCOVPlaybackSessionLifecycleEventReady</code> Handler der <code>PlaybackController:playbackSession:didReceiveLifecycleEvent</code> Methode von dir <code>BCOVPlaybackControllerDelegate</code>.</p>
+
+<p>```objective-c - (void)playbackController:(NSObject<BCOVPlaybackController><em>)Controller-WiedergabeSession:(NSObject<BCOVPlaybackSession></em>)session didReceiveLifecycleEvent:(BCOVPlaybackSessionLifecycleEvent *)lifecycleEvent { if ([kBCOVPlaybackSessionLifecycleEventReady isEqualToString:lifecycleEvent.eventType]) { // self.resumePlayback ist eine hypothetische Instanzvariable, die hier zur Veranschaulichung verwendet wird. if (self.resumePlayback) { __weak typeof(controller) schwachController = Controller;</p>
+
+<pre><code>// Suche ohne Wiedergabe von Anzeigen, die vor der Suchzeit geplant sind, dh Wiedergabe fortsetzen. [Controller seekWithoutAds:CMTimeMake(seekWithoutAdsValue, seekWithoutAdsTimescale) CompletionHandler:^(BOOL beendet) { if (!finished) { NSLog (@"seekWithoutAds failed to finish"); } typeof(Controller) starkerController = schwacherController; if (starker Controller) { // fade out the shutter to reveal the player view. strongController.shutterFadeTime = 0.25; strongController.shutter = NO; // turn off seek without ads - especially important if this player is being used with a playlist self.resumePlayback = NO; } }]; } </code></pre>
+
+<p>  } } ```</p>
+
+<p>Die <code>Verschluss</code> und <code>ShutterFadeTime</code> Eigenschaften der <code>BCOVPlaybackController</code> kann zusammen mit verwendet werden <code>seekWithoutAds:completionHandler:</code> um Frame-Flimmern auszublenden, das auftreten kann, wenn der AVPlayer Assets lädt. Aktivieren Sie in Ihrem BCOVPlaybackController-Setup-Code den Auslöser, um die Player-Ansicht auszublenden:</p>
+
+<p>```Ziel-c NSObject<BCOVPlaybackController> *Wiedergabecontroller;</p>
+
+<p>  PlaybackController = [sdkManager createFWPlaybackControllerWithAdContextPolicy:nil viewStrategy:nil]; playController.delegate = self;</p>
+
+<p>  if (self.resumePlayback) { // Setze die Blenden-Überblendzeit auf Null, um die Player-Ansicht sofort auszublenden. playController.shutterFadeTime = 0.0; playController.shutter = JA;</p>
+
+<pre><code>// AutoPlay deaktivieren, wenn die Wiedergabe fortgesetzt wird. playController.autoPlay = NEIN; </code></pre>
+
+<p>  } ```</p>
+
+<p>Beachten Sie, dass Sie bei der Verwendung von Seek Without Ads in Ihrer App möglicherweise Netzwerkverkehr beobachten, der normalerweise bei der Einrichtung des IMA-Plug-ins auftritt. Dieser Datenverkehr ist für die ordnungsgemäße Einrichtung des Plugins erforderlich und hat keinen Einfluss auf die Funktion „Suchen ohne Werbung“.</p>
+
+<h1>Anpassen des Plugin-Verhaltens</h1>
+
+<p>Es gibt einige Konfigurationspunkte in BCOVIMA. Sie können BCOVIMA mit einem anderen Plug-in für das Brightcove Player SDK für iOS kombinieren, eine benutzerdefinierte Ansichtsstrategie erstellen und eine benutzerdefinierte Richtlinie für Anzeigenanfragen bereitstellen.</p>
+
+<h2>VAST- und VMAP-Anzeigenregeln</h2>
+
+<p>BCOVIMA gibt Ihnen die Kontrolle darüber, wie Anzeigenanfragen gestellt werden <a href="Classes/BCOVIMAAdsRequestPolicy.html"><code>BCOVIMAAdsRequestPolicy</code></a> Klasse. Die Klasse stellt Factorymethoden für die unterstützten Richtlinien bereit. Sobald Sie eine Instanz der korrekten Richtlinie erhalten haben, müssen Sie diese dem <code>BCOVPlayerSDKManager</code> um einen Wiedergabecontroller oder einen Wiedergabesitzungsanbieter zu erstellen.</p>
+
+<p>In Quick Start wird ein Beispiel für VMAP gegeben. Hier ist ein VAST-Beispiel.</p>
+
+<pre><code> IMASettings *imaSettings = [[IMASettings alloc] init]; imaSettings.ppid = kViewControllerIMAPublisherID; imaSettings.language = kViewControllerIMALanguage; IMAAdsRenderingSettings *renderSettings = [[IMAAdsRenderingSettings alloc] init]; renderSettings.webOpenerPresentingController = self; UIView *videoContainerView = &lt;UIView des Videocontainers&gt;; [1] BCOVIMAAdsRequestPolicy *adsRequestPolicy = [BCOVIMAAdsRequestPolicy adsRequestPolicyWithVASTAdTagsInCuePointsAndAdsCuePointProgressPolicy:nil]; BCOVPlayerSDKManager *manager = [BCOVPlayerSDKManager sharedManager]; id&lt;BCOVPlaybackController&gt; controller = [manager createIMAPlaybackControllerWithSettings:imaSettings adsRenderingSettings:renderSettings adsRequestPolicy:adsRequestPolicy adContainer:videoContainerView viewController:self begleitenSlots:nil viewStrategy:nil]; </code></pre>
+
+<p>Lassen&rsquo;s zerlegen Sie diesen Code in Schritte, um ihn etwas einfacher zu verdauen:</p>
+
+<ol>
+<li>Dieses Beispiel ist das gleiche wie das in der Schnellstartanleitung, außer dass wir jetzt ein anderes aufrufen <code>BCOVIMAAdsRequestPolicy</code> Richtlinienmethode, um anzugeben, dass wir VAST verwenden möchten.</li>
+</ol>
+
+
+<p><a href="Classes/BCOVIMAAdsRequestPolicy.html">BCOVIMAAdsRequestPolicy</a> hat vier Factory-Methoden zum Generieren von Richtlinien für Anzeigenanfragen; zwei für VMAP und zwei für VAST. Im Folgenden werden zwei Factory-Methoden für VMAP genauer beschrieben:</p>
+
+<ul>
+<li><p><code>+videoEigenschaftenVMAPAdTagUrlAdsRequestPolicy</code>: Diese Methode gibt die Standardrichtlinie für Anzeigenanfragen zurück, die nach den <code>kBCOVIMAAdTag</code> in jedem BCOVVideo&rsquo;s-Eigenschaften, um das VMAP-Anzeigen-Tag zu bestimmen, das zum Anfordern von Anzeigen verwendet werden soll.</p></li>
+<li><p><code>+adsRequestPolicyWithVMAPAdTagUrl:</code>: Diese Methode gibt eine Richtlinie für Anzeigenanfragen zurück, die immer dasselbe Anzeigen-Tag für jedes Video verwendet. Wenn Sie diese Richtlinie verwenden, müssen Sie das Anzeigen-Tag nicht in die BCOV-Videos einfügen' Eigenschaften. Dies ist die einfachste Möglichkeit, ein Anzeigen-Tag anzugeben, wenn Sie wissen, dass sich Ihr Anzeigen-Tag während der Laufzeit der Bewerbungssitzung nicht ändert.</p></li>
+</ul>
+
+
+<p>Es gibt zwei Factory-Methoden für VAST. Alle VAST-Methoden verwenden eine BCOVCuePointProgressPolicy. Die Cue-Point-Richtlinie bestimmt, welche BCOVCuePoints von der <a href="Classes/BCOVIMAAdsRequestPolicy.html">BCOVIMAAdsRequestPolicy</a>. Die VAST-Richtlinien lauten wie folgt:</p>
+
+<ul>
+<li><p>+adsRequestPolicyWithVASTAdTagsInCuePointsAndAdsCuePointProgressPolicy:<code></code> Diese Methode gibt eine Richtlinie für Anzeigenanfragen zurück, die jedes BCOVVideo auf BCOVCuePoints des Typs . überprüft &lsquo;kBCOVIMACuePointTypeAd&rsquo; und sucht in jeder dieser Cue-Point-Eigenschaften nach dem Schlüssel <code>kBCOVIMAAdTag</code> um das VAST-Anzeigen-Tag zu bestimmen, das zum Anfordern von Anzeigen verwendet werden soll.</p></li>
+<li><p>+adsRequestPolicyFromCuePointPropertiesWithAdTag:adsCuePointProgressPolicy:<code></code> Diese Methode gibt eine Anzeigenanforderungsrichtlinie zurück, die das angegebene VAST-Anzeigen-Tag für alle BCOVCuePoints des Typs . verwendet <strong>kBCOVIMACuePointTypeAd</strong>. Die Eigenschaften des Cue-Points werden als Abfrageparameter an das Anzeigen-Tag angehängt.</p></li>
+</ul>
+
+
+<p>Sie können VAST-Anzeigen-Tag-Cuepoints zu einem Video hinzufügen, indem Sie die <code>aktualisieren:</code> Methode auf der <code>BCOVVideo</code> Objekt. Im folgenden Beispiel werden Pre-Roll-, Mid-Roll- und Post-Roll-Cuepoints hinzugefügt:</p>
+
+<pre><code>// Ziel-C - (BCOVVideo *)updateVideo:(BCOVVideo *)video { // Determine mid-point of video so we can insert a cue point there CGFloat durationMiliSeconds = ((NSNumber *)video.properties[@"duration"]).doubleValue; CGFloat midpointSeconds = (durationMiliSeconds / 2) / 1000; CMTime midpointTime = CMTimeMakeWithSeconds(midpointSeconds, 1); return [video update:^(id&lt;BCOVMutableVideo&gt; mutableVideo) { mutableVideo.cuePoints = [[BCOVCuePointCollection alloc] initWithArray:@[ [[BCOVCuePoint alloc] initWithType:kBCOVIMACuePointTypeAd position:kCMTimeZero properties:@{ kBCOVIMAAdTag : kVASTAdTagURL }], [[BCOVCuePoint alloc] initWithType:kBCOVIMACuePointTypeAd position:midpointTime Eigenschaften:@{ kBCOVIMAAdTag : kVASTAdTagURL }], [[BCOVCuePoint alloc] initWithType:kBCOVIMACuePointTypeAd position:kBCOVCuePointPositionTypeAfter Eigenschaften:@{ kBCOVIMAAdTag : kVASTAdTagURL } ] ]]; }]; } </code></pre>
+
+<pre>// Swift func updateVideo(withVASTTag vastTag:<code> Zeichenfolge) -&gt; BCOVVideo? { guard let durationNum = self.properties["duration"] as? NSNumber else { return nil } let DurationMiliSeconds = DurationNum.doubleValue let midpointSeconds = (durationMiliSeconds / 2) / 1000 let midpointTime = CMTimeMakeWithSeconds(midpointSeconds, PreferredTimescale: 1) let cuePointPositionTypeAfter = CMTime.positiveInfinity update zurückgeben { (mutableVideo: BCOVMutableVideo?) in guard let mutableVideo = mutableVideo else { return } mutableVideo.cuePoints = BCOVCuePointCollection(array: [ BCOVCuePoint(type: kBCOVIMACuePointTypeAd, position: CMTime.zero, Eigenschaften: [kBCOVIMAAdTag:vastTag])!, BCOVCuePoint(Typ: kBCOVIMACuePointTypeAd, Position: midpointTime, Eigenschaften: [kBCOVIMAAdTag:vastTag])!, BCOVCuePoint(Typ: kBCOVIMACuePointTypeAd, Position: cuePointType:After,Eigenschaften:Tag: ])!, ]) } } </code></pre>
+
+<p>Sie können in VideoCloud erstellte Cuepoints auch wie folgt in VAST-Cuepoints konvertieren:</p>
+
+<pre><code>- (BCOVVideo *)updateVideo:(BCOVVideo *)video NSArray *cuePoints = video.cuePoints.array; NSMutableArray *updatedCuePoints = @[].mutableCopy; für (BCOVCuePoint *cuePoint in cuePoints) { if ([cuePoint.type isEqualToString:kBCOVIMACuePointTypeAd]) { // The "metadata" property is the value of the // "Key/Value Pairs" field in VideoCloud when // creating/editing a Cue Point. In this example // the only value in this field is the VAST ad tag URL. // If you have additional values you'll need to parse // out just the ad tag URL. NSString *metadata = cuePoint.properties[@"metadata"]; NSDictionary *properties = @{ kBCOVIMAAdTag : metadata } ; BCOVCuePoint *updatedCuePoint = [[BCOVCuePoint alloc] initWithType:cuePoint.type position:cuePoint.position properties:properties]; [updatedCuePoints addObject:updatedCuePoint]; } } return [video update:^(id&lt;BCOVMutableVideo&gt; mutableVideo) { mutableVideo.cuePoints = [BCOVCuePointCollection collectionWithArray:updatedCuePoints]; }]; } </code></pre>
+
+<h2>Ändern der IMAAdsRequest</h2>
+
+<p>Das IMA-Plug-in besteht eine <code>IMAAdsRequest</code> widersprechen a <code>BCOMIMAPlaybackSessionDelegate</code> unmittelbar vor dem Anruf <code>IMAAdsLoader -requestAdsWithAdsRequest</code> , sodass der Nutzer zunächst die Anzeigenanfrage ändern kann. Um den Rückruf der Anzeigenanforderung zu erhalten, erstellen Sie ein Objekt, das die <a href="Protocols/BCOVIMAPlaybackSessionDelegate.html"><code>BCOVIMAPlaybackSessionDelegate</code></a> Protokoll.</p>
+
+<pre><code>@import BrightcovePlayerSDK; @import BrightcoveIMA; @Schnittstelle MyViewController : UIViewController BCOVIMAPlaybackSessionDelegate </code></pre>
+
+<p>Ein ... kreieren <code>BCOVIMASessionProvider</code> entweder verwenden <code>createIMAPlaybackControllerWithSettings</code> oder <code>createIMASessionProviderWithSettings</code> , und stellen Sie ein NSDictionary von Optionen mit einem Eintrag mit dem Schlüssel bereit <code>kBCOVIMAOptionIMAPlaybackSessionDelegateKey</code> und ein Wert, der Ihr Delegierter ist.</p>
+
+<pre><code>NSDictionary *imaSessionProviderOptions = @{ kBCOVIMAOptionIMAPlaybackSessionDelegateKey: self } ; id&lt;BCOVPlaybackSessionProvider&gt; imaSessionProvider = [sdkManager createIMASessionProviderWithSettings:imaSettings adsRenderingSettings:renderSettings adsRequestPolicy:adsRequestPolicy adContainer:self.playerView.contentOverlayView viewController:self CompanionSlots:niupstreamSessionProvider:nil options:imaSessionProviderOptions]; </code></pre>
+
+<p>Implementieren <code>willCallIMAAdsLoaderRequestAdsWithRequest:forPosition:</code> in deiner <code>BCOVIMAPlaybackSessionDelegate</code>.</p>
+
+<pre><code>- (void)willCallIMAAdsLoaderRequestAdsWithRequest:(IMAAdsRequest *)adsRequest forPosition:(NSTimeInterval)position { adsRequest.vastLoadTimeout = 3000.; } </code></pre>
+
+<h2>Strategie anzeigen</h2>
+
+<p>Sie können dem BCOVPlaybackManager eine benutzerdefinierte Ansichtsstrategie bereitstellen, wenn Sie Ihren Wiedergabecontroller oder Sitzungsanbieter erstellen, anstatt die defaultControlsViewStrategy direkt anzugeben. Mit einer benutzerdefinierten Ansichtsstrategie können die Anzeigen-Container-Ansicht und die Anzeigen-Companion-Slots mit der Video-Content-Ansicht verknüpft werden. Dies ist ein Beispiel für eine benutzerdefinierte Ansichtsstrategie.</p>
+
+<pre><code>BCOVPlaybackControllerViewStrategy customViewStrategy = ^UIView* (UIView *view, id&lt;BCOVPlaybackController&gt;playbackController){ BCOVPlaybackControllerViewStrategy defaultControlsViewStrategy = [playbackManager defaultControlsViewStrategy]; UIView *contentAndDefaultControlsView = defaultControlsViewStrategy(view, playbackController); [&lt;UIView of video container&gt; addSubview:contentAndDefaultControlsView]; return &lt;UIView of video container&gt;; } ; </code></pre>
+
+<h2>Sitzungsanbieter erstellen</h2>
+
+<p>Wenn Sie mehr als ein Plug-in für das Brightcove Player SDK für iOS verwenden, das einen benutzerdefinierten Wiedergabe-Controller erstellen muss, müssen Sie stattdessen eine Kette von Sitzungsanbietern zusammenstellen und den endgültigen Sitzungsanbieter an den <code>[BCOVPlayerSDKManager createPlaybackControllerWithSessionProvider:viewStrategy:]</code> Methode.</p>
+
+<p>Beim Erstellen von Sitzungsanbietern kann das Vorladen der Sitzung aktiviert werden von <a href="https://github.com/brightcove/brightcove-player-sdk-ios/blob/fd5e766693e533854f202f270d3d62e32ceaae04/ios/dynamic/BrightcovePlayerSDK.framework/Headers/BCOVBasicSessionProvider.h#L31-L46"><code>BCOVBasicSessionProvider</code></a> ; Das Vorladen von Sitzungen mit dem IMA-Plug-in ist jedoch <strong>dringend abgeraten</strong> aufgrund eines Fehlers im Google IMA SDK bei mehreren AVPlayern im Speicher.</p>
+
+<h1>Anzeigen-Overlays registrieren</h1>
+
+<p>Wenn Sie während der Wiedergabe Ansichten über Anzeigen platzieren, müssen diese Ansichten beim IMA SDK registriert werden. Lies das <strong>Freundliche Hindernisse</strong> Abschnitt der <a href="https://developers.google.com/interactive-media-ads/docs/sdks/ios/omsdk">Messung im IMA SDK öffnen </a> Seite für weitere Informationen.</p>
+
+<p>Sie können das aktuelle IMAAdDisplayContainer-Objekt, das zum Registrieren Ihrer Overlays erforderlich ist, von der <code>PlaybackController:playbackSession:didEnterAdSequence:</code> Delegate-Methode Ihrer BCOVPlaybackController-Instanz. Zum Beispiel: <code> - (void)playbackController:(id&lt;BCOVPlaybackController&gt;)ControllerplaybackSession:(id&lt;BCOVPlaybackSession&gt;)session didEnterAdSequence:(BCOVAdSequence *)adSequence { NSDictionary *props = session.video.properties; IMAAdDisplayContainer *adDisplayContainer = props[kBCOVIMAVideoPropertiesKeyAdDisplayContainer]; [adDisplayContainer registerFriendlyObstruction:self.adOverlayView]; } </code></p>
+
+<p>Um die Registrierung der Hindernisse nach Abschluss der Anzeigensequenz aufzuheben, <code>PlaybackController:playbackSession:didExitAdSequence:</code> Delegate-Methode Ihrer BCOVPlaybackController-Instanz verwendet werden. Zum Beispiel: <code> - (void)playbackController:(id&lt;BCOVPlaybackController&gt;)ControllerplaybackSession:(id&lt;BCOVPlaybackSession&gt;)session didExitAdSequence:(BCOVAdSequence *)adSequence { NSDictionary *props = session.video.properties; IMAAdDisplayContainer *adDisplayContainer = props[kBCOVIMAVideoPropertiesKeyAdDisplayContainer]; [adDisplayContainer unregisterAllFriendlyObstructions]; } </code></p>
+
+<h1>Luftspiel</h1>
+
+<p>Das IMA-Plug-in unterstützt AirPlay für Pre-Roll- und Post-Roll-Anzeigen. Satz <code>Hintergrundwiedergabe aktivieren</code> zu <code>JAWOHL</code> An <code>IMAEinstellungen</code> zusammen mit der Aktivierung von AirPlay auf Ihrem <code>BCOVPlaybackController</code>. Siehe die &ldquo;<em>Luftspiel</em>&rdquo; Abschnitt der <a href="https://github.com/brightcove/brightcove-player-sdk-ios#airplay-">README zum Core SDK</a> für mehr Informationen.</p>
+
+<h1>Zielgruppensegment-Targeting</h1>
+
+<p>wenn du&rsquo;Wenn Sie das Zielgruppensegment-Targeting mit Ihren IMA VAST-Anzeigenanfragen verwenden möchten, können Sie dies tun, indem Sie die <code>updateAudienceSegmentTargetingValues</code> An <code>BCOVPlaybackController</code>. Zum Beispiel:</p>
+
+<pre><code>[playbackController updateAudienceSegmentTargetingValues:@{ @"account_id":@"11223344", @"account_type":@"premium"" }]; </code></pre>
+
+<p>Diese Werte werden an die angehängt <code>cust_params</code> Abfrageparameter der IMA-Anzeigenanfrage-URL. Zum Beispiel:</p>
+
+<p>Die URL <a href="http://pubads.g.doubleclick.net/gampad/ads"><code>http://pubads.g.doubleclick.net/gampad/ads</code></a> würde werden <a href="http://pubads.g.doubleclick.net/gampad/ads?cust_params=account_id%3D11223344%26account_type%3Dpremium"><code>http://pubads.g.doubleclick.net/gampad/ads?cust_params=account_id%3D11223344%26account_type%3Dpremium</code></a>.</p>
+
+<h1>Ausrichtung auf Geräteanzeigen</h1>
+
+<p>Du kannst den ... benutzen <code>kBCOVIMAOptionBlockAdTargetingAPIsKey</code> beim Einrichten Ihres <code>IMASessionProvider</code> oder IMA <code>BCOVPlaybackController</code> um Anrufe zu verhindern <a href="https://developer.apple.com/documentation/adsupport">AdSupport</a> und <a href="https://developer.apple.com/documentation/apptrackingtransparency">AppTrackingTransparenz</a> APIs, die in einigen App Store-Einreichungsszenarien nicht verwendet werden können.</p>
+
+<pre><code>// BCOVPlaybackController NSDictionary *imaPlaybackSessionOptions = @{ kBCOVIMAOptionIMAPlaybackSessionDelegateKey: self, kBCOVIMAOptionBlockAdTargetingAPIsKey: @(YES) } ; self.playbackController = [manager createIMAPlaybackControllerWithSettings:imaSettings adsRenderingSettings:renderSettings adsRequestPolicy:adsRequestPolicy adContainer:self.playerView.contentOverlayView viewController:self begleitenSlots:nil viewStrategy:nil options:imaPlaybackSessionOptions]; </code></pre>
+
+<pre><code>// IMASessionProvider NSDictionary *imaPlaybackSessionOptions = @{ kBCOVIMAOptionIMAPlaybackSessionDelegateKey: self, kBCOVIMAOptionBlockAdTargetingAPIsKey: @(YES) } ; id&lt;BCOVPlaybackSessionProvider&gt; imaSessionProvider = [manager createIMASessionProviderWithSettings:imaSettings adsRenderingSettings:renderSettings adsRequestPolicy:adsRequestPolicy adContainer:self.playerView.contentOverlayView viewController:self begleitenSlots:nilupstreamSessionProvider:nil options:imaPlaybackSessionOptions]; </code></pre>
+
+<h1>Häufig gestellte Fragen</h1>
+
+<p><em>Ich kann die Werbung hören, aber ich kann&rsquo;Ich sehe sie nicht spielen.</em></p>
+
+<p>Dies geschieht normalerweise, wenn sich die Anzeigencontaineransicht nicht in der Ansichtshierarchie befindet oder wenn die Anzeigenansicht (die eine Unteransicht der Anzeigencontaineransicht ist) von anderen Ansichten verdeckt wird.</p>
+
+<h1>Unterstützung</h1>
+
+<p>Wenn Sie Fragen haben, Hilfe benötigen oder Feedback geben möchten, verwenden Sie bitte die <a href="https://supportportal.brightcove.com/s/login/">Support-Portal</a> oder wenden Sie sich an Ihren Account Manager. Um Benachrichtigungen über neue SDK-Softwareversionen zu erhalten, abonnieren Sie die Brightcove Native Player SDKs <a href="https://groups.google.com/g/brightcove-native-player-sdks">Google-Gruppe</a>.</p>
+						
+						
+					</div>
+					
+
+					<div class="index-container">
+						
+
+						
+						<div class="index-column">
+							<h2 class="index-title">Klassenreferenzen</h2>
+							<ul>
+								
+								<li>BCOVIMAAdsRequestPolicy<a href="Classes/BCOVIMAAdsRequestPolicy.html"></a></li>
+								
+								<li><a href="Classes/BCOVIMAComponent.html">BCOVIMAKomponente</a></li>
+								
+							</ul>
+						</div>
+						
+
+						
+						<div class="index-column">
+							
+							<h2 class="index-title">Protokollreferenzen</h2>
+							<ul>
+								
+								<li>BCOVIMAPlaybackSessionDelegate<a href="Protocols/BCOVIMAPlaybackSessionDelegate.html"></a></li>
+								
+							</ul>
+							
+
+							
+
+							
+							<h2 class="index-title">Kategorie-Referenzen</h2>
+							<ul>
+								
+								<li>BCOVPlayerSDKManager(BCOVIMAAdditions)<a href="Categories/BCOVPlayerSDKManager-BCOVIMAAdditions.html"></a></li>
+								
+								<li>BCOVSessionProviderExtension(BCOVIMAAdditions)<a href="Categories/BCOVSessionProviderExtension-BCOVIMAAdditions.html"></a></li>
+								
+							</ul>
+							
+						</div>
+						
+					</div>
+
+					<footer>
+						<div class="footer-copyright">
+							
+							<p class="copyright">Urheberrechte © &copy; 2021 Brightcove. Alle Rechte vorbehalten. Aktualisiert: 2021-07-08</p>
+							
+							
+							<p class="generator">Erstellt von <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
+							
+						</div>
+					</footer>
+				</main>
+			</div>
+		</div>
+	</article>
+
+	<script src="js/script.js"></script>
+</body>
+</html>

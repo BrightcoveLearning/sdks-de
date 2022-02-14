@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>BCOVOfflineVideoManagerDelegate Protocol Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title"> <a href="../index.html">Brightcove Native Player für iOS </a> </h1>
+
+			<p id="developer-home">
+				Brightcove<a href="../index.html"></a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li>Index<a href="../index.html"></a></li>
+<li><a href="../hierarchy.html">Hierarchie</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							Auf dieser Seite
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Springen zu…</option>
+	
+	<option value="overview">Überblick</option>
+	
+
+	
+	
+	<option value="tasks">Aufgaben</option>
+	
+	
+
+	
+	
+
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/didCreateSharedBackgroundSesssionConfiguration:">- didCreateSharedBackgroundSessionConfiguration:</option>
+		
+		<option value="//api/name/didDownloadStaticImagesWithOfflineVideoToken:">- didDownloadStaticImagesWithOfflineVideoToken:</option>
+		
+		<option value="//api/name/offlineVideoStorageDidChange">- offlineVideoStorageDidChange</option>
+		
+		<option value="//api/name/offlineVideoToken:aggregateDownloadTask:didProgressTo:forMediaSelection:">- offlineVideoToken:aggregateDownloadTask:didProgressTo:forMediaSelection:</option>
+		
+		<option value="//api/name/offlineVideoToken:didFinishDownloadWithError:">- offlineVideoToken:didFinishDownloadWithError:</option>
+		
+		<option value="//api/name/offlineVideoToken:didFinishMediaSelectionDownload:">- offlineVideoToken:didFinishMediaSelectionDownload:</option>
+		
+		<option value="//api/name/shouldDeleteVideoPackage:">- shouldDeleteVideoPackage:</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					BCOVOfflineVideoManagerDelegate Protocol Reference<h1 class="title"></h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Entspricht</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>Deklariert in</th>
+	<td>BCOVOfflineVideoManagerDelegate.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Überblick</h2>
+						<p>Halten Sie sich an dieses Protokoll, um Informationen zu jedem Video- und Videotrack-Download zu erhalten.</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/didCreateSharedBackgroundSesssionConfiguration:" title="didCreateSharedBackgroundSesssionConfiguration:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/didCreateSharedBackgroundSesssionConfiguration:">&ndash;&nbsp;didCreateSharedBackgroundSessionConfiguration:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Diese Methode wird aufgerufen, nachdem das NSURLSessionConfiguration-Hintergrundobjekt erstellt wurde und davor&rsquo;s verwendet, um das freigegebene AVAssetDownloadURLSession-Objekt zu erstellen, das&rsquo;s zum Herunterladen von Videos verwendet.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)didCreateSharedBackgroundSessionConfiguration:(NSURLSessionConfiguration *)<em>backgroundSessionConfiguration</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Diskussion</h4>
+				<p>Sie können dieses Konfigurationsobjekt verwenden, um verschiedene Optionen festzulegen, die für die NSURLSessionConfiguration in NSURLSession.h angegeben sind, wie z <code>Ermessensspielraum</code> Flagge, oder die <code>HTTPMaximumConnectionsPerHost</code> Einstellung.</p>
+
+<p>Du solltest <em>nicht</em> setze die <code>ermöglicht den Mobilfunkzugriff</code> Eigentum; die in den einzelnen Download-Aufgaben eingestellt wird.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Deklariert in</h4>
+				<p>BCOVOfflineVideoManagerDelegate.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/offlineVideoToken:aggregateDownloadTask:didProgressTo:forMediaSelection:" title="offlineVideoToken:aggregateDownloadTask:didProgressTo:forMediaSelection:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/offlineVideoToken:aggregateDownloadTask:didProgressTo:forMediaSelection:">&ndash;&nbsp;offlineVideoToken:aggregateDownloadTask:didProgressTo:forMediaSelection:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Erhalten Sie eine Fortschrittsbenachrichtigung über die Verfolgung laufender Downloads für ein heruntergeladenes Video.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)offlineVideoToken:(BCOVOfflineVideoToken)<code><em>offlineVideoToken</em> AggregatDownloadTask:(AVAggregateAssetDownloadTask *)<em>AggregatDownloadAufgabe</em> didProgressTo:(NSTimeInterval)<em>FortschrittProzent</em> forMediaSelection:(AVMediaSelection *)<em>Medienauswahl</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameter</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name">offlineVideoToken<code></code></th>
+						<td><p>Offline-Video-Token zum Identifizieren des heruntergeladenen Videos.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>AggregatDownloadAufgabe</code></th>
+						<td><p>Die AVAggregateAssetDownloadTask für diesen Satz von Videotrack-Downloads</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>FortschrittProzent</code></th>
+						<td><p>Wie weit der Download fortgeschritten ist, ausgedrückt in Prozent, für diese einzelne AVMediaSelection.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>Medienauswahl</code></th>
+						<td><p>Die AVMediaSelection, für die dieser Fortschritt gemeldet wird.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Diskussion</h4>
+				<p>Wenn Sie die Aufgabe anhalten/fortsetzen/abbrechen möchten, sollten Sie die Methoden verwenden, die in der <a href="../Classes/BCOVOfflineVideoManager.html">BCOVOfflineVideoManager</a> um diese Aktionen auszuführen.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Deklariert in</h4>
+				<p>BCOVOfflineVideoManagerDelegate.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/offlineVideoToken:didFinishMediaSelectionDownload:" title="offlineVideoToken:didFinishMediaSelectionDownload:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/offlineVideoToken:didFinishMediaSelectionDownload:">&ndash;&nbsp;offlineVideoToken:didFinishMediaSelectionDownload:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Diese Methode wird aufgerufen, wenn ein einzelner Track-Download abgeschlossen ist.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)offlineVideoToken:(BCOVOfflineVideoToken)<code><em>offlineVideoToken</em> didFinishMediaSelectionDownload:(AVMediaSelection *)<em>Medienauswahl</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameter</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name">offlineVideoToken<code></code></th>
+						<td><p>Offline-Video-Token, das verwendet wird, um das Offline-Video zu identifizieren, für das Tracks heruntergeladen werden.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>Medienauswahl</code></th>
+						<td><p>Die AVMediaSelection, die heruntergeladen wurde.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Deklariert in</h4>
+				<p>BCOVOfflineVideoManagerDelegate.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/offlineVideoToken:didFinishDownloadWithError:" title="offlineVideoToken:didFinishDownloadWithError:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/offlineVideoToken:didFinishDownloadWithError:">&ndash;&nbsp;offlineVideoToken:didFinishDownloadWithError:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Diese Methode wird aufgerufen, wenn ein Download abgeschlossen ist.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)offlineVideoToken:(BCOVOfflineVideoToken)<code><em>offlineVideoToken</em> didFinishDownloadWithError:(NSError *)<em>Error</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameter</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name">offlineVideoToken<code></code></th>
+						<td><p>Offline-Video-Token zum Identifizieren des heruntergeladenen Videos.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>Error</code></th>
+						<td><p>Während des Downloadvorgangs ist ein NSError aufgetreten. Null, wenn kein Fehler.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Diskussion</h4>
+				<p>Wenn während des Downloads ein Fehler aufgetreten ist, ist der Fehler nicht null.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Deklariert in</h4>
+				<p>BCOVOfflineVideoManagerDelegate.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/didDownloadStaticImagesWithOfflineVideoToken:" title="didDownloadStaticImagesWithOfflineVideoToken:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/didDownloadStaticImagesWithOfflineVideoToken:">&ndash;&nbsp;didDownloadStaticImagesWithOfflineVideoToken:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Diese Methode wird aufgerufen, wenn die einem Video zugeordneten statischen Bilder (Miniaturansicht und Poster) in den Speicher heruntergeladen werden.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)didDownloadStaticImagesWithOfflineVideoToken:(BCOVOfflineVideoToken)<code><em>offlineVideoToken</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameter</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name">offlineVideoToken<code></code></th>
+						<td><p>Offline-Video-Token zum Identifizieren des heruntergeladenen Videos.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Diskussion</h4>
+				<p>Datei-URLs für die heruntergeladenen Bilder werden als Eigenschaften auf einem <a href="../Classes/BCOVVideo.html">BCOVVideo</a> erstellt aus dem Offline-Videotoken mit -[videoObjectFromOfflineVideoToken:] Die Eigenschaften werden mit den Schlüsseln kBCOVOfflineVideoThumbnailFilePath und kBCOVOfflineVideoPosterFilePath abgerufen.</p>
+
+<p>Diese Methode wird auch dann aufgerufen, wenn keine Bilder abgerufen werden konnten. Überprüfen Sie daher das UIImage, das Sie aus den Poster- und Miniaturansichtspfaden erstellen. Die Dateipfade sind vorhanden, aber möglicherweise sind an diesen Speicherorten keine Bilder gespeichert.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Deklariert in</h4>
+				<p>BCOVOfflineVideoManagerDelegate.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/shouldDeleteVideoPackage:" title="shouldDeleteVideoPackage:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/shouldDeleteVideoPackage:">&ndash;&nbsp;sollteDeleteVideoPackage:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Diese Methode wird beim Bereinigen von gestrandeten Downloads aufgerufen.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (BOOL)sollteVideoPackage löschen:(NSString *)<em>videoPackagePath</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameter</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name">videoPackagePath<code></code></th>
+						<td><p>Pfad zum Videopaketverzeichnis, das als gestrandet gekennzeichnet ist.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Diskussion</h4>
+				<p>Downloads können gestrandet sein, wenn Sie das Beenden einer App während eines Downloads erzwingen oder neu starten, während die App angehalten ist. Sie müssen diese Methode nicht implementieren, es sei denn, Sie starten Ihre eigenen Video-Downloads außerhalb des Brightcove SDK und&rsquo;Ich möchte nicht, dass Ihre Videos gelöscht werden. Diese Methode wird aufgerufen, wenn ein Videopaket zum Löschen gekennzeichnet ist, d. h. im Brightcove SDK ist kein Datensatz vorhanden.</p>
+
+<p>Wenn es sich um eine Datei handelt, die Sie kennen, sollten Sie NO zurückgeben. Andernfalls führt die Rückgabe von YES dazu, dass das Videopaket gelöscht wird. Wenn Sie diese Methode nicht implementieren, werden gestrandete Downloads standardmäßig gelöscht.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Deklariert in</h4>
+				<p>BCOVOfflineVideoManagerDelegate.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/offlineVideoStorageDidChange" title="offlineVideoStorageDidChange"></a>
+	<h3 class="method-title"><code><a href="#//api/name/offlineVideoStorageDidChange">&ndash;&nbsp;offlineVideoStorageDidChange</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Diese Methode wird aufgerufen, wenn die App aktiviert und der Offline-Videospeicher geändert wurde, während die App nicht ausgeführt wurde oder im Hintergrund war, beispielsweise wenn der Benutzer heruntergeladene Videos über die Gerätespeichereinstellungen in den Allgemeinen Einstellungen der Einstellungen-App löscht.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)offlineVideoStorageDidChange<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Diskussion</h4>
+				<p>Wenn Sie aufgerufen werden, sollten Sie Ihre Benutzeroberfläche aktualisieren, um die Änderungen im Offlinespeicher widerzuspiegeln.</p>
+
+<p>Die Erkennung von Änderungen am Offline-Videospeicher erfolgt immer dann, wenn die App aktiv wird.</p>
+
+<p>Diese Methode wird im Hauptthread aufgerufen.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Deklariert in</h4>
+				<p>BCOVOfflineVideoManagerDelegate.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Urheberrechte © &copy; 2021 Brightcove. Alle Rechte vorbehalten. Aktualisiert: 2021-07-08</p>
+						
+						
+						<p class="generator">Erstellt von <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

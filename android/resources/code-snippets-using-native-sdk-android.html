@@ -1,898 +1,43 @@
-﻿<!doctype html>
-<html lang="de">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="In diesem Thema finden Sie eine Sammlung von Codeausschnitten, die Sie als Referenz bei der Entwicklung mit dem SDK nützlich finden können. Ausführlichere Lösungen finden Sie in den Beispielen für Android-Player.">
-  
-  <title>Codefragmente mit dem Native SDK für Android</title>
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">  
-  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&amp;display=swap">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/prism.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/styles.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/landing-page.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/tabs.css">
-  <link rel="stylesheet" href="/assets/css/local.css">
-  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&display=swap">
-  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/381443caa8.js" crossorigin="anonymous"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/google-analytics.js"></script>
-  <script src="/assets/js/sajari-head.js"></script>
-</head>
-
-<body class="body">
-
-<header>
-  <div class="div-header">
-    <a href="/"><img class="product-logo" src="https://support.brightcove.com/site-assets/images/site/product-logos/Video_Cloud_Logo.svg" alt="Produkt-Logo" style="max-height: 100px;max-width: 232px;"/></a>
-<!-- GTranslate: https://gtranslate.io/ -->
-<select onchange="doGTranslate(this);"><option value="">Sprache wählen</option><option value="en|en" translate="No">English</option><option value="en|zh-TW" translate="No">繁體中文</option><option value="en|fr" translate="No">Français</option><option value="en|de" translate="No">Deutsche</option><option value="en|ja" translate="No">日本語</option><option value="en|ko" translate="No">한국어</option><option value="en|es" translate="No">Español</option></select>
-
-<script>
-/* <![CDATA[ */
-function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
-/* ]]> */
-</script>
-
-    
-
-
-    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?"><img src="https://support.brightcove.com/site-assets/images/site/support.png" alt="Support"/> Kontaktieren Sie Support</a> <span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span> <a href="https://status.brightcove.com/"><img src="https://support.brightcove.com/site-assets/images/site/status.png" alt="Systemstatus"/> Systemstatus</a></span> <br/>
-    
-  </div>
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb arr-right">
-      
-      <li class="breadcrumb-item"><a href="/">Nach Hause</a></li>
-      
-      
-      
-      <li class="breadcrumb-item"><a href="/android/resources/">Ressourcen</a></li>
-      
-      <li class="breadcrumb-item active" aria-current="page">Codefragmente mit dem Native SDK für Android</li>
-    </ol>
-  </nav>
-</header>
-<div class="container">
-    <div class="row">
-            <div class="col-sm-3 left-side-bar">
-        <select id="site_select" class="bcls-select" style="margin-right: 1rem;">
-          <option value="">Weitere Brightcove Docs</option>
-          
-            
-              <option value="https://support.brightcove.com">Dokumentation Home</option>
-            
-          
-            
-              <option value="https://audience.support.brightcove.com">Brightcove Publikum</option>
-            
-          
-            
-              <option value="https://beacon.support.brightcove.com">Brightcove Leuchtfeuer</option>
-            
-          
-            
-              <option value="https://campaign.support.brightcove.com">Brightcove Kampagne</option>
-            
-          
-            
-              <option value="https://engage.support.brightcove.com">Brightcove Engage</option>
-            
-          
-            
-              <option value="https://live.support.brightcove.com">Brightcove Live</option>
-            
-          
-            
-              <option value="https://gallery.support.brightcove.com">Brightcove Gallery</option>
-            
-          
-            
-              <option value="https://ssai.support.brightcove.com">Brightcove SSAI</option>
-            
-          
-            
-              <option value="https://social.support.brightcove.com">Brightcove Social</option>
-            
-          
-            
-              <option value="https://studio.support.brightcove.com">Video Cloud Studio</option>
-            
-          
-            
-              <option value="https://player.support.brightcove.com">Brightcove Spieler-Entwicklung</option>
-            
-          
-            
-              <option value="https://apis.support.brightcove.com">APIs für Video Cloud-Plattform</option>
-            
-          
-            
-              <option value="https://sdks.support.brightcove.com">Videocloud-Geräte-SDKs</option>
-            
-          
-            
-              <option value="https://integrations.support.brightcove.com">Integrationen und CMS-Konnektoren</option>
-            
-          
-            
-              <option value="https://general.support.brightcove.com">Video Cloud — Allgemeine Informationen</option>
-            
-          
-            
-              <option value="https://zencoder.support.brightcove.com">Zencoder</option>
-            
-          
-        </select>
-
-        <nav class="sidenav" id="side_nav">
-          
-            
-            <h5><a href="/index.html">Nach Hause</a></h5>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/getting-started/index.html">Erste Schritte <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/getting-started/brightcove-native-player-sdks.html">Die native Brightcove SDKs</a></li>
-                  
-                
-                  
-                    <li><a href="/getting-started/native-video-playback.html">Native Videowiedergabe</a></li>
-                  
-                
-                  
-                    <li><a href="/getting-started/brightcove-native-sdk-features.html">Native SDK-Funktionen</a></li>
-                  
-                
-                  
-                    <li><a href="/getting-started/brightcove-native-sdks-feature-support.html">Tabelle zur Funktionsunterstützung</a></li>
-                  
-                
-                  
-                    <li><a href="/getting-started/running-sample-apps-native-sdk-android.html">Ausführen von Android Beispiel-Apps</a></li>
-                  
-                
-                  
-                    <li><a href="/getting-started/running-sample-apps-native-sdk-ios.html">Ausführen von iOS-/tvOS-Beispielanwendungen</a></li>
-                  
-                
-                  
-                    <li><a href="/getting-started/brightcove-native-sdks-training-videos.html">Native SDK-Schulungsvideos</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/features/index.html">Funktionen <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/features/using-360deg-videos-native-sdks.html">360-Grad-Video</a></li>
-                  
-                
-                  
-                    <li><a href="/features/advertising-sdks.html">Werbung</a></li>
-                  
-                
-                  
-                    <li><a href="/features/analytics-sdks.html">Analytics</a></li>
-                  
-                
-                  
-                    <li><a href="/features/using-captions-brightcove-native-sdks.html">Bildunterschriften</a></li>
-                  
-                
-                  
-                    <li><a href="/features/connected-tv-set-top-box-apps.html">Verbundenes</a></li>
-                  
-                
-                  
-                    <li><a href="/features/content-security-drm-native-player-sdks.html">Content-Sicherheit (DRM)</a></li>
-                  
-                
-                  
-                    <li><a href="/features/cross-device-resume-sdks.html">Geräteübergreifender Lebenslauf</a></li>
-                  
-                
-                  
-                    <li><a href="/features/live-streams-native-sdks.html">Livestreams</a></li>
-                  
-                
-                  
-                    <li><a href="/features/multiple-audio-tracks-native-sdks.html">Mehrere Audiospuren</a></li>
-                  
-                
-                  
-                    <li><a href="/features/offline-playback-native-player-sdks.html">Offline Wiedergabe</a></li>
-                  
-                
-                  
-                    <li><a href="/features/brightcove-native-player-controls.html">Spieler-Steu</a></li>
-                  
-                
-                  
-                    <li><a href="/features/picture-picture-native-sdks.html">Bild-in-Bild</a></li>
-                  
-                
-                  
-                    <li><a href="/features/video-formats-and-captioning-native-sdks.html">Videoformate und Untertitel</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/android/index.html">Android-Entwicklung <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/android/basics/index.html">Grundlagen <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/android/basics/overview-brightcove-player-sdk-android.html">v6.16.0: Übersicht über das Spieler-SDK für Android</a></li>
-                        
-                        <li><a href="/android/basics/architecture-brightcove-player-sdk-android.html">Die Architektur</a></li>
-                        
-                        <li><a href="/android/basics/android-understanding-brightcoveplayer-class.html">BrightCovePlayer Klasse</a></li>
-                        
-                        <li><a href="/android/basics/android-choosing-video-view.html">Auswählen einer Videoansicht</a></li>
-                        
-                        <li><a href="/android/basics/android-brightcove-registration.html">Brightcove Registrierung</a></li>
-                        
-                        <li><a href="/android/basics/understanding-events-native-sdk-android.html">Verstehen von Ereign</a></li>
-                        
-                        <li><a href="/android/basics/android-working-media-content.html">Arbeiten mit Medieninhalten</a></li>
-                        
-                        <li><a href="/android/basics/training-demand-developing-brightcove-native-player-sdk-android.html">Native SDK-Schulungsvideos</a></li>
-                        
-                        <li><a href="/android/basics/step-step-simple-video-app-using-native-sdk-android.html">Schritt für Schritt: Einfache Video-App</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/android/advertising/index.html">Werbung <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/android/advertising/android-ad-ui-customization-server-side-ad-insertion-ssai.html">Anpassung der Anzeigenbenutzung mit SSAI</a></li>
-                        
-                        <li><a href="/features/appending-ad-query-params-native-sdks.html">Anzeigenabfrageparameter anhängen</a></li>
-                        
-                        <li><a href="/features/ima-open-measurement-native-sdks.html">IMA Offene Messung</a></li>
-                        
-                        <li><a href="/android/advertising/migrating-to-ima-plugin-6-15-0.html">IMA Plugin 6.15.0</a></li>
-                        
-                        <li><a href="/features/implementing-client-side-ads-native-sdks.html">Implementierung von clientseitigen Anzeigen (CSAI)</a></li>
-                        
-                        <li><a href="/features/implementing-server-side-ads-native-player-sdks.html">Implementierung von serverseitigen Anzeigen (SSAI)</a></li>
-                        
-                        <li><a href="/android/advertising/using-pulse-plugin-native-sdk-android.html">Invidi Pulse Plugin</a></li>
-                        
-                        <li><a href="/android/advertising/ssai-plugin-native-sdk-android.html">SSAI-Plugin für Android</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/android/analytics/index.html">Analytics <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/android/analytics/analytics-related-offline-playback-native-sdks.html">Analysen im Zusammenhang mit Offline-Wiedergabe</a></li>
-                        
-                        <li><a href="/android/analytics/sending-brightcove-analytics-native-sdk-android.html">Brightcove Analytics senden</a></li>
-                        
-                        <li><a href="/features/viewing-brightcove-analytics-player-sdks.html">Anzeigen von Brightcove Analytics</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/android/captions/index.html">Bildunterschriften <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/android/captions/removing-android-captions-background-image.html">Entfernen des Hintergrundbilds „Untertitel“</a></li>
-                        
-                        <li><a href="/android/captions/selecting-captions-programmatically-native-sdk-android.html">Programmatische Auswahl von Untertiteln</a></li>
-                        
-                        <li><a href="/features/synchronizing-webvtt-captions.html">Synchronisieren von WebVTT-Beschriftungen</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/android/tv/index.html">Angeschlossenes Fernsehen <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/android/tv/cast-plugin-native-sdk-android.html">Chromecast-Plugin</a></li>
-                        
-                        <li><a href="/features/connected-tv-set-top-box-apps.html">Verbundene TV-Apps</a></li>
-                        
-                        <li><a href="/android/tv/customizing-android-tv-controls.html">Anpassen der Steuerelemente für Android TV</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/android/content-protection/index.html">Schutz von Inhalten <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/features/content-security-drm-native-player-sdks.html">Content-Sicherheit (DRM)</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/android/framework/index.html">Rahmen <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/android/framework/android-adding-viewmanaging-layout.html">Hinzufügen von Ansicht/Verwalten von Layout</a></li>
-                        
-                        <li><a href="/android/framework/android-pie-support-native-sdk-android.html">Android Pie Unterstützung</a></li>
-                        
-                        <li><a href="/android/framework/creating-plugin-native-sdk-android.html">Erstellen eines Plugins</a></li>
-                        
-                        <li><a href="/android/framework/migrating-exoplayer-2-framework.html">Migrieren auf ExoPlayer 2 Framework</a></li>
-                        
-                        <li><a href="/android/framework/resizing-video-view.html">Ändern der Größe der Videoansicht</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/android/live/index.html">Lebe <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/features/using-live-ssai-native-sdks.html">Verwenden von Live SSAI</a></li>
-                        
-                        <li><a href="/features/using-player-enhancements-live-ssai-native-sdks.html">Spieler-Verbesserungen für Live SSAI</a></li>
-                        
-                        <li><a href="/features/client-side-ads-with-live-ssai.html">Clientseitige Pre-Roll-Anzeigen mit Live SSAI</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/android/playback/index.html">wiedergabe <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/android/playback/hevc-selection-native-sdk-android.html">HEVC-Auswahl</a></li>
-                        
-                        <li><a href="/android/playback/hls-playback-native-sdk-android.html">HLS-Wiedergabe</a></li>
-                        
-                        <li><a href="/features/localization-with-native-sdks.html">Lokalisierung des Spielers</a></li>
-                        
-                        <li><a href="/android/playback/android-managing-player-controls.html">Verwalten von Spielersteuer</a></li>
-                        
-                        <li><a href="/android/playback/multiple-audio-tracks-offline-playback-native-sdk-android.html">Mehrere Audiospuren für Offline-Wiedergabe</a></li>
-                        
-                        <li><a href="/features/offline-playback-native-player-sdks.html">Offline Wiedergabe</a></li>
-                        
-                        <li><a href="/android/playback/handling-orientation-change-native-sdk-android.html">Änderung der Orientierung</a></li>
-                        
-                        <li><a href="/android/playback/android-source-selection.html">Auswahl der Quelle</a></li>
-                        
-                        <li><a href="/android/playback/video-and-playlist-objects-json.html">Video- und Playlist-Objekte von JSON</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/android/troubleshooting/index.html">Problembehandlung <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/android/troubleshooting/error-messages-native-sdk-android.html">Leitfaden für Fehlermeldungen</a></li>
-                        
-                        <li><a href="/android/troubleshooting/removing-android-log-messages.html">Entfernen von Android-Protokollnachrichten</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/android/resources/index.html">Ressourcen <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="https://github.com/BrightcoveOS/android-player-samples">Android Codebeispiele</a></li>
-                        
-                        <li><a href="/android/resources/code-snippets-using-native-sdk-android.html">Code-Snippets</a></li>
-                        
-                        <li><a href="https://docs.brightcove.com/android-sdk/javadoc/index.html">Natives SDK für Android-Referenz</a></li>
-                        
-                        <li><a href="https://docs.brightcove.com/index.html">Plugin-Re</a></li>
-                        
-                        <li><a href="/android/resources/brightcove-player-sdk-android-previous-sdk-information.html">Frühere Versionen</a></li>
-                        
-                        <li><a href="/android/resources/brightcove-native-sdk-android-release-notes.html">Anmerkungen zur</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/ios/index.html">iOS Entwicklung <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/ios/basics/index.html">Grundlagen <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/ios/basics/overview-brightcove-player-sdk-ios.html">v6.8.1: Player-SDK für iOS Überblick</a></li>
-                        
-                        <li><a href="/ios/basics/architecture-brightcove-player-sdk-ios.html">Die Architektur</a></li>
-                        
-                        <li><a href="/ios/basics/ios-brightcove-registration.html">Brightcove Registrierung</a></li>
-                        
-                        <li><a href="/ios/basics/ios-working-media-content.html">Arbeiten mit Medieninhalten</a></li>
-                        
-                        <li><a href="/ios/basics/understanding-events-native-sdk-ios.html">Verstehen von Ereign</a></li>
-                        
-                        <li><a href="/ios/basics/training-demand-developing-brightcove-native-player-sdk-ios.html">Native SDK-Schulungsvideos</a></li>
-                        
-                        <li><a href="/ios/basics/step-step-simple-video-app-using-objective-c.html">Schritt für Schritt: Einfache Video-App mit Objective-C</a></li>
-                        
-                        <li><a href="/ios/basics/step-step-simple-video-app-using-swift.html">Schritt für Schritt: Einfache Video-App mit Swift</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/ios/advertising/index.html">Werbung <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/features/implementing-client-side-ads-native-sdks.html">Implementierung von clientseitigen Anzeigen (CSAI)</a></li>
-                        
-                        <li><a href="/features/implementing-server-side-ads-native-player-sdks.html">Implementierung von serverseitigen Anzeigen (SSAI)</a></li>
-                        
-                        <li><a href="/features/appending-ad-query-params-native-sdks.html">Anzeigenabfrageparameter anhängen</a></li>
-                        
-                        <li><a href="/features/ima-open-measurement-native-sdks.html">IMA Offene Messung</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/ios/analytics/index.html">Analytics <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/ios/analytics/sending-brightcove-analytics-native-sdk-ios.html">Brightcove Analytics senden</a></li>
-                        
-                        <li><a href="/features/viewing-brightcove-analytics-player-sdks.html">Anzeigen von Brightcove Analytics</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/ios/captions/index.html">Bildunterschriften <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/features/synchronizing-webvtt-captions.html">Synchronisieren von WebVTT-Beschriftungen</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/ios/tv/index.html">Angeschlossenes Fernsehen <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="https://github.com/brightcove/brightcove-player-sdk-ios-googlecast">Chromecast-Plugin</a></li>
-                        
-                        <li><a href="/features/connected-tv-set-top-box-apps.html">Verbundene TV-Apps</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/ios/content-protection/index.html">Schutz von Inhalten <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/features/content-security-drm-native-player-sdks.html">Content-Sicherheit (DRM)</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/ios/framework/index.html">Rahmen <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/ios/framework/working-app-transport-security-ats.html">Arbeiten mit App Transport Security (ATS)</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/ios/live/index.html">Lebe <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/features/using-live-ssai-native-sdks.html">Verwenden von Live SSAI</a></li>
-                        
-                        <li><a href="/features/using-player-enhancements-live-ssai-native-sdks.html">Spieler-Verbesserungen für Live SSAI</a></li>
-                        
-                        <li><a href="/features/client-side-ads-with-live-ssai.html">Clientseitige Pre-Roll-Anzeigen mit Live SSAI</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/ios/playback/index.html">wiedergabe <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/features/localization-with-native-sdks.html">Lokalisierung des Spielers</a></li>
-                        
-                        <li><a href="/features/offline-playback-native-player-sdks.html">Offline Wiedergabe</a></li>
-                        
-                        <li><a href="/ios/playback/ios-source-selection.html">Auswahl der Quelle</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/ios/troubleshooting/index.html">Problembehandlung <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/ios/troubleshooting/error-handling-native-sdk-ios.html">Umgang mit Fehlern</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/ios/resources/index.html">Ressourcen <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="https://github.com/BrightcoveOS/ios-player-samples">iOS Codebeispiele</a></li>
-                        
-                        <li><a href="/ios/resources/code-snippets-using-native-sdk-ios.html">Code-Snippets</a></li>
-                        
-                        <li><a href="https://docs.brightcove.com/ios-sdk/index.html">Native SDK für iOS Referenz</a></li>
-                        
-                        <li><a href="https://docs.brightcove.com/index.html">Plugin-Re</a></li>
-                        
-                        <li><a href="https://github.com/brightcove/brightcove-player-sdk-ios/blob/master/CHANGELOG.md">Anmerkungen zur</a></li>
-                        
-                        <li><a href="/ios/resources/brightcove-player-sdk-ios-previous-sdk-information.html">Frühere Versionen</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/tvos/index.html">tvOS Entwicklung <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/tvos/basics/index.html">Grundlagen <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/tvos/basics/overview-brightcove-player-sdk-tvos.html">v6.8.1: Übersicht Spieler-SDK für tvOS</a></li>
-                        
-                        <li><a href="/ios/basics/architecture-brightcove-player-sdk-ios.html">Die Architektur</a></li>
-                        
-                        <li><a href="/ios/basics/ios-brightcove-registration.html">Brightcove Registrierung</a></li>
-                        
-                        <li><a href="/ios/basics/ios-working-media-content.html">Arbeiten mit Medieninhalten</a></li>
-                        
-                        <li><a href="/ios/basics/understanding-events-native-sdk-ios.html">Verstehen von Ereign</a></li>
-                        
-                        <li><a href="/features/connected-tv-set-top-box-apps.html">Verbundene TV-Apps</a></li>
-                        
-                        <li><a href="/ios/basics/training-demand-developing-brightcove-native-player-sdk-ios.html">Native SDK-Schulungsvideos</a></li>
-                        
-                        <li><a href="/tvos/basics/step-step-simple-tv-video-app-using-swift.html">Schritt für Schritt: Einfache TV-Video-App mit Swift</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/tvos/advertising/index.html">Werbung <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/features/implementing-client-side-ads-native-sdks.html">Implementierung von clientseitigen Anzeigen (CSAI)</a></li>
-                        
-                        <li><a href="/features/implementing-server-side-ads-native-player-sdks.html">Implementierung von serverseitigen Anzeigen (SSAI)</a></li>
-                        
-                        <li><a href="/features/appending-ad-query-params-native-sdks.html">Anzeigenabfrageparameter anhängen</a></li>
-                        
-                        <li><a href="/features/ima-open-measurement-native-sdks.html">IMA Offene Messung</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/tvos/analytics/index.html">Analytics <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/ios/analytics/sending-brightcove-analytics-native-sdk-ios.html">Brightcove Analytics senden</a></li>
-                        
-                        <li><a href="/features/viewing-brightcove-analytics-player-sdks.html">Anzeigen von Brightcove Analytics</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/tvos/captions/index.html">Bildunterschriften <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/features/synchronizing-webvtt-captions.html">Synchronisieren von WebVTT-Beschriftungen</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/tvos/content-protection/index.html">Schutz von Inhalten <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/features/content-security-drm-native-player-sdks.html">Content-Sicherheit (DRM)</a></li>
-                        
-                        <li><a href="/tvos/content-protection/adding-fairplay-protection-your-apple-tv-apps.html">Apple TV mit FairPlay</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/tvos/framework/index.html">Rahmen <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/ios/framework/working-app-transport-security-ats.html">Arbeiten mit App Transport Security (ATS)</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/tvos/live/index.html">Lebe <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/features/using-live-ssai-native-sdks.html">Verwenden von Live SSAI</a></li>
-                        
-                        <li><a href="/features/using-player-enhancements-live-ssai-native-sdks.html">Spieler-Verbesserungen für Live SSAI</a></li>
-                        
-                        <li><a href="/features/client-side-ads-with-live-ssai.html">Clientseitige Pre-Roll-Anzeigen mit Live SSAI</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/tvos/playback/index.html">wiedergabe <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/tvos/playback/apple-tv-ui-controls-native-sdk-tvos.html">Apple TV-UI-Steuer</a></li>
-                        
-                        <li><a href="/features/localization-with-native-sdks.html">Lokalisierung des Spielers</a></li>
-                        
-                        <li><a href="/ios/playback/ios-source-selection.html">Auswahl der Quelle</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/tvos/troubleshooting/index.html">Problembehandlung <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/ios/troubleshooting/error-handling-native-sdk-ios.html">Umgang mit Fehlern</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/tvos/resources/index.html">Ressourcen <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="https://github.com/BrightcoveOS/ios-player-samples/tree/master/Player/AppleTV">Basic Apple TV-Beispiel</a></li>
-                        
-                        <li><a href="https://github.com/BrightcoveOS/ios-player-samples/tree/master/SSAI/BasicSSAItvOSPlayer">Apple TV mit SSAI</a></li>
-                        
-                        <li><a href="https://docs.brightcove.com/ios-sdk/index.html">Native SDK für iOS Referenz</a></li>
-                        
-                        <li><a href="https://docs.brightcove.com/index.html">Plugin-Re</a></li>
-                        
-                        <li><a href="https://github.com/brightcove/brightcove-player-sdk-ios/blob/master/CHANGELOG.md">Anmerkungen zur</a></li>
-                        
-                        <li><a href="/tvos/resources/brightcove-player-sdk-tvos-previous-sdk-information.html">Frühere Versionen</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/developer-support/index.html">Unterstützung von Entwicklern <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/developer-support/announcements/index.html">Ankündigungen <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/developer-support/announcements/native-sdk-android-will-eol-support-exoplayer-1.html">Android SDK EOL-Unterstützung für ExoPlayer 1</a></li>
-                        
-                        <li><a href="/developer-support/announcements/announcement-brightcove-sdk-android-version-support.html">Unterstützung für Android-Versionen</a></li>
-                        
-                        <li><a href="/developer-support/announcements/apple-announces-new-app-submission-requirement.html">Apple-App-Einreich</a></li>
-                        
-                        <li><a href="/developer-support/announcements/native-sdk-ios-eol-support-iostvos-10.html">iOS SDK EOL Unterstützung für iOS/tvOS 10</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/developer-support/questions/index.html">Fragen und Probleme <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="https://groups.google.com/forum/#!forum/brightcove-native-player-sdks">SDK-Entwicklerforum-Archiv</a></li>
-                        
-                        <li><a href="/developer-support/questions/faq-brightcove-native-player-sdks.html">Häufig gestellte Fragen</a></li>
-                        
-                        <li><a href="/developer-support/questions/release-notes-brightcove-native-sdks.html">Anmerkungen zur</a></li>
-                        
-                        <li><a href="/developer-support/questions/known-issues-brightcove-native-player-sdks.html">Bekannte Probleme</a></li>
-                        
-                        <li><a href="/developer-support/questions/report-issue-brightcove-native-sdks.html">Ein Problem melden</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/support/index.html">unterstützung <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    
-                  
-                
-                  
-                    <li><a href="/support/viewing-brightcove-system-status-page.html">Anzeigen der Seite „Systemstatus von Brightcove“</a></li>
-                  
-                
-                  
-                    <li><a href="/support/contact-sales.html">Kontakt mit dem Vertrieb</a></li>
-                  
-                
-                  
-                    <li><a href="/support/opening-case-with-brightcove-support.html">Einen Supportfall öffnen</a></li>
-                  
-                
-              </ul>
-            
-          
-      </nav>
-    </div>
-    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
-  <!-- bootstrap layout -->
-
-<p id="bc_veggie_burger_wrapper" style="display: none;"><img id="bc_veggie_burger" src="/assets/images/feather/menu.svg" alt="Menü „Navigation"/></p>
-
-<!-- search bar -->
-<div id="nav-search-box" style="margin-top: 1rem;"></div>
-<!-- in-page navigation for narrow screens -->
-<details class="centered-inpage-nav" id="centered_inpage_nav">
-  <summary><h6 class="toc">Inhalt der Seite</h6></summary>
-  <nav id="centered_toc"></nav>
-  <ul id="centered_in_page_toc" class="list-none"></ul>
-</details>
-<!-- open in new tab/window -->
-<a id="open_new_tab" href="#" target="_blank" style="display: none;"><img src="/assets/images/feather/external-link.svg" alt="in neuem Tab öffnen" style="margin-top:4em;width: 1.5em;"/></a>
-
-
-
-  
-    
-
-
-<h1>Codefragmente mit dem Native SDK für Android</h1>
+---
+title: 'Code-Snippets mit dem Native SDK für Android'
+description: In diesem Thema finden Sie eine Sammlung von Codeausschnitten, die Sie bei der Entwicklung mit dem SDK als Referenz verwenden können. Detailliertere Lösungen finden Sie im <a href="https://github.com/BrightcoveOS/android-player-samples">Android-Player-Beispiele</a> .
+parent: Resources 
+grandparent: Android Development
+---
+ <h1>{{ page.title }}</h1>
 <article class="bcls-article">
-  <summary>In diesem Thema finden Sie eine Sammlung von Codeausschnitten, die Sie als Referenz bei der Entwicklung mit dem SDK nützlich finden können. Ausführlichere Lösungen finden Sie in den <a href="https://github.com/BrightcoveOS/android-player-samples">Beispielen für Android-Player</a>.</summary>
+  <summary>{{ page.description }}</summary>
 
 <section class="bcls-section">
 <h3 id="top">Inhaltsverzeichnis</h3>
 <details style="padding:0;">
-    <summary>Advertising</summary>
+    <summary>Werbung</summary>
     <ul>
-      <li><a href="#Preload_IMA_ads">Vorladen von IMA-Anzeigen</a></li>
-      <li><a href="#Seek_without_ads">Sucht ohne Werbung</a></li>
+      <li><a href="#Preload_IMA_ads">IMA-Anzeigen vorab laden</a></li>
+      <li><a href="#Seek_without_ads">Suche ohne Werbung</a></li>
     </ul>
 </details>
 <br/>
 
 <details style="padding:0;">
-    <summary>Analytics</summary>
+    <summary>Analytik</summary>
     <ul>
-      <li><a href="#Google_analytics">Google-Analysen</a></li>
+      <li><a href="#Google_analytics">Google Analytics</a></li>
     </ul>
 </details>
 <br/>
 
 <details style="padding:0;">
-    <summary>Untertitel</summary>
+    <summary>Bildunterschriften</summary>
     <ul>
-      <li><a href="#Setting_captions_and_themes">Festlegen von Untertiteln und Themen</a></li>
-      <li><a href="#Setting_default_captions">Festlegen von Standardbeschriftungen</a></li>
+      <li><a href="#Setting_captions_and_themes">Bildunterschriften und Themen festlegen</a></li>
+      <li><a href="#Setting_default_captions">Festlegen von Standarduntertiteln</a></li>
     </ul>
 </details>
 <br/>
 
 <details style="padding:0;">
-    <summary>konzepte</summary>
+    <summary>Konzepte</summary>
     <ul>
       <li><a href="#Methods_synchronous_or_asynchronous">Methoden: synchron oder asynchron?</a></li>
     </ul>
@@ -900,7 +45,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 <br/>
 
 <details style="padding:0;">
-    <summary>Content-Sicherheit (DRM)</summary>
+    <summary>Inhaltssicherheit (DRM)</summary>
     <ul>
       <li><a href="#Manually_adding_DRM_content">Manuelles Hinzufügen von DRM-Inhalten</a></li>
     </ul>
@@ -908,38 +53,39 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 <br/>
 
 <details style="padding:0;">
-    <summary>Livestreams</summary>
+    <summary>Live-Streams</summary>
     <ul>
-      <li><a href="#Getting_duration_for_live_streams">Dauer für Livestreams erhalten</a></li>
+      <li><a href="#Getting_duration_for_live_streams">Dauer für Livestreams abrufen</a></li>
     </ul>
 </details>
 <br/>
 
 <details style="padding:0;">
-    <summary>Playback</summary>
+    <summary>Wiedergabe</summary>
     <ul>
-      <li><a href="#Getting_the_ExoPlayer_instance">Die ExoPlayer-Instanz abrufen</a></li>
-      <li><a href="#Offline_playback_with_DRM">Offline Wiedergabe mit DRM</a></li>
-      <li><a href="#Paging_with_the_Playback_API">Paging mit der Playback-API</a></li>
-      <li><a href="#Playing_local_videos">Wiedergeben lokaler Videos</a></li>
-      <li><a href="#Setting_the_buffer_size">Einstellen der Puffergröße</a></li>
-      <li><a href="#Setting_the_peak_bitrate">Festlegen der Peak-Bitrate</a></li>
+      <li><a href="#Detecting_Network_Bandwidth">Erkennen der Netzwerkbandbreite</a></li>
+      <li><a href="#Getting_the_ExoPlayer_instance">Abrufen der ExoPlayer-Instanz</a></li>
+      <li><a href="#Offline_playback_with_DRM">Offline-Wiedergabe mit DRM</a></li>
+      <li><a href="#Paging_with_the_Playback_API">Paging mit der Playback API</a></li>
+      <li><a href="#Playing_local_videos">Lokale Videos abspielen</a></li>
+      <li><a href="#Setting_the_buffer_size">Puffergröße einstellen</a></li>
+      <li><a href="#Setting_the_peak_bitrate">Einstellen der Spitzenbitrate</a></li>
       <li><a href="#Setting_the_playback_rate">Einstellen der Wiedergaberate</a></li>
-      <li><a href="#Setting_VR_Goggles_mode_for_360_videos">Einstellen des VR-Schutzbrillen-Modus für 360°-Videos</a></li>
-      <li><a href="#Starting_playback_in_the_middle_of_a_video">Starten der Wiedergabe in der Mitte eines Videos</a></li>
-      <li><a href="#Swapping_videos">Austauschen von Videos</a></li>
+      <li><a href="#Setting_VR_Goggles_mode_for_360_videos">Einstellen des VR-Brillenmodus für 360°-Videos</a></li>
+      <li><a href="#Starting_playback_in_the_middle_of_a_video">Wiedergabe mitten in einem Video starten</a></li>
+      <li><a href="#Swapping_videos">Videos austauschen</a></li>
     </ul>
 </details>
 <br/>
 
 <details style="padding:0;">
-    <summary>Playersteuerelemente</summary>
+    <summary>Spielersteuerung</summary>
     <ul>
-      <li><a href="#Customizing_controls_for_Android_TV">Anpassen von Steuerelementen für Android TV</a></li>
+      <li><a href="#Customizing_controls_for_Android_TV">Anpassen der Steuerelemente für Android TV</a></li>
       <li><a href="#Fullscreen_mode">Vollbildmodus</a></li>
-      <li><a href="#Mute_unmute_the_player">Stummschalten/Stummschaltung</a></li>
-      <li><a href="#Positioning_player_controls_on_the_bottom">Positionieren der Spielersteuerung auf der Unterseite</a></li>
-      <li><a href="#Showing_player_controls">Spieler-Steuerung</a></li>
+      <li><a href="#Mute_unmute_the_player">Stummschaltung/Aufhebung der Stummschaltung des Players</a></li>
+      <li><a href="#Positioning_player_controls_on_the_bottom">Positionierung der Player-Bedienelemente auf der Unterseite</a></li>
+      <li><a href="#Showing_player_controls">Player-Steuerelemente anzeigen</a></li>
       <!--				  <li><a href="#singleline">Showing single line controls</a></li>-->
     </ul>
 </details>
@@ -948,31 +94,31 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
 <details style="padding:0;">
     <summary>Wiedergabelisten</summary>
     <ul>
-      <li><a href="#Switching_between_videos_in_a_playlist">Wechseln zwischen Videos in einer Playlist</a></li>
+      <li><a href="#Switching_between_videos_in_a_playlist">Zwischen Videos in einer Playlist wechseln</a></li>
     </ul>
 </details>
 <br/>
 
 <details style="padding:0;">
-    <summary>Video-Content</summary>
+    <summary>Videoinhalte</summary>
     <ul>
-      <li><a href="#Getting_URL_for_thumbnail_images">Abrufen der URL für Vorschaubilder</a></li>
-      <li><a href="#Loading_a_remote_video_and_poster_image">Laden eines Remote-Video- und Posterbilds</a></li>
-      <li><a href="#Showing_hiding_video_still_images">Video-Stillbilder anzeigen/ausblenden</a></li>
+      <li><a href="#Getting_URL_for_thumbnail_images">URL für Miniaturbilder abrufen</a></li>
+      <li><a href="#Loading_a_remote_video_and_poster_image">Laden eines Remote-Videos und eines Posterbilds</a></li>
+      <li><a href="#Showing_hiding_video_still_images">Anzeigen/Ausblenden von Video-Standbildern</a></li>
     </ul>
 </details>
 <br/>
 </section>
 
 <section class="bcls-section">
-<h2 id="Customizing_controls_for_Android_TV">Anpassen von Steuerelementen für Android TV</h2>
+<h2 id="Customizing_controls_for_Android_TV">Anpassen der Steuerelemente für Android TV</h2>
 
-<p>Sie können der Steuerungsleiste für Geräte oder Android TV Schaltflächen hinzufügen. Die folgenden Schritte führen Sie durch das Hinzufügen einer Vollbild-Taste zur Steuerungsleiste für Android TV:</p>
+<p>Sie können der Steuerleiste Schaltflächen für Geräte oder Android TV hinzufügen. Die folgenden Schritte führen Sie durch das Hinzufügen einer Vollbildschaltfläche zur Steuerleiste für Android TV:</p>
 
 <ol class="bcls-tasklist-restart">
-	<li>Öffnen Sie die Beispiel-App „ <a href="https://github.com/BrightcoveOS/android-player-samples/tree/master/brightcove-player-controls/CustomizedControlsSampleApp">Benutzerdefinierte Steuerung</a> “. Wir werden dies als Ausgangspunkt verwenden. Weitere Informationen zum Anpassen der Player-Steuerelemente finden Sie in der <a href="https://github.com/BrightcoveOS/android-player-samples/blob/master/brightcove-player-controls/CustomizedControlsSampleApp/README.md">README-Datei</a> der Beispiel-App.</li>
-	<li>Öffnen Sie die Datei <strong>res/layout/land/my_media_controller.xml</strong> in Android Studio.</li>
-	<li>Kopieren Sie das <code translate="No">Button</code> Element für die <code translate="No">full_screen</code> Schaltfläche. Der Code sollte ähnlich aussehen wie folgt:
+	<li>Öffne das <a href="https://github.com/BrightcoveOS/android-player-samples/tree/master/brightcove-player-controls/CustomizedControlsSampleApp">Angepasste Bedienelemente</a> Beispiel-App. Wir werden dies als Ausgangspunkt verwenden. Sehen Sie sich die Beispiel-Apps an <a href="https://github.com/BrightcoveOS/android-player-samples/blob/master/brightcove-player-controls/CustomizedControlsSampleApp/README.md">Liesmich</a> Datei für Details zum Anpassen von Player-Steuerelementen.</li>
+	<li>Öffne das <strong>res/layout/land/my_media_controller.xml</strong> Datei in Android Studio.</li>
+	<li>Kopiere das <code translate="No">Button</code> Element für die <code translate="No">full_screen</code> Taste. Der Code sollte ungefähr so aussehen:
 	<pre class="line-numbers">
 <code class="language-java" translate="No"><a href="https://github.com/BrightcoveOS/android-player-samples/blob/master/brightcove-player-controls/CustomizedControlsSampleApp/src/main/res/layout-land/my_media_controller.xml">&lt;Button
 style="@style/BorderlessButton"
@@ -984,9 +130,9 @@ android:layout_width="wrap_content"
 android:visibility="visible"
 android:text="@string/brightcove_controls_enter_full_screen"/&gt;</a></code></pre>
 	</li>
-	<li>Öffnen Sie die Datei <strong>res/layout/my_tv_media_controller.xml</strong> in Android Studio.</li>
-	<li>Fügen Sie das kopierte <code translate="No">Button</code> Element in diese Layoutdatei ein. Die Position der Elemente bestimmt ihre Position in der Steuerungsleiste.</li>
-	<li>Scrollen Sie zum Anfang der Datei <strong>res/layout/my_tv_media_controller.xml</strong> . Stellen Sie sicher, dass die style -Eigenschaft auf eingestellt ist <code translate="No">@style/BrightcoveControlBar.TV.Custom</code>. Der Code sollte so aussehen:
+	<li>Öffne das <strong>res/layout/my_tv_media_controller.xml</strong> Datei in Android Studio.</li>
+	<li>Füge das kopierte ein <code translate="No">Button</code> Element in diese Layoutdatei. Die Position der Elemente bestimmt ihre Position in der Kontrollleiste.</li>
+	<li>Scrollen Sie zum Anfang des <strong>res/layout/my_tv_media_controller.xml</strong> Datei. Stellen Sie sicher, dass die Stileigenschaft auf eingestellt ist <code translate="No">@style/BrightcoveControlBar.TV.Custom</code>. Der Code sollte so aussehen:
 	<pre class="line-numbers">
 <code class="language-java" translate="No">&lt;?xml version="1.0" encoding="utf-8"?&gt;
 &lt;com.brightcove.player.mediacontroller.BrightcoveControlBar
@@ -1004,17 +150,17 @@ android:orientation="horizontal"
 android:layout_gravity="bottom"
 <span class="bcls-highlight">    style="@style/BrightcoveControlBar.TV.Custom"&gt;</span></code></pre>
 	</li>
-	<li>Öffnen Sie die Datei <strong>res/values/styles.xml</strong> in Android Studio.</li>
-	<li>Zum <code translate="No">style</code> Element mit a <code translate="No">name</code> Wert von <code translate="No">BrightcoveControlBar.TV.Custom</code> , füge ein hinzu <code translate="No">item</code> Element für die Vollbild-Schaltfläche und setzen Sie es auf <code translate="No">true</code> um es anzuzeigen.
+	<li>Öffne das <strong>res/values/styles.xml</strong> Datei in Android Studio.</li>
+	<li>Zum <code translate="No">style</code> Element mit a <code translate="No">name</code> Wert von <code translate="No">BrightcoveControlBar.TV.Custom</code> , füge ein . hinzu <code translate="No">item</code> -Element für die Vollbild-Schaltfläche und setzen Sie es auf <code translate="No">true</code> um es anzuzeigen.
 	<pre class="line-numbers">
 <code class="language-java" translate="No"><a href="https://github.com/BrightcoveOS/android-player-samples/blob/master/brightcove-player-controls/CustomizedControlsSampleApp/src/main/res/values/styles.xml">&lt;style name="BrightcoveControlBar.TV.Custom"&gt;
 &lt;item name="brightcove_vr_mode"&gt;false&lt;/item&gt;
 <span class="bcls-highlight">  &lt;item name="brightcove_full_screen"&gt;true&lt;/item&gt;</span>
 &lt;/style&gt;</a></code></pre>
 	</li>
-	<li>Das ist es. Führen Sie die Beispielanwendung auf einem physischen oder virtuellen Android-Fernsehgerät aus. Sie sollten die Vollbild-Taste in der Steuerungsleiste sehen.
-	<figure class="bcls-figure"><img class="bcls-image--no-border" alt="Vollbild-Taste" src="//learning-services-media.brightcove.com/doc-assets/device-sdks/android/snippets/android_tv_fullscreen.png"/>
-	<figcaption class="bcls-caption--image">Vollbild-Taste</figcaption>
+	<li>Das ist es. Führen Sie die Beispiel-App auf einem physischen oder virtuellen Android TV-Gerät aus. Sie sollten die Vollbild-Schaltfläche in der Steuerleiste sehen.
+	<figure class="bcls-figure"><img class="bcls-image--no-border" alt="Fullscreen button" src="//learning-services-media.brightcove.com/doc-assets/device-sdks/android/snippets/android_tv_fullscreen.png" />
+	<figcaption class="bcls-caption--image">Vollbild-Schaltfläche</figcaption>
 	</figure>
 	</li>
 </ol>
@@ -1030,24 +176,24 @@ android:layout_gravity="bottom"
 	<p>Hier ist der Code zum Einstellen des Vollbildmodus:</p>
 
 	<pre class="line-numbers">
-<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/event/EventType.html#ENTER_FULL_SCREEN">brightcoveVideoView.getEventEmitter().emit(EventType.ENTER_FULL_SCREEN);</a></code></pre>
+<code class="language-java" translate="No"><a href="/android/reference/javadoc/com/brightcove/player/event/EventType.html#ENTER_FULL_SCREEN">brightcoveVideoView.getEventEmitter().emit(EventType.ENTER_FULL_SCREEN);</a></code></pre>
 	</li>
 	<li>
 	<p>Hier ist der Code zum Beenden des Vollbildmodus:</p>
 
 	<pre class="line-numbers">
-<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/event/EventType.html#EXIT_FULL_SCREEN">brightcoveVideoView.getEventEmitter().emit(EventType.EXIT_FULL_SCREEN);</a></code></pre>
+<code class="language-java" translate="No"><a href="/android/reference/javadoc/com/brightcove/player/event/EventType.html#EXIT_FULL_SCREEN">brightcoveVideoView.getEventEmitter().emit(EventType.EXIT_FULL_SCREEN);</a></code></pre>
 	</li>
 </ul>
 </section>
 
 <section class="bcls-section">
-<h2 id="Getting_duration_for_live_streams">Dauer für Livestreams erhalten</h2>
+<h2 id="Getting_duration_for_live_streams">Dauer für Livestreams abrufen</h2>
 
-<p>Um die Dauer für einen Livestream zu erhalten, können Sie das verwenden <a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/event/Event.html#MAX_POSITION"><code translate="No">MAX_POSITION</code></a>. Dies gibt Ihnen die größte suchbare Position für einen Live-Stream (dh die am weitesten entfernte, in der Sie die Bildlaufleiste ziehen können). Ihr Code sollte ähnlich wie folgt aussehen:</p>
+<p>Um die Dauer eines Livestreams abzurufen, können Sie die <a href="/android/reference/javadoc/com/brightcove/player/event/Event.html#MAX_POSITION"><code translate="No">MAX_POSITION</code></a>. Dies gibt Ihnen die größte durchsuchbare Position für einen Live-Stream (dh am weitesten, an dem Sie die Bildlaufleiste ziehen können). Ihr Code sollte ungefähr so aussehen:</p>
 
 <pre class="line-numbers">
-<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/event/Event.html#MAX_POSITION">brightcoveVideoView.getEventEmitter().on(EventType.PROGRESS, new EventListener() {
+<code class="language-java" translate="No"><a href="/android/reference/javadoc/com/brightcove/player/event/Event.html#MAX_POSITION">brightcoveVideoView.getEventEmitter().on(EventType.PROGRESS, new EventListener() {
   @Override
   public void processEvent(Event event) {
   int duration = (int) event.properties.get(Event.MAX_POSITION);
@@ -1056,9 +202,31 @@ android:layout_gravity="bottom"
 </section>
 
 <section class="bcls-section">
-<h2 id="Getting_the_ExoPlayer_instance">Die ExoPlayer-Instanz abrufen</h2>
+<h2 id="Detecting_Network_Bandwidth">Erkennen der Netzwerkbandbreite</h2>
+<p>Es kann Anwendungsfälle geben, in denen Sie die Netzwerkbandbreite innerhalb Ihrer App erkennen müssen, z. B. beim Arbeiten mit Downloads.</p>
 
-<p>Es kann vorkommen, dass Sie das ExoPlayer-Objekt benötigen, um Eigenschaften zu ändern, die nicht über das Brightcove Native SDK verfügbar gemacht werden. Eine Instanz dieses Objekts wird erstellt, nachdem das Video festgelegt wurde. Also musst du auf das <code translate="No">DID_SET_VIDEO</code> Event warten.</p>
+<p>Um die Bandbreite zu erkennen, verwendet das Native SDK für Android die <code translate="No">BandwidthMeter</code> Klasse von ExoPlayer bereitgestellt. Unsere <code translate="No">PlayerBandwidthMeter</code> Klasse verwendet die <code translate="No">BandwidthMeter</code> Klasse und bietet die <code translate="No">getBitrateEstimate</code> -Methode, die die geschätzte Bitrate zurückgibt.</p>
+
+<p>Einzelheiten finden Sie unter:</p>
+<ul>
+  <li><a href="/android/reference/javadoc/com/brightcove/player/network/PlayerBandwidthMeter.html">Brightcove PlayerBandwidthMeter-Klasse</a></li>
+  <li>Post:<a href="https://medium.com/google-exoplayer/https-medium-com-google-exoplayer-simplified-bandwidth-meter-usage-17d8189f978b"> Vereinfachte Nutzung des Bandbreitenmessers</a></li>
+  <li><a href="https://exoplayer.dev/doc/reference/com/google/android/exoplayer2/upstream/BandwidthMeter.html">ExoPlayer BandwidthMeter-Schnittstelle</a></li>
+  <li><a href="https://exoplayer.dev/doc/reference/com/google/android/exoplayer2/upstream/BandwidthMeter.EventListener.html">ExoPlayer BandwidthMeter.EventListener-Schnittstelle</a></li>
+</ul>
+
+<p>Hier ist ein Beispiel:</p>
+<pre class="line-numbers">
+<code class="language-java" translate="No">ExoPlayerVideoDisplayComponent exoPlayer = (ExoPlayerVideoDisplayComponent) brightcoveVideoView.getVideoDisplay();
+exoPlayer.getBandwidthMeter().addEventListener(myHandler, new BandwidthMeter.EventListener() {@
+	Override public void onBandwidthSample(int elapsedMs, long bytesTransferred, long bitrateEstimate) {}
+});</code></pre>
+</section>
+
+<section class="bcls-section">
+<h2 id="Getting_the_ExoPlayer_instance">Abrufen der ExoPlayer-Instanz</h2>
+
+<p>Es kann vorkommen, dass Sie das ExoPlayer-Objekt abrufen müssen, um Eigenschaften zu ändern, die nicht über das Brightcove Native SDK verfügbar gemacht werden. Eine Instanz dieses Objekts wird erstellt, nachdem das Video eingestellt wurde. Sie müssen also warten, bis die <code translate="No">DID_SET_VIDEO</code> Veranstaltung.</p>
 
 <p>Sie können die ExoPlayer-Instanz wie folgt abrufen:</p>
 
@@ -1080,63 +248,63 @@ eventEmitter.on(EventType.DID_SET_VIDEO, new EventListener() {
   }
 });</code></pre>
 
-<p>Ein Beispiel für das Ändern der <code translate="No">AudioAttribute</code> Eigenschaft für den ExoPlayer finden Sie im Forumsbeitrag <a href="https://groups.google.com/forum/#!topic/brightcove-native-player-sdks/-bbFKw3fOtk">Setting AudioAttributes on Exoplayer Instance</a> .</p>
+<p>Ein Beispiel für die Änderung des <code translate="No">AudioAttribute</code> -Eigenschaft für den ExoPlayer finden Sie im <a href="https://groups.google.com/forum/#!topic/brightcove-native-player-sdks/-bbFKw3fOtk">Festlegen von Audioattributen für die Exoplayer-Instanz</a> Forumsbeitrag.</p>
 </section>
 
 <section class="bcls-section">
-<h2 id="Getting_URL_for_thumbnail_images">Abrufen der URL für Vorschaubilder</h2>
+<h2 id="Getting_URL_for_thumbnail_images">URL für Miniaturbilder abrufen</h2>
 
-<p>Vielleicht möchten Sie die Miniaturansichten oder Videostummel aus Ihrer Brightcove-Bibliothek verwenden. Verwenden Sie den folgenden Code, um die URL für Ihre Bilder zu erhalten:</p>
+<p>Sie können die Miniaturansichten oder Videostandbilder aus Ihrer Brightcove-Bibliothek verwenden. Verwenden Sie den folgenden Code, um die URL für Ihre Bilder abzurufen:</p>
 
-<p>Für Video Cloud-Kunden, die den Edge-Katalog (com.brightcove.player.edge.catalog) verwenden, können Sie die Miniaturbild-URL wie folgt abrufen:</p>
-
-<pre class="line-numbers">
-<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/model/MetadataObject.html#getProperties()">String thumbnailUrl = video.getProperties().get("thumbnail").toString();</a></code></pre>
-
-<p>Wenn Sie feststellen, dass das Miniaturbild zu klein ist, können Sie stattdessen das Videostillbild erhalten:</p>
+<p>Für Video Cloud-Kunden, die den Edge-Katalog (com.brightcove.player.edge.Catalog) verwenden, können Sie die Miniaturansichts-URL wie folgt abrufen:</p>
 
 <pre class="line-numbers">
-<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/model/MetadataObject.html#getProperties()">String videoStillUrl = video.getProperties().get("stillImageUri").toString();</a></code></pre>
+<code class="language-java" translate="No"><a href="/android/reference/javadoc/com/brightcove/player/model/MetadataObject.html#getProperties()">String thumbnailUrl = video.getProperties().get("thumbnail").toString();</a></code></pre>
+
+<p>Wenn Sie feststellen, dass das Miniaturbild zu klein ist, können Sie stattdessen das Video-Standbild abrufen:</p>
+
+<pre class="line-numbers">
+<code class="language-java" translate="No"><a href="/android/reference/javadoc/com/brightcove/player/model/MetadataObject.html#getProperties()">String videoStillUrl = video.getProperties().get("stillImageUri").toString();</a></code></pre>
 </section>
 
 <section class="bcls-section">
-<h2 id="Google_analytics">Google-Analysen</h2>
+<h2 id="Google_analytics">Google Analytics</h2>
 
-<p>Wenn Sie den Brightcove Player und die Katalogklasse verwenden, werden Videoanalysen automatisch erfasst und in Ihrem Video Cloud Analytics-Modul angezeigt. Für zusätzliche Metriken können Sie Ihrer App Google Analytics hinzufügen.</p>
+<p>Wenn Sie den Brightcove-Player und die Katalogklasse verwenden, werden Videoanalysen automatisch erfasst und in Ihrem Video Cloud-Analysemodul angezeigt. Für zusätzliche Messwerte können Sie Ihrer App Google Analytics hinzufügen.</p>
 
-<p>Um Google Analytics in Ihre App zu integrieren, führen Sie die folgenden Schritte aus:</p>
+<p>Gehen Sie wie folgt vor, um Google Analytics in Ihre App zu integrieren:</p>
 
 <ol class="bcls-tasklist-restart">
-	<li>Fügen Sie Ihrem Projekt das Google Services-Plugin hinzu.</li>
-	<li>Holen Sie sich eine Google-Konfigurationsdatei und fügen Sie sie Ihrem Projekt hinzu.</li>
-	<li>Erweitern Sie die Anwendung und stellen Sie eine Hilfsmethode bereit, die Ihren Anwendungs-Tracker zurückgibt. Es sollte ähnlich aussehen wie die <a href="https://github.com/googlesamples/google-services/blob/master/android/analytics/app/src/main/java/com/google/samples/quickstart/analytics/AnalyticsApplication.java">Google-Dienstleistungen AnalyticsApplication</a>.</li>
-	<li>Rufen Sie in einer separaten Klasse, die den BrightCovePlayer erweitert, die Shared Tracker-Instanz ab:
+	<li>Fügen Sie Ihrem Projekt das Google Services-Plug-in hinzu.</li>
+	<li>Rufen Sie eine Google-Konfigurationsdatei ab und fügen Sie sie Ihrem Projekt hinzu.</li>
+	<li>Erweitern Sie die Anwendung und stellen Sie eine Hilfsmethode bereit, die Ihren Anwendungs-Tracker zurückgibt. Es sollte ähnlich aussehen wie die <a href="https://github.com/googlesamples/google-services/blob/master/android/analytics/app/src/main/java/com/google/samples/quickstart/analytics/AnalyticsApplication.java">google-services Analytics-Anwendung</a>.</li>
+	<li>Rufen Sie in einer separaten Klasse, die den BrightcovePlayer erweitert, die gemeinsam genutzte Tracker-Instanz ab:
 	<pre class="line-numbers">
 <code class="language-java" translate="No"><a href="https://developers.google.com/analytics/devguides/collection/android/v4/#set-up-your-project">// Obtain the shared Tracker instance
 AnalyticsApplication application = (AnalyticsApplication) getApplication();
 tracker = application.getDefaultTracker();</a></code></pre>
 	</li>
-	<li>Überschreiben Sie geeignete Methoden, um Änderungen am Bildschirm zu protokollieren und/oder benutzerdefinierte Ereignisse zum Tracking zu senden.</li>
+	<li>Überschreiben Sie geeignete Methoden, um Bildschirmänderungen zu protokollieren und/oder benutzerdefinierte Ereignisse zur Nachverfolgung zu senden.</li>
 </ol>
 
-<p>Ausführliche Schritte finden Sie im Dokument von Google zum <a href="https://developers.google.com/analytics/devguides/collection/android/v4/#set-up-your-project">Hinzufügen von Analytics zu Ihrer Android-App</a>.</p>
+<p>Detaillierte Schritte finden Sie im Dokument von Google zu <a href="https://developers.google.com/analytics/devguides/collection/android/v4/#set-up-your-project">Fügen Sie Ihrer Android-App Analytics hinzu</a>.</p>
 </section>
 
 <section class="bcls-section">
-<h2 id="Loading_a_remote_video_and_poster_image">Laden eines Remote-Video- und Posterbilds</h2>
+<h2 id="Loading_a_remote_video_and_poster_image">Laden eines Remote-Videos und eines Posterbilds</h2>
 
-<p>Brightcove Player verwenden nur Kunden Video-Assets von einem Remote-Server. Befolgen Sie diese Schritte, um ein Video und ein Posterbild zu laden, die sich beide auf einem Remote-Server befinden:</p>
+<p>Nur Brightcove Player-Kunden verwenden Video-Assets von einem Remote-Server. Führen Sie diese Schritte aus, um ein Video und ein Posterbild zu laden, die sich beide auf einem Remote-Server befinden:</p>
 
 <ol class="bcls-tasklist-restart">
 	<li>
-	<p>Erstellen Sie in der <code translate="No">onCreate()</code> Methode nach dem Definieren der Videoansicht ein Videoobjekt aus Ihrem auf einem Remote-Server gehosteten Video. Stellen Sie <code translate="No">DeliveryType</code> den so ein, dass er dem Videotyp entspricht, den Sie haben.</p>
+	<p>In dem <code translate="No">onCreate()</code> -Methode erstellen Sie nach dem Definieren der Videoansicht ein Videoobjekt aus Ihrem auf einem Remoteserver gehosteten Video. Stellen Sie die <code translate="No">DeliveryType</code> passend zu Ihrem Videotyp.</p>
 
 	<pre class="line-numbers" data-start="26">
 <code class="language-java" translate="No">Video video = Video.createVideo("https://learning-services-media.brightcove.com/videos/hls/greatblueheron/greatblueheron.m3u8",
   DeliveryType.HLS);</code></pre>
 	</li>
 	<li>
-	<p>Laden Sie ein Remote-Image, das als Posterbild verwendet werden soll, bevor die Videowiedergabe beginnt.</p>
+	<p>Laden Sie ein Remote-Bild, das als Posterbild verwendet werden soll, bevor die Videowiedergabe beginnt.</p>
 
 	<pre class="line-numbers" data-start="29">
 <code class="language-java" translate="No">try {
@@ -1154,7 +322,7 @@ tracker = application.getDefaultTracker();</a></code></pre>
 brightcoveVideoView.start();</code></pre>
 	</li>
 	<li>
-	<p>Vergewissern Sie sich, dass Ihre <code translate="No">onCreate()</code> Methode wie folgt aussieht:</p>
+	<p>Überprüfen Sie, ob Ihr <code translate="No">onCreate()</code> Methode sieht wie folgt aus:</p>
 
 	<pre class="line-numbers" data-start="15">
 <code class="language-java" translate="No">@Override
@@ -1190,10 +358,10 @@ brightcoveVideoView.start();</code></pre>
 <section class="bcls-section">
 <h2 id="Manually_adding_DRM_content">Manuelles Hinzufügen von DRM-Inhalten</h2>
 
-<p>Als Kunde von Brightcove Player möchten Sie möglicherweise DRM-geschützte Inhalte von Ihrem eigenen Server aus verwenden. Sie können DRM-Inhalte wie folgt manuell laden:</p>
+<p>Als Brightcove Player-Kunde möchten Sie möglicherweise DRM-geschützte Inhalte von Ihrem eigenen Server verwenden. Sie können DRM-Inhalte wie folgt manuell laden:</p>
 
 <pre class="line-numbers">
-<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/drm/WidevineMediaDrmCallback.html">import com.brightcove.player.display.WidevineMediaDrmCallback;
+<code class="language-java" translate="No"><a href="/android/reference/javadoc/com/brightcove/player/drm/WidevineMediaDrmCallback.html">import com.brightcove.player.display.WidevineMediaDrmCallback;
 
 Video video = Video.createVideo("https://storage.googleapis.com/wvmedia/cenc/h264/tears/tears.mpd");
 video.getProperties().put(WidevineMediaDrmCallback.DEFAULT_URL, "https://proxy.uat.widevine.com/proxy?video_id=&amp;provider=widevine_test");
@@ -1206,27 +374,27 @@ brightcoveVideoView.start();</a></code></pre>
 <section class="bcls-section">
 <h2 id="Methods_synchronous_or_asynchronous">Methoden: synchron oder asynchron?</h2>
 
-<p>Hier sind einige der asynchronen Methoden, die im Native Player SDK für Android zu finden sind:</p>
+<p>Hier sind einige der asynchronen Methoden im Native Player SDK für Android:</p>
 
 <ul>
-	<li>Das <a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/view/BaseVideoView.html#start()"><code translate="No">start()</code></a> , <a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/event/EventType.html#SEEK_TO"><code translate="No">seekTo()</code></a> und <a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/view/BaseVideoView.html#stopPlayback()"><code translate="No">stopPlayback()</code></a> Methoden sind asynchron, da sie ein Ereignis ausgeben, das von anderen Komponenten im System verarbeitet werden soll.</li>
-	<li>Die <a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/view/BaseVideoView.html#clear()"><code translate="No">clear()</code></a> Methode ist synchron in Bezug auf die Aktualisierung der Liste, ist jedoch asynchron in Bezug auf das Entladen des aktuellen Videos.</li>
+	<li>Die <a href="/android/reference/javadoc/com/brightcove/player/view/BaseVideoView.html#start()"><code translate="No">start()</code></a> , <a href="/android/reference/javadoc/com/brightcove/player/event/EventType.html#SEEK_TO"><code translate="No">seekTo()</code></a> und <a href="/android/reference/javadoc/com/brightcove/player/view/BaseVideoView.html#stopPlayback()"><code translate="No">stopPlayback()</code></a> Methoden sind asynchron, weil sie ein Ereignis ausgeben, das andere Komponenten im System verarbeiten müssen.</li>
+	<li>Die <a href="/android/reference/javadoc/com/brightcove/player/view/BaseVideoView.html#clear()"><code translate="No">clear()</code></a> -Methode ist synchron in Bezug auf das Aktualisieren der Liste, aber asynchron in Bezug auf das Entladen des aktuellen Videos.</li>
 </ul>
 </section>
 
 <section class="bcls-section">
-<h2 id="Mute_unmute_the_player">Stummschalten/Stummschaltung</h2>
+<h2 id="Mute_unmute_the_player">Stummschaltung/Aufhebung der Stummschaltung des Players</h2>
 
-<p>Du kannst den Spieler programmatisch stummschalten oder die Stummschaltung aufheben. Brightcove empfiehlt, das BrightcoveExoplayerVideoView wann immer möglich zu verwenden.</p>
+<p>Sie können den Player programmgesteuert stummschalten oder die Stummschaltung aufheben. Brightcove empfiehlt, nach Möglichkeit BrightcoveExoPlayerVideoView zu verwenden.</p>
 
-<aside class="bcls-aside bcls-aside--information">Sie müssen entweder auf das Ereignis <code translate="No">DID_SET_VIDEO</code> oder das <code translate="No">DID_PLAY</code> Ereignis warten, bevor Sie den Code ausführen, um den Spieler stummzuschalten. Andernfalls wird die Stummschaltung nicht wirksam. Der Grund, auf diese Ereignisse zu warten, ist, dass der Player beim Laden des Videos erstellt wird.</aside>
+<aside class="bcls-aside bcls-aside--information">Sie müssen entweder auf die <code translate="No">DID_SET_VIDEO</code> oder der <code translate="No">DID_PLAY</code> -Ereignis, bevor Sie den Code zum Stummschalten des Players ausführen. Andernfalls wird die Stummschaltung nicht wirksam. Der Grund, auf diese Ereignisse zu warten, besteht darin, dass der Player erstellt wird, wenn das Video geladen wird.</aside>
 
-<h3 id="BrightcoveExoPlayerVideoView">brightcoveExoplayerVideoView</h3>
+<h3 id="BrightcoveExoPlayerVideoView">BrightcoveExoPlayerVideoView</h3>
 
-<p>Wenn Sie <a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/view/BrightcoveExoPlayerVideoView.html">BrightcoveExoPlayerVideoView</a> verwenden, können Sie den Player programmgesteuert stummschalten oder die Stummschaltung aufheben, indem Sie Folgendes tun:</p>
+<p>Bei Verwendung des <a href="/android/reference/javadoc/com/brightcove/player/view/BrightcoveExoPlayerVideoView.html">BrightcoveExoPlayerVideoView</a> , können Sie den Player wie folgt programmgesteuert stummschalten oder die Stummschaltung aufheben:</p>
 
 <pre class="line-numbers">
-<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/event/EventType.html#SET_VOLUME">float volume = 100F;
+<code class="language-java" translate="No"><a href="/android/reference/javadoc/com/brightcove/player/event/EventType.html#SET_VOLUME">float volume = 100F;
 ...
 brightcoveVideoView.getEventEmitter().on(EventType.DID_SET_VIDEO, new EventListener() {
   @Override
@@ -1243,14 +411,14 @@ private void setMute(boolean mute) {
   brightcoveVideoView.getEventEmitter().emit(EventType.SET_VOLUME, properties);
 }</a></code></pre>
 
-<h3 id="BrightcoveVideoView">brightcoveVideoView</h3>
+<h3 id="BrightcoveVideoView">BrightcoveVideoView</h3>
 
-<aside class="bcls-aside bcls-aside--warning">Brightcove empfiehlt die Verwendung von BrightcoveExoplayerVideoView.</aside>
+<aside class="bcls-aside bcls-aside--warning">Brightcove empfiehlt die Verwendung von BrightcoveExoPlayerVideoView.</aside>
 
-<p>Wenn Sie das <a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/view/BrightcoveVideoView.html">BrightCoveVideoView</a> verwenden müssen, das den <a href="https://developer.android.com/reference/android/media/MediaPlayer.html">MediaPlayer</a> von Android verwendet, können Sie den Player mit dem folgenden Code programmgesteuert stummschalten oder die Stummschaltung aufheben:</p>
+<p>Wenn Sie die verwenden müssen <a href="/android/reference/javadoc/com/brightcove/player/view/BrightcoveVideoView.html">BrightcoveVideoView</a> , die Android verwendet <a href="https://developer.android.com/reference/android/media/MediaPlayer.html">Media Player</a> , können Sie den Player mit dem folgenden Code programmgesteuert stummschalten oder die Stummschaltung aufheben:</p>
 
 <pre class="line-numbers">
-<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/event/EventType.html#SET_VOLUME">float volume = 1F;
+<code class="language-java" translate="No"><a href="/android/reference/javadoc/com/brightcove/player/event/EventType.html#SET_VOLUME">float volume = 1F;
 ...
 brightcoveVideoView.getEventEmitter().on(EventType.DID_SET_VIDEO, new EventListener() {
   @Override
@@ -1270,44 +438,46 @@ private void setMute(boolean mute) {
 </section>
 
 <section class="bcls-section">
-<h2 id="Offline_playback_with_DRM">Offline Wiedergabe mit DRM</h2>
+<h2 id="Offline_playback_with_DRM">Offline-Wiedergabe mit DRM</h2>
 
-<p>Bei Videos, die für die Offline-Wiedergabe heruntergeladen wurden, kann der Downloadstatus auch im Benachrichtigungsbereich angezeigt werden. Der Titel der Benachrichtigung ist auf den Videotitel festgelegt. Die Benachrichtigung wird entfernt, wenn der Download pausiert oder abgebrochen wird.</p>
+<p>Bei Videos, die für die Offline-Wiedergabe heruntergeladen wurden, kann der Download-Status auch im Benachrichtigungsbereich angezeigt werden. Der Benachrichtigungstitel wird auf den Videotitel eingestellt. Die Benachrichtigung wird entfernt, wenn der Download angehalten oder abgebrochen wird.</p>
 
 <table class="bcls-table">
 	<caption class="bcls-caption--table">Benachrichtigungsstatus herunterladen</caption>
 	<thead class="bcls-table__head">
 		<tr>
 			<th>Download-Status</th>
-			<th>Text zum Inhalt der Benachrichtigung</th>
-			<th>Symbol „Benachrichtigung“</th>
+			<th>Inhaltstext der Benachrichtigung</th>
+			<th>Benachrichtigungssymbol</th>
 		</tr>
 	</thead>
 	<tbody class="bcls-table__body">
 		<tr>
-			<td>Downloadvorgang</td>
-			<td><code translate="No">R.string.odrm_download_running</code> - Dies ist standardmäßig „Download...“<br/> <br/> Es wird einen Fortschrittsbalken geben, der den abgeschlossenen Prozentsatz anzeigt.</td>
-			<td>Das animierte Symbol „Herunterladen“ zur Plattform-Standardeinstellung - <code translate="No">android.R.drawable.stat_sys_download</code></td>
+			<td>wird heruntergeladen</td>
+			<td><code translate="No">R.string.odrm_download_running</code>- dies ist standardmäßig "Herunterladen..."<br />
+			<br />
+			Es wird ein Fortschrittsbalken angezeigt, der den Prozentsatz der Fertigstellung anzeigt.</td>
+			<td>Das standardmäßige animierte "Herunterladen"-Symbol der Plattform - <code translate="No">android.R.drawable.stat_sys_download</code></td>
 		</tr>
 		<tr>
-			<td>Erneut versuchen</td>
-			<td><code translate="No">R.string.odrm_download_waiting_retry</code> - das ist „Wartende Wiederholung...“ standardmäßig</td>
+			<td>Wiederholen</td>
+			<td><code translate="No">R.string.odrm_download_waiting_retry</code>- dies ist standardmäßig "Warten auf Wiederholung..."</td>
 			<td>&nbsp;</td>
 		</tr>
 		<tr>
-			<td>fehlgeschlagen</td>
-			<td><code translate="No">R.string.odrm_download_failed</code> - das ist „Failed!"“ standardmäßig</td>
+			<td>Gescheitert</td>
+			<td><code translate="No">R.string.odrm_download_failed</code>- dies ist standardmäßig "Fehlgeschlagen!"</td>
 			<td>&nbsp;</td>
 		</tr>
 		<tr>
-			<td>Abgeschlossen</td>
-			<td><code translate="No">R.string.odrm_download_complete</code> - dies ist standardmäßig „Gespeichert“</td>
-			<td>Das statische Symbol „heruntergeladen“ des Plattform-Standardsymbols - <code translate="No">android.R.drawable.stat_sys_download_done</code></td>
+			<td>Vollendet</td>
+			<td><code translate="No">R.string.odrm_download_complete</code>- dies ist standardmäßig "Gespeichert"</td>
+			<td>Das plattformstandardmäßige statische Symbol "heruntergeladen" - <code translate="No">android.R.drawable.stat_sys_download_done</code></td>
 		</tr>
 	</tbody>
 </table>
 
-<p>Für den Status „Wiederholen“ oder „Fehlgeschlagen“ wird der Benachrichtigungs-Subtext auf eine geeignete Ressource basierend auf dem Fehlertyp festgelegt. Hier ist die vollständige Liste:</p>
+<p>Für den Status „Wiederholen“ oder „Fehlgeschlagen“ wird der Benachrichtigungsuntertext basierend auf dem Fehlertyp auf eine geeignete Ressource gesetzt. Hier ist die vollständige Liste:</p>
 
 <ul>
 	<li><code translate="No">R.string.odrm_error_none</code></li>
@@ -1324,21 +494,21 @@ private void setMute(boolean mute) {
 </section>
 
 <section class="bcls-section">
-<h2 id="Paging_with_the_Playback_API">Paging mit der Playback-API</h2>
+<h2 id="Paging_with_the_Playback_API">Paging mit der Playback API</h2>
 
-<p>Wenn Sie Ihre Video Cloud-Inhalte von der Playback-API abrufen, können Sie Paging für eine Playlist implementieren.</p>
+<p>Beim Abrufen Ihres Video Cloud-Inhalts von der Wiedergabe-API können Sie das Paging für eine Wiedergabeliste implementieren.</p>
 
-<p>Um eine Reihe von Videos in einer Wiedergabeliste zu blättern, verwenden Sie die folgenden Anforderungs-URL-Parameter:</p>
+<p>Um durch eine Reihe von Videos in einer Playlist zu blättern, verwenden Sie die folgenden Anforderungs-URL-Parameter:</p>
 
 <ul>
-	<li><code translate="No"><a href="https://apis.support.brightcove.com/playback/getting-started/overview-playback-api.html#playlistRequests">limit</a></code> - definiert die Anzahl der Videos, die von der Playback-API zurückgegeben werden sollen</li>
-	<li><code translate="No"><a href="https://apis.support.brightcove.com/playback/getting-started/overview-playback-api.html#playlistRequests">offset</a></code> - legt die Anzahl der Videos fest, die in einer Playlist aus der Playback-API übersprungen werden sollen</li>
+	<li><code translate="No"><a href="https://apis.support.brightcove.com/playback/getting-started/overview-playback-api.html#playlistRequests">limit</a></code>- definiert die Anzahl der Videos, die von der Playback API zurückgegeben werden sollen</li>
+	<li><code translate="No"><a href="https://apis.support.brightcove.com/playback/getting-started/overview-playback-api.html#playlistRequests">offset</a></code>- legt die Anzahl der zu überspringenden Videos in einer Playlist über die Playback API fest</li>
 </ul>
 
-<p>Die Abfrageparameter werden als <code translate="No">Map</code> Objekt als Schlüssel-Wert-Paare an die Catalog -Methode übergeben. In diesem Beispiel werden 6 Videos zurückgegeben, beginnend mit dem 10. Video in der Playlist:</p>
+<p>Die Abfrageparameter werden als a . an die Methode Catalog übergeben <code translate="No">Map</code> Objekt als Schlüssel-Wert-Paare. In diesem Beispiel werden 6 Videos zurückgegeben, beginnend mit dem 10. Video in der Playlist:</p>
 
 <pre class="line-numbers">
-<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/edge/Catalog.html">Map&lt;String, String&gt; queryParameters = new HashMap&lt;&gt;();
+<code class="language-java" translate="No"><a href="/android/reference/javadoc/com/brightcove/player/edge/Catalog.html">Map&lt;String, String&gt; queryParameters = new HashMap&lt;&gt;();
 queryParameters.put("limit", "6");
 queryParameters.put("offset", "9");
 
@@ -1347,37 +517,37 @@ catalog.findPlaylistByID("myPlaylistId", null, queryParameters, myListener);</a>
 </section>
 
 <section class="bcls-section">
-<h2 id="Playing_local_videos">Wiedergabe lokaler Videos</h2>
+<h2 id="Playing_local_videos">Lokale Videos abspielen</h2>
 
-<p>Wenn Sie MP4-Videos abspielen möchten, die lokal gespeichert sind, sollten Sie sie im Application Asset-Ordner speichern.</p>
+<p>Wenn Sie lokal gespeicherte MP4-Videos abspielen möchten, sollten Sie sie im Asset-Ordner der Anwendung speichern.</p>
 
 <pre class="line-numbers">
-<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/model/Video.html">Uri video = Uri.parse("file:///android_asset/path/to/video.mp4");
+<code class="language-java" translate="No"><a href="/android/reference/javadoc/com/brightcove/player/model/Video.html">Uri video = Uri.parse("file:///android_asset/path/to/video.mp4");
 brightcoveVideoView.add(Video.createVideo(video.toString()));
 brightcoveVideoView.start();</a></code></pre>
 
-<aside class="bcls-aside bcls-aside--information">Sie erhalten möglicherweise einen Ausnahmefehler, wenn Sie versuchen, MP4-Videos abzuspielen, die im Anwendungsressourcenordner (/res/raw) gespeichert sind.</aside>
+<aside class="bcls-aside bcls-aside--information">Sie erhalten möglicherweise einen Ausnahmefehler, wenn Sie versuchen, MP4-Videos abzuspielen, die im Ressourcenordner der Anwendung (/res/raw) gespeichert sind.</aside>
 </section>
 
 <section class="bcls-section">
-<h2 id="Positioning_player_controls_on_the_bottom">Positionieren der Spielersteuerung auf der Unterseite</h2>
+<h2 id="Positioning_player_controls_on_the_bottom">Positionierung der Player-Bedienelemente auf der Unterseite</h2>
 
-<p>Standardmäßig ist die Steuerungsleiste des Players direkt unter dem Video positioniert, wie hier gezeigt:</p>
+<p>Standardmäßig befindet sich die Player-Steuerungsleiste direkt unter dem Video, wie hier gezeigt:</p>
 
-<figure class="bcls-figure"><img class="bcls-image--no-border" alt="Player-Steuerung unter Video" src="//learning-services-media.brightcove.com/doc-assets/device-sdks/android/snippets/player-controls-video.png"/>
+<figure class="bcls-figure"><img class="bcls-image--no-border" alt="Player controls under video" src="//learning-services-media.brightcove.com/doc-assets/device-sdks/android/snippets/player-controls-video.png" />
 <figcaption class="bcls-caption--image">Player-Steuerung unter Video</figcaption>
 </figure>
 
-<p>Sie können die Steuerungsleiste des Players auch so positionieren, dass sie sich am unteren Rand der Videoansicht befindet. Da die Steuerelemente Teil des sind <code translate="No">BrightcoveVideoView</code>, deckt die Ansicht durch Festlegen der Höhe auf den gesamten Bildschirm ab. <code translate="No">match_parent</code>  Wenn die Steuerelemente unten in der Ansicht angezeigt werden, bleibt das Video in der Mitte der Ansicht.</p>
+<p>Sie können die Player-Steuerungsleiste auch so positionieren, dass sie sich unten in der Videoansicht befindet. Denn die Steuerung ist Teil der <code translate="No">BrightcoveVideoView</code> , indem Sie die Höhe auf einstellen <code translate="No">match_parent</code> , wird die Ansicht den gesamten Bildschirm umfassen. Wenn die Steuerelemente unten in der Ansicht angezeigt werden, bleibt das Video in der Mitte der Ansicht.</p>
 
-<figure class="bcls-figure"><img class="bcls-image--no-border" alt="Spieler kontrolliert den Boden" src="//learning-services-media.brightcove.com/doc-assets/device-sdks/android/snippets/player-controls-bottom.png"/>
-<figcaption class="bcls-caption--image">Player steuert den unteren Teil der Videoansicht</figcaption>
+<figure class="bcls-figure"><img class="bcls-image--no-border" alt="Player controls bottom" src="//learning-services-media.brightcove.com/doc-assets/device-sdks/android/snippets/player-controls-bottom.png" />
+<figcaption class="bcls-caption--image">Player steuert den unteren Rand der Videoansicht</figcaption>
 </figure>
 
 <p>Es gibt zwei Möglichkeiten, dies zu tun. Der erste Ansatz folgt:</p>
 
 <ol class="bcls-tasklist-restart">
-	<li>Öffnen Sie die Datei <strong>main/res/values/style.xml</strong> für Ihr Projekt.</li>
+	<li>Öffne das <strong>main/res/values/style.xml</strong> Datei für Ihr Projekt.</li>
 	<li>
 	<p>Fügen Sie den folgenden XML-Code hinzu:</p>
 
@@ -1388,17 +558,17 @@ brightcoveVideoView.start();</a></code></pre>
 	</li>
 </ol>
 
-<p>Oder Sie können Code in der Datei <strong>MainActivity.java</strong> wie folgt verwenden:</p>
+<p>Oder Sie können Code innerhalb der <strong>MainActivity.java</strong> Datei wie folgt:</p>
 
 <ol class="bcls-tasklist-restart">
-	<li>Öffnen Sie die Datei <strong>MainActivity.java</strong> für Ihr Projekt.</li>
+	<li>Öffne das <strong>MainActivity.java</strong> Datei für Ihr Projekt.</li>
 	<li>
-	<p>Nachdem Sie den Event-Emitter erhalten haben, wie hier gezeigt:</p>
+	<p>Nachdem Sie den Ereignissender erhalten haben, wie hier gezeigt:</p>
 
 	<pre>
 <code class="language-java" translate="No">EventEmitter eventEmitter = brightcoveVideoView.getEventEmitter();</code></pre>
 
-	<p>Fügen Sie den folgenden Ereignis-Listener und Code hinzu. Wir warten bis nach der <code translate="No">DID_SET_VIDEO</code> Veranstaltung, um sicherzustellen, dass die Steuerungsleiste erstellt wurde.</p>
+	<p>Fügen Sie den folgenden Ereignis-Listener und Code hinzu. Wir warten bis nach dem <code translate="No">DID_SET_VIDEO</code> -Ereignis, um sicherzustellen, dass die Kontrollleiste erstellt wurde.</p>
 
 	<pre class="line-numbers">
 <code class="language-java" translate="No">eventEmitter.on(EventType.DID_SET_VIDEO, new EventListener() {
@@ -1413,20 +583,20 @@ brightcoveVideoView.start();</a></code></pre>
 </section>
 
 <section class="bcls-section">
-<h2 id="Preload_IMA_ads">Vorladen von IMA-Anzeigen</h2>
+<h2 id="Preload_IMA_ads">IMA-Anzeigen vorab laden</h2>
 
-<p>Verwenden Sie die <code translate="No">setEnablePreloading(true)</code> Eigenschaft, um Anzeigen mit dem Native SDK für Android und dem IMA-Plugin vorzuladen.</p>
+<p>Um Anzeigen mit dem Native SDK für Android und dem IMA-Plug-in vorab zu laden, verwenden Sie die <code translate="No">setEnablePreloading(true)</code> Eigentum .</p>
 
-<aside class="bcls-aside bcls-aside--information">Bitte beachten Sie, dass dies nur mit einzelnen VAST Prerolls funktioniert.</aside>
+<aside class="bcls-aside bcls-aside--information">Bitte beachten Sie, dass dies nur mit einzelnen VAST-Prerolls funktioniert.</aside>
 
-<p>Um diese Eigenschaft zu nutzen, gehen Sie folgendermaßen vor:</p>
+<p>Gehen Sie folgendermaßen vor, um diese Eigenschaft zu verwenden:</p>
 
 <ol class="bcls-tasklist-restart">
 	<li>
-	<p>Der Ausgangspunkt ist die <a href="https://github.com/BrightcoveOS/android-player-samples/tree/master/brightcove-exoplayer/AdRulesIMASampleApp">IMA-Beispiel-App</a>.</p>
+	<p>Ausgangspunkt ist die <a href="https://github.com/BrightcoveOS/android-player-samples/tree/master/brightcove-exoplayer/AdRulesIMASampleApp">IMA-Beispiel-App</a>.</p>
 	</li>
 	<li>
-	<p>Lokalisieren Sie die <code translate="No">private void setupGoogleIMA()</code> Funktion.</p>
+	<p>Suchen Sie die <code translate="No">private void setupGoogleIMA()</code> Funktion.</p>
 	</li>
 	<li>
 	<p>Fügen Sie den Snippet-Codeblock vor der letzten Codezeile der Funktion hinzu.</p>
@@ -1438,44 +608,42 @@ ImaSdkFactory.getInstance().createAdsRenderingSettings();
 adsRenderingSettings.setEnablePreloading(true);</code></pre>
 	</li>
 	<li>
-	<p>Fügen Sie den <code translate="No">adsRenderingSettings</code> Parameter zur letzten Codezeile hinzu.</p>
+	<p>Ergänzen Sie die <code translate="No">adsRenderingSettings</code> Parameter bis zur letzten Codezeile.</p>
 
 	<pre>
 <code class="language-java" translate="No">googleIMAComponent = new GoogleIMAComponent(brightcoveVideoView, eventEmitter, true, adsRenderingSettings);</code></pre>
 	</li>
 </ol>
 
-<h2 id="Seek_without_ads">Sucht ohne Werbung</h2>
+<h2 id="Seek_without_ads">Suche ohne Werbung</h2>
 
-<p>Sie können die <code translate="No">adsDisabled</code> Eigenschaft für den verwenden <code translate="No">VideoPlaybackController</code> , um die Anzeigenwiedergabe zu deaktivieren, während Sie ein Video durchsuchen.</p>
+<p>Du kannst den ... benutzen <code translate="No">adsDisabled</code> Eigentum für die <code translate="No">VideoPlaybackController</code> um die Anzeigenwiedergabe zu deaktivieren, während Sie ein Video durchsuchen.</p>
 
-<aside class="bcls-aside bcls-aside--tip">
-  Diese Funktion funktioniert für alle Brightcove-Anzeigen-Plugins, einschließlich SSAI und solche für CSAI. Einzelheiten zum Plugin finden Sie im Abschnitt <a href="https://sdks.support.brightcove.com/android/basics/overview-brightcove-player-sdk-android.html#Integrations">Native SDK für Android-Integrationen</a> .
-</aside>
+<aside class="bcls-aside bcls-aside--tip"> Diese Funktion funktioniert mit allen Brightcove-Anzeigen-Plugins, einschließlich SSAI und denen für CSAI. Weitere Informationen zu Plugins finden Sie im <a href="https://sdks.support.brightcove.com/android/basics/overview-brightcove-player-sdk-android.html#Integrations">Natives SDK für Android-Integrationen</a> Sektion. </aside>
 <!-- <aside class="bcls-aside bcls-aside--information">
 <ul>
 	<li>As of the Native SDK for Android v4.10.0, this feature is also supported with the FreeWheel plugin.</li>
 </ul>
 </aside> -->
 
-<p>Um diese Funktion zu nutzen, gehen Sie folgendermaßen vor:</p>
+<p>Gehen Sie folgendermaßen vor, um diese Funktion zu verwenden:</p>
 
 <ol class="bcls-tasklist-restart">
 	<li>
-	<p>Holen Sie sich die <code translate="No">VideoPlaybackController</code> Instance aus dem <code translate="No">BrightcoveVideoView</code>.</p>
+	<p>Bekommen das <code translate="No">VideoPlaybackController</code> Instanz aus dem <code translate="No">BrightcoveVideoView</code>.</p>
 
 	<pre class="line-numbers" data-start="1">
 <code class="language-java" translate="No">VideoPlaybackController playbackController = brightcoveVideoView.getPlaybackController();</code></pre>
 	</li>
 	<li>
-	<p>Deaktivieren Sie die Anzeigenwieder</p>
+	<p>Deaktivieren Sie die Anzeigenwiedergabe.</p>
 
 	<pre class="line-numbers" data-start="1">
 <code class="language-java" translate="No">playbackController.setAdsDisabled(true);</code></pre>
 	</li>
-	<li>Suche nach der gewünschten Zeitposition im aktuellen Video.</li>
+	<li>Suchen Sie die gewünschte Zeitposition im aktuellen Video.</li>
 	<li>
-	<p>Setzen Sie das normale Anzeigenverhalten wieder auf</p>
+	<p>Setzen Sie das normale Anzeigenverhalten fort.</p>
 
 	<pre class="line-numbers" data-start="1">
 <code class="language-java" translate="No">playbackController.setAdsDisabled(false);</code></pre>
@@ -1503,24 +671,24 @@ eventEmitter.on(EventType.DID_SEEK_TO, new EventListener() {
 </section>
 
 <section class="bcls-section">
-<h2 id="Setting_the_buffer_size">Einstellen der Puffergröße</h2>
+<h2 id="Setting_the_buffer_size">Puffergröße einstellen</h2>
 
-<p>Sie können erwägen, die Pufferlänge zu erhöhen, um die Pufferung im Player zu vermeiden, wenn sich die Bereitstellung des nächsten Segments vom CDN verzögert. Möglicherweise können Sie jedoch nicht manuell etwas Besseres machen, als HLS es bereits tut.</p>
+<p>Sie können in Erwägung ziehen, die Pufferlänge zu erhöhen, um die Pufferung im Player zu vermeiden, wenn die Lieferung des nächsten Segments vom CDN verzögert wird. Möglicherweise können Sie jedoch manuell nichts Besseres tun, als HLS bereits tut.</p>
 
-<p>HLS wurde entwickelt, um sofort zu spielen und Qualität zu verlieren, wenn es nicht mithalten kann. Auf diese Weise muss kein Puffer vorgeladen werden. Wenn es nicht mithalten kann, wird es so viel wie möglich vom Video in bester Qualität geladen, um eine Unterbrechung zu verhindern.</p>
+<p>HLS ist darauf ausgelegt, sofort zu spielen und die Qualität zu verlieren, wenn es nicht mithalten kann. Auf diese Weise muss kein Puffer vorab geladen werden. Wenn es nicht mithalten kann, lädt es so viel wie möglich vom Video in bester Qualität, um Unterbrechungen zu vermeiden.</p>
 
-<p>Beginnend mit dem Native SDK für Android v6.3.1 wurden dem SDK die folgenden Klassen für die Implementierung von ExoPlayer 2 hinzugefügt:</p>
+<p>Beginnend mit dem Native SDK für Android v6.3.1 wurden dem SDK für die ExoPlayer 2-Implementierung die folgenden Klassen hinzugefügt:</p>
 
 <ul>
 	<li><code translate="No">LoadControlConfig</code></li>
 	<li><code translate="No">AllocatorConfig</code></li>
 </ul>
 
-<p>Die in diesen Klassen festgelegten Werte werden verwendet, um das <code translate="No">DefaultLoadControl</code> ExoPlayer-Objekt zu erstellen, das zum Erstellen der ExoPlayer-Instanz verwendet wird. Entwickler können die Puffergröße wie folgt steuern:</p>
+<p>Die in diesen Klassen festgelegten Werte werden verwendet, um den ExoPlayer . zu erstellen <code translate="No">DefaultLoadControl</code> -Objekt, das zum Erstellen der ExoPlayer-Instanz verwendet wird. Entwickler können die Puffergröße wie folgt steuern:</p>
 
 <ol class="bcls-tasklist-restart">
 	<li>
-	<p>Das <code translate="No">LoadControlConfig</code> und <code translate="No">AllocatorConfig</code> Klassen folgen den Builder-Mustern. Die Werte, die Sie in beiden Klassen festlegen können, spiegeln die Werte wider, die Sie in ihren Konstruktoren festlegen können.</p>
+	<p>Die <code translate="No">LoadControlConfig</code> und <code translate="No">AllocatorConfig</code> Klassen folgen den Builder-Mustern. Werte, die Sie in beiden Klassen festlegen können, spiegeln die Werte wider, die Sie in ihren Konstruktoren festlegen können.</p>
 
 	<pre class="line-numbers">
 <code class="language-java" translate="No">AllocatorConfig allocatorConfig = new AllocatorConfig.Builder().build();
@@ -1531,7 +699,7 @@ LoadControlConfig loadControlConfig = new LoadControlConfig.Builder()
 .build();</code></pre>
 	</li>
 	<li>
-	<p>Werte, die nicht im Builder festgelegt sind, verwenden Standardwerte. Verwenden Sie die <code translate="No">ExoPlayerVideoDisplayerComponent.setLoadControlConfig()</code> Methode, um den festzulegen <code translate="No">LoadControlConfig</code>.</p>
+	<p>Werte, die nicht im Builder festgelegt sind, verwenden Standardwerte. Verwenden Sie die <code translate="No">ExoPlayerVideoDisplayerComponent.setLoadControlConfig()</code> Methode zum Einstellen der <code translate="No">LoadControlConfig</code>.</p>
 
 	<pre class="line-numbers">
 <code class="language-java" translate="No">brightcoveVideoView = (BrightcoveExoPlayerVideoView) findViewById(R.id.brightcove_video_view);
@@ -1542,24 +710,24 @@ dc.setLoadControlConfig(loadControlConfig);</code></pre>
 </ol>
 <!-- <p>That being said, if you are using the ExoPlayer 1 implementation, you can control the following:</p>
 
-<aside class="bcls-aside bcls-aside--warning">The following methods are only available with the ExoPlayer 1 implementation. These methods are deprecated with the ExoPlayer 2 implementation. For details, see the <a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/display/ExoPlayerVideoDisplayComponent.html">ExoPlayerVideoDisplayComponent class</a> reference.</aside>
+<aside class="bcls-aside bcls-aside--warning">The following methods are only available with the ExoPlayer 1 implementation. These methods are deprecated with the ExoPlayer 2 implementation. For details, see the <a href="/android/reference/javadoc/com/brightcove/player/display/ExoPlayerVideoDisplayComponent.html">ExoPlayerVideoDisplayComponent class</a> reference.</aside>
 
 <ul>
-<li><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/display/ExoPlayerVideoDisplayComponent.html"><code translate="No">minBufferDurationToSwitchUp</code></a></li>
-<li><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/display/ExoPlayerVideoDisplayComponent.html"><code translate="No">maxBufferDurationToSwitchDown</code></a></li>
-<li><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/display/ExoPlayerVideoDisplayComponent.html"><code translate="No">minBufferMs</code></a></li>
-<li><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/display/ExoPlayerVideoDisplayComponent.html"><code translate="No">minRebufferMs</code></a></li>
+<li><a href="/android/reference/javadoc/com/brightcove/player/display/ExoPlayerVideoDisplayComponent.html"><code translate="No">minBufferDurationToSwitchUp</code></a></li>
+<li><a href="/android/reference/javadoc/com/brightcove/player/display/ExoPlayerVideoDisplayComponent.html"><code translate="No">maxBufferDurationToSwitchDown</code></a></li>
+<li><a href="/android/reference/javadoc/com/brightcove/player/display/ExoPlayerVideoDisplayComponent.html"><code translate="No">minBufferMs</code></a></li>
+<li><a href="/android/reference/javadoc/com/brightcove/player/display/ExoPlayerVideoDisplayComponent.html"><code translate="No">minRebufferMs</code></a></li>
 </ul>
 
 <p>For example, if you want to set the buffer length to 120 seconds, you could set <code translate="No">minBufferMs</code> to <code translate="No">120 * 1000</code>.</p> --></section>
 
 <section class="bcls-section">
-<h2 id="Setting_captions_and_themes">Festlegen von Untertiteln und Themen</h2>
+<h2 id="Setting_captions_and_themes">Bildunterschriften und Themen festlegen</h2>
 
-<p>Derzeit <a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/captioning/BrightcoveCaptionPropertiesActivity.html"><code translate="No">BrightcoveCaptionPropertiesActivity</code></a> ist der in der Manifestdatei des Brightcove Player SDK festgelegt, sodass Entwickler es nicht in ihren Anwendungen angeben müssen:</p>
+<p>Derzeit ist die <a href="/android/reference/javadoc/com/brightcove/player/captioning/BrightcoveCaptionPropertiesActivity.html"><code translate="No">BrightcoveCaptionPropertiesActivity</code></a> wird in der Manifestdatei des Brightcove Player SDK festgelegt, sodass Entwickler sie nicht in ihren Anwendungen angeben müssen:</p>
 
 <pre class="line-numbers">
-<code class="language-xml" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/captioning/BrightcoveCaptionPropertiesActivity.html">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+<code class="language-xml" translate="No"><a href="/android/reference/javadoc/com/brightcove/player/captioning/BrightcoveCaptionPropertiesActivity.html">&lt;?xml version="1.0" encoding="utf-8"?&gt;
 &lt;manifest
 xmlns:android="http://schemas.android.com/apk/res/android"
 package="com.brightcove.player"
@@ -1573,25 +741,25 @@ android:versionName="1.0"&gt;
 &lt;/application&gt;
 &lt;/manifest&gt;</a></code></pre>
 
-<p>Der <a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/captioning/BrightcoveCaptionPropertiesActivity.html"><code translate="No">BrightcoveCaptionPropertiesActivity</code></a> erbt das Standardthema der Plattform, solange Sie Themen für Ihre App auf der <code translate="No">&lt;activity&gt;</code> Ebene im Manifest Ihrer App festlegen.</p>
+<p>Die <a href="/android/reference/javadoc/com/brightcove/player/captioning/BrightcoveCaptionPropertiesActivity.html"><code translate="No">BrightcoveCaptionPropertiesActivity</code></a> erbt das Standarddesign der Plattform, solange Sie Designs für Ihre App am <code translate="No">&lt;activity&gt;</code> Ebene im Manifest Ihrer App.</p>
 
-<p>Wenn Sie ein einzelnes App-Design auf der <code translate="No">&lt;application&gt;</code> Ebene festlegen, erbt der <a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/captioning/BrightcoveCaptionPropertiesActivity.html"><code translate="No">BrightcoveCaptionPropertiesActivity</code></a> die Eigenschaften dieses Themas auf Anwendungsebene. Bei einigen Themen kann dies dazu führen, dass die Aktivität seltsam gestylt oder sogar unleserlich aussieht.</p>
+<p>Wenn Sie ein einzelnes App-Theme im <code translate="No">&lt;application&gt;</code> Ebene, dann die <a href="/android/reference/javadoc/com/brightcove/player/captioning/BrightcoveCaptionPropertiesActivity.html"><code translate="No">BrightcoveCaptionPropertiesActivity</code></a> erbt die Eigenschaften dieses Themas auf Anwendungsebene. Bei einigen Themen kann dies dazu führen, dass die Aktivität seltsam gestylt oder sogar unleserlich aussieht.</p>
 
-<p>In diesen Fällen sollten Sie das <a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/captioning/BrightcoveCaptionPropertiesActivity.html"><code translate="No">BrightcoveCaptionPropertiesActivity</code></a> in Ihrem eigenen Manifest angeben und dort ein Thema anwenden, wie folgt:</p>
+<p>In diesen Fällen sollten Sie die <a href="/android/reference/javadoc/com/brightcove/player/captioning/BrightcoveCaptionPropertiesActivity.html"><code translate="No">BrightcoveCaptionPropertiesActivity</code></a> in Ihrem eigenen Manifest und wenden Sie dort ein Thema an, etwa so:</p>
 
 <pre class="line-numbers">
-<code class="language-xml" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/captioning/BrightcoveCaptionPropertiesActivity.html">&lt;activity
+<code class="language-xml" translate="No"><a href="/android/reference/javadoc/com/brightcove/player/captioning/BrightcoveCaptionPropertiesActivity.html">&lt;activity
 <span class="bcls-highlight">android:name="com.brightcove.player.captioning.BrightcoveCaptionPropertiesActivity"</span>
 android:theme="@style/MyCustomCaptionSettingsTheme"/&gt;</a></code></pre>
 </section>
 
 <section class="bcls-section">
-<h2 id="Setting_default_captions">Festlegen von Standardbeschriftungen</h2>
+<h2 id="Setting_default_captions">Festlegen von Standarduntertiteln</h2>
 
-<p>Wenn Ihr Video mehrere Sprachunterschriften verwendet, können Sie beim Start der Wiedergabe programmgesteuert eine Standardsprache festlegen. Ihr Code sollte ähnlich wie folgt aussehen:</p>
+<p>Wenn Ihr Video Untertitel in mehreren Sprachen verwendet, können Sie beim Starten der Wiedergabe programmgesteuert eine Standardsprache festlegen. Ihr Code sollte ungefähr so aussehen:</p>
 
 <pre class="line-numbers">
-<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/view/BaseVideoView.html#setSubtitleLocale(java.lang.String)">brightcoveVideoView.getEventEmitter().once(EventType.CAPTIONS_LANGUAGES, new EventListener() {
+<code class="language-java" translate="No"><a href="/android/reference/javadoc/com/brightcove/player/view/BaseVideoView.html#setSubtitleLocale(java.lang.String)">brightcoveVideoView.getEventEmitter().once(EventType.CAPTIONS_LANGUAGES, new EventListener() {
   @Override
   public void processEvent(Event event) {
     brightcoveVideoView.setClosedCaptioningEnabled(true);
@@ -1601,18 +769,18 @@ android:theme="@style/MyCustomCaptionSettingsTheme"/&gt;</a></code></pre>
 </section>
 
 <section class="bcls-section">
-<h2 id="Setting_the_peak_bitrate">Festlegen der Peak-Bitrate</h2>
+<h2 id="Setting_the_peak_bitrate">Einstellen der Spitzenbitrate</h2>
 
-<p>Um Ihnen bei der Implementierung eines Bitraten-Selektors in Ihrem Player zu helfen, können Sie den folgenden Code verwenden, um die Spitzenbitrate festzulegen:</p>
+<p>Um Ihnen bei der Implementierung einer Bitratenauswahl in Ihrem Player zu helfen, können Sie den folgenden Code verwenden, um die Spitzenbitrate festzulegen:</p>
 
 <pre class="line-numbers">
-<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/display/ExoPlayerVideoDisplayComponent.html#setPeakBitrate-int-">((ExoPlayerVideoDisplayComponent) videoView.getVideoDisplay()).setPeakBitrate(bitRate);</a></code></pre>
+<code class="language-java" translate="No"><a href="/android/reference/javadoc/com/brightcove/player/display/ExoPlayerVideoDisplayComponent.html#setPeakBitrate-int-">((ExoPlayerVideoDisplayComponent) videoView.getVideoDisplay()).setPeakBitrate(bitRate);</a></code></pre>
 </section>
 
 <section class="bcls-section">
 <h2 id="Setting_the_playback_rate">Einstellen der Wiedergaberate</h2>
 
-<p>Der ExoPlayer unterstützt die Anpassung der Wiedergabegeschwindigkeit für auf Android-Geräten wiedergeworf Einzelheiten finden Sie im Dokument <a href="https://medium.com/google-exoplayer/variable-speed-playback-with-exoplayer-e6e6a71e0343">Wiedergabe mit variabler Geschwindigkeit von Google mit ExoPlayer</a> .</p>
+<p>Der ExoPlayer unterstützt die Anpassung der Wiedergabegeschwindigkeit für Videos, die auf Android-Geräten abgespielt werden. Weitere Informationen finden Sie in Googles <a href="https://medium.com/google-exoplayer/variable-speed-playback-with-exoplayer-e6e6a71e0343">Wiedergabe mit variabler Geschwindigkeit mit ExoPlayer</a> dokumentieren.</p>
 
 <p>Sie können die Wiedergabegeschwindigkeit mit dem folgenden Code steuern:</p>
 
@@ -1630,18 +798,18 @@ android:theme="@style/MyCustomCaptionSettingsTheme"/&gt;</a></code></pre>
     exoPlayer.setPlaybackParameters(param);
   }
 });</code></pre>
-<aside class="bcls-aside bcls-aside--information">Einzelheiten zum Erstellen einer Steuerungstaste für die Wiedergaberate finden Sie in der <a href="https://github.com/BrightcoveOS/android-player-samples/tree/master/brightcove-player-controls/CustomizedControlsSampleApp">Beispiel-App für benutzerdefinierte Steuerungen</a>.</aside>
+<aside class="bcls-aside bcls-aside--tip">Um zu erfahren, wie Zuschauer ein Menü anzeigen, um eine Wiedergaberate auszuwählen, lesen Sie die <a href="/android/playback/setting-playback-speed-android.html">Einstellen der Wiedergabegeschwindigkeit auf Android-Geräten</a> dokumentieren.</aside>
 </section>
 
 <section class="bcls-section">
-<h2 id="Setting_VR_Goggles_mode_for_360_videos">Einstellen des VR-Schutzbrillen-Modus für 360°-Videos</h2>
+<h2 id="Setting_VR_Goggles_mode_for_360_videos">Einstellen des VR-Brillenmodus für 360°-Videos</h2>
 
-<p>Wenn Sie ein 360°-Video abspielen, können Benutzer die Taste Video 360 in der Steuerungsleiste auswählen, um in den VR-Goggle-Modus zu wechseln. Wenn Sie entweder die verwenden <code translate="No">BrightcovePlayer</code> oder <code translate="No">BrightcovePlayerFragment</code> Wenn der VR-Schutzbrillenmodus aktiviert ist, ändert sich die Bildschirmausrichtung in Querformat.</p>
+<p>Beim Abspielen eines 360°-Videos können Benutzer die Schaltfläche Video 360 in der Steuerleiste auswählen, um in den VR-Brillenmodus zu wechseln. Wenn Sie entweder die <code translate="No">BrightcovePlayer</code> oder <code translate="No">BrightcovePlayerFragment</code> Aktivität, dann ändert sich die Bildschirmausrichtung ins Querformat, wenn der VR-Brillenmodus aktiviert ist.</p>
 
 <p>Wenn Sie eine benutzerdefinierte Aktivität verwenden, müssen Sie Folgendes hinzufügen:</p>
 
 <pre class="line-numbers">
-<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/event/Event.html#REQUESTED_ORIENTATION">brightcoveVideoView.getEventEmitter().on(EventType.CHANGE_ORIENTATION, new EventListener() {
+<code class="language-java" translate="No"><a href="/android/reference/javadoc/com/brightcove/player/event/Event.html#REQUESTED_ORIENTATION">brightcoveVideoView.getEventEmitter().on(EventType.CHANGE_ORIENTATION, new EventListener() {
   @Override
   public void processEvent(Event event) {
     int orientation = event.getIntegerProperty(Event.REQUESTED_ORIENTATION);
@@ -1649,25 +817,25 @@ android:theme="@style/MyCustomCaptionSettingsTheme"/&gt;</a></code></pre>
   }
 });</a></code></pre>
 
-<aside class="bcls-aside bcls-aside--information">In der Methode, die den obigen Code enthält, müssen Sie die Methode hinzufügen <code translate="No">@SuppressWarnings("ResourceType")</code> .</aside>
+<aside class="bcls-aside bcls-aside--information">In der Methode, die den obigen Code enthält, müssen Sie hinzufügen <code translate="No">@SuppressWarnings("ResourceType")</code> zur Methode.</aside>
 </section>
 
 <section class="bcls-section">
-<h2 id="Showing_hiding_video_still_images">Video-Stillbilder anzeigen/ausblenden</h2>
+<h2 id="Showing_hiding_video_still_images">Anzeigen/Ausblenden von Video-Standbildern</h2>
 
-<p>Das Standardverhalten beim Abrufen von Videos aus Ihrer Video Cloud-Bibliothek besteht darin, das Videostillbild anzuzeigen, bis die Wiedergabe beginnt.</p>
+<p>Das Standardverhalten beim Abrufen von Videos aus Ihrer Video Cloud-Bibliothek besteht darin, das Videostandbild anzuzeigen, bis die Wiedergabe beginnt.</p>
 
-<h3>Zeigen Sie das Video-Stilbild</h3>
+<h3>Anzeigen des Video-Standbilds</h3>
 
-<p>Sie können das Video jederzeit noch anzeigen, indem Sie ein <a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/event/EventType.html#SET_VIDEO_STILL"><code translate="No">SET_VIDEO_STILL</code></a> Ereignis mit einer <a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/event/Event.html#VIDEO_STILL"><code translate="No">VIDEO_STILL</code></a> Eigenschaft aussenden, die auf den URI des Videostums festgelegt ist.</p>
-<!-- <p>Hiding should happen automatically whenever a <a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/event/EventType.html#CUE_POINT"><code translate="No">CUE_POINT</code></a>, <a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/event/EventType.html#DID_PLAY"><code translate="No">DID_PLAY</code></a>, <a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/event/EventType.html#DID_SEEK_TO"><code translate="No">DID_SEEK_TO</code></a>, <a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/event/EventType.html#WILL_INTERRUPT_CONTENT"><code translate="No">WILL_INTERRUPT_CONTENT</code></a>, <a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/event/EventType.html#ACTIVITY_STOPPED"><code translate="No">ACTIVITY_STOPPED</code></a>, or <a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/event/EventType.html#FRAGMENT_STOPPED"><code translate="No">FRAGMENT_STOPPED</code></a> event occurs.</p> --><!-- <p>In general, we try to promote doing things via events, rather than direct method calls.</p>  -->
+<p>Sie können das Video-Standbild jederzeit anzeigen, indem Sie a <a href="/android/reference/javadoc/com/brightcove/player/event/EventType.html#SET_VIDEO_STILL"><code translate="No">SET_VIDEO_STILL</code></a> Veranstaltung mit a <a href="/android/reference/javadoc/com/brightcove/player/event/Event.html#VIDEO_STILL"><code translate="No">VIDEO_STILL</code></a> -Eigenschaft auf den URI des Videostandbilds festgelegt.</p>
+<!-- <p>Hiding should happen automatically whenever a <a href="/android/reference/javadoc/com/brightcove/player/event/EventType.html#CUE_POINT"><code translate="No">CUE_POINT</code></a>, <a href="/android/reference/javadoc/com/brightcove/player/event/EventType.html#DID_PLAY"><code translate="No">DID_PLAY</code></a>, <a href="/android/reference/javadoc/com/brightcove/player/event/EventType.html#DID_SEEK_TO"><code translate="No">DID_SEEK_TO</code></a>, <a href="/android/reference/javadoc/com/brightcove/player/event/EventType.html#WILL_INTERRUPT_CONTENT"><code translate="No">WILL_INTERRUPT_CONTENT</code></a>, <a href="/android/reference/javadoc/com/brightcove/player/event/EventType.html#ACTIVITY_STOPPED"><code translate="No">ACTIVITY_STOPPED</code></a>, or <a href="/android/reference/javadoc/com/brightcove/player/event/EventType.html#FRAGMENT_STOPPED"><code translate="No">FRAGMENT_STOPPED</code></a> event occurs.</p> --><!-- <p>In general, we try to promote doing things via events, rather than direct method calls.</p>  -->
 
-<h3>Ausblenden des Video-Stillbilds</h3>
+<h3>Ausblenden des Video-Standbilds</h3>
 
-<p>Wenn Sie das Video automatisch abspielen, möchten Sie möglicherweise das Videostillstand ausblenden. Um dies zu tun, können Sie das <code translate="No">SET_VIDEO_STILL</code> Ereignis wie folgt abhören und das Standardverhalten verhindern:</p>
+<p>Wenn Sie das Video automatisch wiedergeben, möchten Sie möglicherweise das Standbild des Videos ausblenden. Dazu können Sie auf die <code translate="No">SET_VIDEO_STILL</code> Ereignis und verhindern Sie das Standardverhalten wie folgt:</p>
 
 <pre class="line-numbers">
-<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/view/BaseVideoView.html#seekTo(int)">brightcoveVideoView.getEventEmitter().on(EventType.SET_VIDEO_STILL, new EventListener() {
+<code class="language-java" translate="No"><a href="/android/reference/javadoc/com/brightcove/player/view/BaseVideoView.html#seekTo(int)">brightcoveVideoView.getEventEmitter().on(EventType.SET_VIDEO_STILL, new EventListener() {
   @Override
   public void processEvent(Event event) {
     event.preventDefault();
@@ -1677,14 +845,14 @@ android:theme="@style/MyCustomCaptionSettingsTheme"/&gt;</a></code></pre>
 </section>
 
 <section class="bcls-section">
-<h2 id="Showing_player_controls">Spieler-Steuerung</h2>
+<h2 id="Showing_player_controls">Player-Steuerelemente anzeigen</h2>
 
-<p>Standardmäßig werden die Spielerkontrollen nach einigen Sekunden verschwinden. Der Benutzer kann die Steuerung anzeigen, indem er auf das Video tippt.</p>
+<p>Standardmäßig werden die Player-Steuerelemente nach einigen Sekunden ausgeblendet. Der Benutzer kann die Steuerelemente anzeigen, indem er auf das Video tippt.</p>
 
-<p>Wenn Sie möchten, dass die Player-Steuerelemente angezeigt bleiben, bis der Benutzer auf das Video tippt, können Sie die automatische Ausblende wie folgt deaktivieren: (Der benötigte Code wird hervorgehoben)</p>
+<p>Wenn Sie möchten, dass die Player-Steuerelemente angezeigt werden, bis der Benutzer auf das Video tippt, können Sie das automatische Ausblenden wie folgt deaktivieren: (der benötigte Code ist markiert)</p>
 
 <pre class="line-numbers">
-<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/mediacontroller/BrightcoveMediaController.html">public class MainActivity extends BrightcovePlayer {
+<code class="language-java" translate="No"><a href="/android/reference/javadoc/com/brightcove/player/mediacontroller/BrightcoveMediaController.html">public class MainActivity extends BrightcovePlayer {
   <span class="bcls-highlight">private BrightcoveMediaController controller;</span>
 
   @Override
@@ -1699,12 +867,12 @@ android:theme="@style/MyCustomCaptionSettingsTheme"/&gt;</a></code></pre>
 </section>
 
 <section class="bcls-section">
-<h2 id="Starting_playback_in_the_middle_of_a_video">Starten der Wiedergabe in der Mitte eines Videos</h2>
+<h2 id="Starting_playback_in_the_middle_of_a_video">Wiedergabe mitten in einem Video starten</h2>
 
-<p>Manchmal müssen Sie möglicherweise die Wiedergabe von irgendwo in der Mitte des Videos beginnen. Um dies zu tun, können Sie <a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/view/BaseVideoView.html#seekTo(int)"><code translate="No">BrightCoveVideoView.seekTo()</code></a> vor Beginn der Wiedergabe anrufen.</p>
+<p>Manchmal müssen Sie die Wiedergabe möglicherweise irgendwo in der Mitte des Videos starten. Dazu können Sie anrufen <a href="/android/reference/javadoc/com/brightcove/player/view/BaseVideoView.html#seekTo(int)"><code translate="No">BrightCoveVideoView.seekTo()</code></a> bevor Sie die Wiedergabe starten.</p>
 
 <pre class="line-numbers">
-<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/view/BaseVideoView.html#seekTo(int)">catalog.findVideoByID(getString(R.string.videoId), new VideoListener() {
+<code class="language-java" translate="No"><a href="/android/reference/javadoc/com/brightcove/player/view/BaseVideoView.html#seekTo(int)">catalog.findVideoByID(getString(R.string.videoId), new VideoListener() {
   @Override
   public void onVideo(Video video) {
     Log.v(TAG, "onVideo: video = " + video);
@@ -1730,25 +898,25 @@ android:theme="@style/MyCustomCaptionSettingsTheme"/&gt;</a></code></pre>
 															<li></li>
 													</ul>
 
-													<p><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/view/BaseVideoView.html#setSubtitleLocale(java.lang.String)"><code data-gist-id="ac85a1305f851b406dde" data-gist-hide-footer="true" data-gist-line="115-121"></code></a></p>
+													<p><a href="/android/reference/javadoc/com/brightcove/player/view/BaseVideoView.html#setSubtitleLocale(java.lang.String)"><code data-gist-id="ac85a1305f851b406dde" data-gist-hide-footer="true" data-gist-line="115-121"></code></a></p>
 											</div>
 					-->
 
 <section class="bcls-section">
-<h2 id="Swapping_videos">Austauschen von Videos</h2>
+<h2 id="Swapping_videos">Videos austauschen</h2>
 
 <p>Dieses Beispiel zeigt einen Ansatz zum Austauschen von Videos im Player.</p>
 
-<h3>Verwenden einzelner Videos</h3>
+<h3>Einzelne Videos verwenden</h3>
 
-<p>Da die <a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/view/BaseVideoView.html#clear()"><code translate="No">clear()</code></a> Methode beim Entladen des aktuellen Videos asynchron ist, müssen Sie warten, bevor Sie dem Player ein neues Video hinzufügen. Hier sind zwei Optionen.</p>
+<p>Seit der <a href="/android/reference/javadoc/com/brightcove/player/view/BaseVideoView.html#clear()"><code translate="No">clear()</code></a> -Methode beim Entladen des aktuellen Videos asynchron ist, müssen Sie warten, bevor Sie dem Player ein neues Video hinzufügen. Hier sind zwei Möglichkeiten.</p>
 
 <ul>
 	<li>
-	<p>Da die Zeit, ein Video aus Video Cloud zu holen, die Zeit für die Aktualisierung der Wiedergabeliste in Verzug bringen sollte, können Sie Folgendes ausprobieren:</p>
+	<p>Da die Zeit zum Abrufen eines Videos von Video Cloud die Zeit zum Aktualisieren der Wiedergabeliste in den Schatten stellen sollte, können Sie Folgendes versuchen:</p>
 
 	<pre class="line-numbers">
-<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/view/BrightcoveVideoView.html">brightcoveVideoView.clear();
+<code class="language-java" translate="No"><a href="/android/reference/javadoc/com/brightcove/player/view/BrightcoveVideoView.html">brightcoveVideoView.clear();
 
 catalog.findVideoByID("123456789", new VideoListener() {
   @Override
@@ -1763,7 +931,7 @@ catalog.findVideoByID("123456789", new VideoListener() {
 	<p>Ein anderer Ansatz besteht darin, auf ein Ereignis zu warten:</p>
 
 	<pre class="line-numbers">
-<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/event/EventType.html#DID_CHANGE_LIST">catalog.findVideoByID("", new VideoListener() {
+<code class="language-java" translate="No"><a href="/android/reference/javadoc/com/brightcove/player/event/EventType.html#DID_CHANGE_LIST">catalog.findVideoByID("", new VideoListener() {
 @Override
   public void onVideo(final Video video) {
     eventEmitter.once(EventType.DID_CHANGE_LIST, new EventListener() {
@@ -1777,25 +945,25 @@ catalog.findVideoByID("123456789", new VideoListener() {
 	</li>
 </ul>
 
-<h3>Verwenden einer Playlist</h3>
+<h3>Verwenden einer Wiedergabeliste</h3>
 
-<p>Wenn Sie mit einer Wiedergabeliste arbeiten, denken Sie daran, dass durch den Aufruf der <a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/view/BaseVideoView.html#clear()"><code translate="No">clear()</code></a> Methode alle Elemente der Wiedergabeliste entfernt werden. Daher kann es zu einer <code translate="No">IndexOutOfBounds</code> Ausnahme kommen, wenn Sie versuchen, zum ersten Video in der Wiedergabeliste zu springen.</p>
+<p>Wenn Sie mit einer Playlist arbeiten, denken Sie daran, dass das Aufrufen der <a href="/android/reference/javadoc/com/brightcove/player/view/BaseVideoView.html#clear()"><code translate="No">clear()</code></a> -Methode entfernt alle Elemente der Wiedergabeliste. Sie können also eine <code translate="No">IndexOutOfBounds</code> Ausnahme beim Versuch, zum ersten Video in der Playlist zu springen.</p>
 
-<p>Stattdessen kannst du so etwas ausprobieren:</p>
+<p>Stattdessen können Sie Folgendes versuchen:</p>
 
 <pre class="line-numbers">
-<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/view/BrightcoveVideoView.html">brightcoveVideoView.pause();
+<code class="language-java" translate="No"><a href="/android/reference/javadoc/com/brightcove/player/view/BrightcoveVideoView.html">brightcoveVideoView.pause();
 brightcoveVideoView.stopPlayback();
 brightcoveVideoView.setCurrentIndex(0);</a></code></pre>
 </section>
 
 <section class="bcls-section">
-<h2 id="Switching_between_videos_in_a_playlist">Wechseln zwischen Videos in einer Playlist</h2>
+<h2 id="Switching_between_videos_in_a_playlist">Zwischen Videos in einer Playlist wechseln</h2>
 
-<p>Wenn du eine Playlist verwendest, kannst du den folgenden Code verwenden, um zwischen Videos in der Playlist zu wechseln:</p>
+<p>Wenn Sie eine Playlist verwenden, können Sie den folgenden Code verwenden, um zwischen den Videos in der Playlist zu wechseln:</p>
 
 <pre class="line-numbers">
-<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/model/Playlist.html">private void setupControls(List&lt;Video&gt; videos) {
+<code class="language-java" translate="No"><a href="/android/reference/javadoc/com/brightcove/player/model/Playlist.html">private void setupControls(List&lt;Video&gt; videos) {
   previousVideoButton = (Button) findViewById(R.id.previous_video_button);
   nextVideoButton = (Button) findViewById(R.id.next_video_button);
 
@@ -1831,158 +999,3 @@ nextVideoButton.setOnClickListener(new View.OnClickListener() {
 }</a></code></pre>
 </section>
 </article>
-
-<!-- complete bootstrap layout -->
-    </div>
-    <div class="col-sm-2 right-side-bar">
-      
-      <nav class="right-side-nav" id="right_side_nav">
-        <h6 class="toc">Inhalt der Seite</h6>
-        <ul id="in_page_nav" class="list-none"></ul>
-      </nav>
-      
-    </div>
-  </div>
-</div>
-
-<hr>
-<footer class="bcls-footer" role="contentinfo">  <div class="row">
-    <div class="region region-footer-top-center col-md-12">
-      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
-
-        <h2>Brightcove Support-Service</h2>
-
-        <ul class="menu">
-          <li>
-            <a href="https://status.brightcove.com">Systemstatus</a>
-          </li>
-          <li>
-            <a href="https://supportportal.brightcove.com/s/login/?">Kontakt mit dem Support</a>
-          </li>
-          <li>
-            <a href="https://support.brightcove.com/">DOKUMENTATION</a>
-          </li>
-        </ul>
-
-      </nav>
-      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
-
-        <h2>Schulungen</h2>
-
-        <ul class="menu">
-          <li>
-            <a href="https://studio.support.brightcove.com/training/online-training-courses.html">Online-Kurse</a>
-          </li>
-          <li>
-            <a href="https://studio.support.brightcove.com/training/register-training.html">Für einen Kurs anmelden</a>
-          </li>
-          <li>
-            <a href="https://university.brightcove.com/">Brightcove Universität</a>
-          </li>
-        </ul>
-
-      </nav>
-      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
-
-        <h2>Brightcove</h2>
-
-        <ul class="menu">
-          <li>
-            <a href="https://www.brightcove.com">brightcove.com</a>
-          </li>
-          <li>
-            <a href="https://supportportal.brightcove.com/s/login/?">Kontaktiere uns</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-  <div class="row">
-    <div class="region region-footer-bottom-center col-md-12">
-      <div class="bcls-copyright footer-menu">
-        <table>
-          <tr>
-            <td>
-              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> Brightcove Inc. Alle Rechte vorbehalten.</div>
-            </td>
-            <td><a href="https://www.brightcove.com/en/legal/privacy">Privacy</a> | <a href="https://www.brightcove.com/en/terms-and-conditions">Allgemeine Geschäftsbedingungen</a></td>
-            <td>
-              <div class="gf-links-cols footer-menu">
-                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
-                </div>
-              </div>
-            </td>
-          </tr>
-        </table>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<script>
-      
-  var searchBox = sajari.init({
-    mode: "search-box",
-    project: "1588255093746585379", // Set this to your project.
-    collection: "brightcove-documenation", // Set this to your collection.
-    instantPipeline: "autocomplete", // Pipeline used as you type
-    inputPlaceholder: "Search", // Input element placeholder
-    maxSuggestions: 5, // Maximum number of suggestions to show
-    attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
-  });
-  
-    searchBox("sub", "pipeline.search-sent", function (_, query) {
-      window.location = "/search.html?q=" + encodeURIComponent(query.q);
-    });
-  
-
-</script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/https-fix.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/setDate.js"></script>
-  
-  <script src="https://support.brightcove.com/site-assets/js/site/prism.js"></script>
-  
-  <script src="https://support.brightcove.com/site-assets/js/site/site.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/tabs.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/toc.js"></script>
-  <script src="/assets/js/sites_nav.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/bcls-utils.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/local-link-fix.js"></script>
-  <script src="/assets/js/feedback.js"></script>
-  
-  <script src="/assets/js/sajari-search-foot.js"></script>
-  
-  <!-- <script src="/assets/js/sajari-index.js"></script> -->
-  <style>
-    a.sj-paginator__page-number.sj-paginator__page-number--current.css-so0ov7 {
-      background-color: lightblue;
-    }
-    div.sj-tabs__tab {
-      margin-top: 3rem;
-      margin-left: .3rem;
-      border-top-left-radius: .4rem;
-      border-top-right-radius: .4rem;
-      background-color:#e8e8e8;
-    }
-
-    div.sj-tabs__tab.sj-tabs__tab--selected {
-      border-bottom-color: crimson;
-      background-color: #f8f8f8;
-    }
-
-    p.sj-results__result__description.css-p9jvyt {
-      font-size: 1rem;
-    }
-
-    .sj-result__text.css-31l7gp h3 {
-      color: navy;
-      font-size: 1.4rem;
-    }
-    </style>
-
-</body>
-
-</html>

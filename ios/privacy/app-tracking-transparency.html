@@ -1,0 +1,78 @@
+---
+title: 'Transparenz beim App-Tracking mit dem nativen SDK für iOS'
+description: In diesem Thema erfahren Sie, wie Sie den Datenschutz und die Datennutzung von Benutzern mit dem Brightcove Native SDK für iOS verwalten.
+parent: Privacy 
+grandparent: iOS Development
+---
+ <h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary>
+
+<section class="bcls-section">
+<h2 id="Introduction">Einführung</h2>
+<p>Mit iOS 14.5 gibt es eine neue Datenschutzfunktion namens App Tracking Transparency. Sie können diese Funktion in Ihren Apps verwenden, um Tracking-Berechtigungen von Ihren Benutzern anzufordern. Wenn Benutzer das Tracking ablehnen, kann die App die ID für Werbetreibende (IDFA) von Apple oder andere Kennungen wie gehashte E-Mail-Adressen nicht verwenden, um Daten über ihre Aktivitäten für das Anzeigen-Targeting zu teilen.</p>
+<p>Wenn Ihre App Endbenutzerdaten sammelt und an andere Unternehmen zu Tracking-Zwecken über Apps und Websites hinweg weitergibt, müssen Sie die <code translate="No">AppTrackingTransparency</code> Rahmen.</p>
+<p>Einzelheiten finden Sie unter:</p>
+<ul>
+  <li><a href="https://developer.apple.com/app-store/user-privacy-and-data-use/">Appstore: Datenschutz und Datennutzung</a></li>
+  <li><a href="https://developer.apple.com/documentation/apptrackingtransparency">Transparenz beim App-Tracking</a></li>
+  <li><a href="https://developers.google.com/interactive-media-ads/docs/sdks/ios/client-side/ios14">IMA-SDK: Aktivieren Sie SKAdNetwork, um Conversions zu verfolgen</a></li>
+  <li><a href="https://docs.invidi.com/r/INVIDI-Pulse-Documentation/Pulse-SDKs-parameter-reference">INVIDI Pulse-Dokumentation</a></li>
+</ul>
+<aside class="bcls-aside bcls-aside--tip">Die nativen SDKs für iOS und tvOS unterstützen App-Tracking-Transparenz mit dem <a href="https://sdks.support.brightcove.com/ios/basics/overview-brightcove-player-sdk-ios.html#Integrations">Brightcove IMA- und Pulse-Plug-ins</a> . </aside>
+
+</section>
+
+<section class="bcls-section">
+  <h2 id="Requirements">Anforderungen</h2>
+  <p>Die folgenden Anforderungen sind für die App-Tracking-Transparenz erforderlich:</p>
+  <h3>Plattform</h3>
+  <p>Hier die Systemvoraussetzungen:</p>
+  <ul>
+    <li>iOS oder tvOS Version 14.5 oder neuer</li>
+  </ul>
+  <h3>Natives Brightcove-SDK</h3>
+  <p>Es wird empfohlen, die neueste Version des Native SDK zu verwenden.</p>
+  <ul>
+    <li>Natives SDK für iOS oder tvOS Version 6.8.0 oder neuer</li>
+    <li>Einzelheiten finden Sie im <a href="https://github.com/brightcove/brightcove-player-sdk-ios/blob/master/CHANGELOG.md#release-680">SDK-Versionshinweise</a></li>
+  </ul>
+  
+  
+  </section>
+
+<section class="bcls-section">
+  <h2 id="Implementation">Implementierung</h2>
+  <p>Die unten aufgeführten Beispiel-Apps zeigen, wie Sie die Benachrichtigung zur App-Tracking-Transparenz anzeigen, um festzustellen, ob Ihre App die ID für Werbetreibende (IDFA) verwenden kann oder nicht.</p>
+  <ol class="bcls-tasklist">
+    <li>
+      <p>Öffnen und überprüfen Sie eine der folgenden Beispiel-Apps:</p>
+      <ul>
+        <li> BasicIMAPlayer<a href="https://github.com/BrightcoveOS/ios-player-samples/tree/master/IMA/BasicIMAPlayer"></a></li>
+        <li> BasicPulsePlayer<a href="https://github.com/BrightcoveOS/ios-player-samples/tree/b73b41833cf9b92f19a3eee5177e52912c54687b/Pulse/BasicPulsePlayer"></a></li>
+      </ul>
+    </li>
+    <li>Öffne das <code translate="No">BaseViewController</code> , und suchen Sie die <code translate="No">viewDidLoad</code> Methode.</li>
+    <li>
+      <p>Für iOS 14 überprüft das SDK den Wert von <code translate="No">ATTrackingManager.trackingAuthorizationStatus</code>. Wenn der Wert ist <code translate="No">ATTrackingManagerAuthorizationStatusAuthorized</code> , dann verwendet das SDK den IDFA.</p>
+      <pre class="line-numbers">
+<code class="language-objectivec" translate="No">if (@available(iOS 14, *))
+  {
+  __weak typeof(self) weakSelf = self;
+  [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
+      __strong typeof(weakSelf) strongSelf = weakSelf;
+      dispatch_async(dispatch_get_main_queue(), ^{
+          // Tracking authorization completed. Start loading ads here.
+          [strongSelf videoLibrary];
+          
+          [strongSelf setupPlayerView];
+          [strongSelf setupPlaybackController];
+          [strongSelf requestVideo];
+      });
+  }];</code></pre>
+    </li>
+    <li>Für ältere iOS-Versionen verwendet das SDK den Wert von <code translate="No">ASIdentifierManager.sharedManager.isAdvertisingTrackingEnabled</code> um festzustellen, ob der IDFA verwendet werden soll.</li>
+  </ol>
+  </section>
+
+</article>

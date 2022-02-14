@@ -1,0 +1,62 @@
+---
+title: HLS-Einschränkungen ohne die Native SDK-Beschreibung von Brightcove: In diesem Thema erfahren Sie mehr über die Einschränkungen bei der HLS-Wiedergabe auf Android-Geräten, wenn Sie das Native SDK für Android NICHT verwenden.
+parent: Android
+---
+ <h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary>
+
+<section class="bcls-section" id="Overview">
+<h2>Überblick</h2>
+
+<p>Das Brightcove Player SDK für Android behebt die meisten Probleme bei der HLS-Videowiedergabe auf Android-Geräten. Einzelheiten zu dieser Lösung finden Sie im <a href="/android/playback/hls-playback-native-sdk-android.html">HLS-Wiedergabe mit dem Player SDK für Android</a> dokumentieren.</p>
+
+<p>Wenn Sie Androids verwenden müssen <code translate="No">MediaPlayer</code> bei der HLS-Wiedergabe können Sie auf einige Einschränkungen stoßen. Weitere Informationen zu diesen Einschränkungen finden Sie im folgenden Abschnitt.</p>
+</section>
+
+<section class="bcls-section" id="Known_limitations">
+<h2>Bekannte Einschränkungen</h2>
+
+<aside class="bcls-aside bcls-aside--tip">Wenn Sie verwenden <a href="/android/playback/hls-playback-native-sdk-android.html">HLS-Wiedergabe mit dem Player SDK für Android</a> , gelten die Einschränkungen in diesem Abschnitt nicht.</aside>
+
+<p>Die Probleme in diesem Abschnitt treten nur auf, wenn Sie Android verwenden <code translate="No">MediaPlayer</code> für HLS-Wiedergabe ohne Brightcove-Lösung. Hier sind die Einschränkungen:</p>
+
+<ul>
+	<li>Android 4.x
+	<ul>
+		<li>HLS-Streams suchen aufgrund eines Betriebssystemfehlers nur bis zum Anfang von Segmenten.
+		<p>Daher werden Mid-Roll-Anzeigen nur mit Nicht-HLS-Streams oder mit dem Brightcove Player SDK (Android 4.1 oder höher) unterstützt.</p>
+		</li>
+		<li>HLS-Streams melden aufgrund eines Betriebssystemfehlers nicht durchgängig die korrekte Videodauer.
+		<p>Das Brightcove Player SDK (Android 4.1 oder höher) weist diese Einschränkung nicht auf.</p>
+		</li>
+		<li>
+		<p>Timer, Zähler, Schaltflächen-Overlay "Weitere Informationen" und einige AdEvent-Ereignisse fehlen bei Google IMA-Midrolls aufgrund eines gemeldeten Fehlers im Google IMA SDK.</p>
+		</li>
+		<li>Auf einigen Samsung-Geräten sind Probleme mit Widevine-Inhalten aufgetreten. Die Widevine-Teams empfehlen ein Upgrade auf die neueste Android-Version.</li>
+	</ul>
+	</li>
+	<li>Android 4.4.2
+	<ul>
+		<li>Die Wiedergabe wird gestartet, nach einigen Sekunden angehalten und dann von vorne wiedergegeben.</li>
+	</ul>
+	</li>
+</ul>
+</section>
+
+<section class="bcls-section" id="FAQ">
+<h2>FAQ</h2>
+
+<p><strong>Wie kann ich HLS auf Android zum Laufen bringen?</strong></p>
+
+<p>Um adaptives Streaming auf Android bereitstellen zu können, bietet das Player SDK von Brightcove HLS-Wiedergabefunktionen für Android 4.1 und höher.</p>
+<!--
+            <p><strong>Are there any other options for adaptive streaming?</strong></p>
+            <p>Widevine playback on Android provides its own proprietary adaptive streaming technology but is coupled with Widevine encryption and DRM.</p>
+-->
+
+<p><strong>Was ist mit HLSe?</strong></p>
+
+<p>HLSe hat die gleichen Einschränkungen und Empfehlungen wie oben.</p>
+</section>
+</article>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>BCOVFairPlay-Referenz</title>
+
+	<link rel="stylesheet" href="css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title"> <a href="index.html">BCOVFairPlay </a> </h1>
+
+			<p id="developer-home">
+				Brightcove<a href="index.html"></a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="hierarchy.html">Hierarchie</a></li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview-contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">BCOVFairPlay-Referenz</h1>
+
+					
+					<div class="section section-overview index-overview">
+						
+						
+						<h1>FairPlay-Plugin für Brightcove Player SDK für iOS, Version 1.1.3.89</h1> <h1>Unterstützte Plattformen</h1>
+
+<p>iOS 8.0 und höher.</p>
+
+<p>tvOS 9.0 und höher.</p>
+
+Installation<h1></h1>
+
+<p>Das FairPlay-Plug-in für das Brightcove Player SDK bietet zwei Installationspakete für iOS, ein statisches Bibliotheksframework und ein dynamisches Framework. Die Bereitstellung wird unter iOS 8.0 und höher unterstützt.</p>
+
+<p>Das FairPlay-Plugin bietet ein dynamisches Framework zur Unterstützung von tvOS 9.0 und höher.</p>
+
+<p><strong> Bitte beachten Sie die folgenden iOS/tvOS + FairPlay-Einschränkungen: </strong></p>
+
+<ul>
+<li><p>Obwohl das Plugin Simulatorarchitekturen enthält, können Sie FairPlay-geschützte Inhalte nicht in einem Simulator abspielen.</p></li>
+<li><p>FairPlay-Streaming-Inhalte werden im AirPlay-Spiegelungsmodus nicht gerendert. Weitere Informationen finden Sie in der WWDC-Präsentation 502 von 2015: <a href="https://developer.apple.com/videos/play/wwdc2015/502/">Inhaltsschutz für HLS</a>.</p></li>
+</ul>
+
+
+<h2>Kakaoschoten</h2>
+
+<p>Sie können verwenden <a href="http://cocoapods.org">Kakaoschoten</a> um das Brightcove Player SDK zu Ihrem Projekt hinzuzufügen. Sie finden die neuesten <code>Brightcove-Player-SDK-FairPlay</code> Podspec <a href="https://github.com/CocoaPods/Specs/tree/master/Specs/6/0/2/Brightcove-Player-SDK-FairPlay">Hier</a>. Die Podspec unterstützt sowohl iOS als auch tvOS. CocoaPods-Version 1.0 oder höher ist erforderlich.</p>
+
+<p>Angeben des Standard-Pods <code>Brightcove-Player-SDK-FairPlay</code> installiert das statische Bibliotheksframework. Um das dynamische Framework zu installieren, deklarieren Sie den Pod mit dem <code>dynamisch</code> Unterspezifikation: <code>Brightcove-Player-SDK-FairPlay/dynamisch</code></p>
+
+<p>Beispiel für ein statisches Framework:</p>
+
+<pre><code>Pod 'Brightcove-Player-SDK-FairPlay' </code></pre>
+
+<p>Beispiel für ein dynamisches Framework:</p>
+
+<pre><code>pod 'Brightcove-Player-SDK-FairPlay/dynamic' </code></pre>
+
+<p>Die Pflege eines aktuellen Master-Podspec-Repositorys ist erforderlich, um sicherzustellen, dass Sie immer die neuesten Versionen der Brightcove-Software verwenden. Ab CocoaPods 1.0.0 sind Podspec-Repository-Updates keine automatische Funktion mehr. Um Ihr Master-Repository zu aktualisieren, führen Sie Folgendes auf der Befehlszeile aus:</p>
+
+<pre><code>Pod-Repository-Update </code></pre>
+
+<h2>Handbuch</h2>
+
+<p>So fügen Sie Ihrem Projekt das FairPlay-Plug-in für Brightcove Player SDK manuell hinzu:</p>
+
+<ol>
+<li>Installieren Sie die neueste Version des <a href="https://github.com/brightcove/brightcove-player-sdk-ios">Brightcove Player-SDK</a>.</li>
+<li>Laden Sie die neueste gezippte Version des Plugins von unserem . herunter <a href="https://github.com/brightcove/brightcove-player-sdk-ios-fairplay/releases">Release-Seite</a>.</li>
+<li>Ergänzen Sie die <code>BrightcoveFairPlay.framework</code> zu Ihrem Projekt.</li>
+<li>Auf der &ldquo;Build-Einstellungen&rdquo; Registerkarte Ihres Anwendungsziels stellen Sie sicher, dass die &ldquo;Framework-Suchpfade&rdquo; den Pfad zum Framework einschließen. Dies sollte automatisch erfolgen, es sei denn, das Framework ist in einem anderen Stammverzeichnis als Ihr Projekt gespeichert.</li>
+<li>Auf der &ldquo;Allgemein&rdquo; Registerkarte Ihres Anwendungsziels, fügen Sie Folgendes zum &ldquo;Binärdateien mit Bibliotheken verknüpfen&rdquo; Sektion:
+
+<ul>
+<li>BrightcoveFairPlay.framework<code></code></li>
+</ul>
+</li>
+<li>(Nur dynamisches Framework) Auf dem &ldquo;Allgemein&rdquo; Registerkarte Ihres Anwendungsziels, fügen Sie hinzu &lsquo;BrightcoveFairPlay.framework&rsquo; zum &ldquo;Eingebettete Binärdatei&rdquo; Sektion.</li>
+<li>(Nur dynamisches Framework) Auf dem &ldquo;Build-Phasen&rdquo; Registerkarte, fügen Sie ein &ldquo;Skript ausführen&rdquo; Phase mit dem Befehl <code>Schlag ${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/BrightcoveFairPlay.framework/strip-frameworks.sh</code>. Prüfen &ldquo;Skript nur bei der Installation ausführen&rdquo;. Dadurch werden nicht benötigte Architekturen aus dem Build entfernt, was für die Einreichung im App Store wichtig ist.</li>
+<li>(nur statisches Framework) Auf dem &ldquo;Build-Einstellungen&rdquo; Registerkarte Ihres Anwendungsziels, fügen Sie hinzu <code>-ObjC</code> zum &ldquo;Andere Linker-Flags&rdquo; Einstellung bauen.</li>
+</ol>
+
+
+<h2>Importe</h2>
+
+<p>Das Brightcove Player SDK für iOS kann auf verschiedene Weise in Code importiert werden. <code>@import BrightcoveFairPlay;</code> , <code>#import &lt;BrightcoveFairPlay/BrightcoveFairPlay.h&gt;</code> oder <code>#import &lt;BrightcoveFairPlay/[spezifische Klasse].h&gt;</code>.</p>
+
+<h1>Schnellstart</h1>
+
+<p>Brightcove FairPlay ist eine Brücke zwischen Apple FairPlay und dem <a href="https://github.com/brightcove/brightcove-player-sdk-ios">Brightcove Player-SDK für iOS</a>. Die folgenden Abschnitte zeigen, wie Sie Ihren Code für die grundlegende Wiedergabe einrichten.</p>
+
+<h2>Dynamische Bereitstellung von Video Cloud</h2>
+
+<p>Wenn Sie die dynamische Bereitstellung von Video Cloud verwenden, wird ein Verweis auf das FairPlay-Anwendungszertifikat in das vom Wiedergabedienst zurückgegebene BCOVVideo-Objekt eingebettet. Das SDK verwendet diese Referenz, um das Anwendungszertifikat abzurufen, wenn Sie Ihre FairPlay-Videos abspielen.</p>
+
+<p>Hier sind die grundlegenden Schritte, die Sie befolgen müssen:</p>
+
+<pre><code>@property (nichtatomar, stark) id&lt;BCOVPlaybackController&gt;playbackController;
+---
+---- // Erstellen Sie ein BCOVFPSBrightcoveAuthProxy-Objekt mit der // Anwendungs-ID und der Herausgeber-ID, die zum Registrieren Ihrer // FairPlay-Anmeldeinformationen bei Brightcove verwendet wurden. BCOVFPSBrightcoveAuthProxy *proxy = [[BCOVFPSBrightcoveAuthProxy alloc] initWithPublisherId:&lt;pub-id&gt; applicationId:&lt;app-id&gt;]; BCOVPlayerSDKManager *sdkManager = [BCOVPlayerSDKManager sharedManager]; // Brightcove FairPlay fügt BCOVPlaybackManager einige Kategoriemethoden hinzu. // Wenn Sie Ihren eigenen FairPlay-Lizenzserver verwenden, geben Sie hier // Ihre eigene Proxy-Implementierung ein. id&lt;BCOVPlaybackController&gt;playbackController = [sdkManager createFairPlayPlaybackControllerWithAuthorizationProxy:proxy]; playController.delegate = self; _playbackController = PlaybackController; [self.view addSubview:playbackController.view]; BCOVPlaybackService *playbackService = [[BCOVPlaybackService alloc] initWithAccountId:&lt;Konto-ID&gt; policyKey:&lt;Richtlinienschlüssel&gt;]; [playbackService findVideoWithVideoID:&lt;video-id&gt; Parameter:@{} Vervollständigung:^(BCOVVideo *video, NSDictionary *jsonResponse, NSError *Fehler) { if(video) { [self.playbackController setVideos:@[video]]; } }]; </code></pre>
+
+<h2>Legacy-Video Cloud-Workflow</h2>
+
+<p>Wenn Sie einen älteren Video Cloud-Workflow verwenden, müssen Sie vor der Wiedergabe Ihrer Videos ein FairPlay-Zertifikat abrufen. Dieser Code zeigt die grundlegende Einrichtung und Wiedergabe:</p>
+
+<pre><code>@property (nichtatomar, stark) id&lt;BCOVPlaybackController&gt;playbackController;
+---
+---- // Erstellen Sie ein BCOVFPSBrightcoveAuthProxy-Objekt mit der // Anwendungs-ID und der Herausgeber-ID, die zum Registrieren Ihrer // FairPlay-Anmeldeinformationen bei Brightcove verwendet wurden. BCOVFPSBrightcoveAuthProxy *proxy = [[BCOVFPSBrightcoveAuthProxy alloc] initWithPublisherId:&lt;pub-id&gt; applicationId:&lt;app-id&gt; BCOVPlayerSDKManager *sdkManager = [BCOVPlayerSDKManager sharedManager]; // Erstellen Sie Ihren FairPlay-Wiedergabe-Controller mit dem Authentifizierungs-Proxy. id&lt;BCOVPlaybackController&gt;playbackController = [sdkManager createFairPlayPlaybackControllerWithAuthorizationProxy:proxy]; playController.delegate = self; _playbackController = PlaybackController; [self.view addSubview:playbackController.view]; // Rufen Sie mithilfe des Proxys das FairPlay-Anwendungszertifikat ab. // In einer Produktions-App möchten Sie dies möglicherweise tun, sobald // die App gestartet wird. [proxy retrieveApplicationCertificate:^(NSData * _Nullable applicationCertificate, NSError * _Nullable Fehler) { if (applicationCertificate) { // Add the application certificate to the playback controller [playbackController addFairPlayApplicationCertificate:applicationCertificate identifier:kBCOVDefaultFairPlayApplicationCertificateIdentifier]; BCOVPlaybackService *playbackService = [[BCOVPlaybackService alloc] initWithAccountId:&lt;account-id&gt; policyKey:&lt;policy-key&gt;]; [playbackService findVideoWithVideoID:&lt;video-id&gt; parameters:@{} Vervollständigung:^(BCOVVideo *video, NSDictionary *jsonResponse, NSError *Fehler) { if(video) { [playbackController setVideos:@[video]]; } }]; } }]; </code></pre>
+
+<p>Sie können dem Wiedergabe-Controller mehrere FairPlay-Anwendungszertifikate hinzufügen, aber bei der Legacy-Wiedergabe benötigen Sie normalerweise nur eines. Wenn Sie Videos von zwei verschiedenen Konten mit demselben Wiedergabe-Controller wiedergeben, können Sie für jedes Konto ein Anwendungszertifikat mit der Konto-ID als &ldquo;Kennung&rdquo; Parameter.</p>
+
+<p>Wenn Sie ältere Methoden zum Erstellen des Wiedergabe-Controllers verwenden, funktionieren diese Methoden weiterhin. Die neueren Methoden wurden entwickelt, um mehr Flexibilität zu bieten, indem Sie das FairPlay-Anwendungszertifikat vor oder nach der Erstellung des Wiedergabe-Controllers abrufen können&rsquo;Sie müssen die Bewerbungsbescheinigung überhaupt nicht abrufen oder weitergeben.</p>
+
+<p>Wenn Sie Fragen haben oder Hilfe benötigen, haben wir ein Support-Forum für Brightcove&rsquo;s native Player-SDKs unter <a href="https://groups.google.com/forum/#!forum/brightcove-native-player-sdks">[https://groups.google.com/forum/](https://groups.google.com/forum/)#!forum/brightcove-native-player-sdks</a> .</p>
+
+<h1>Bewerbungszertifikate</h1>
+
+<p>Die Wiedergabe von FairPlay-geschützten Videos erfordert ein mit dem Inhalt verknüpftes Anwendungszertifikat.</p>
+
+<p>Wenn Sie die dynamische Bereitstellung von Video Cloud verwenden, werden Anwendungszertifikate heruntergeladen und nach Bedarf verwendet. Zertifikate werden zur Wiederverwendung zwischengespeichert, sodass in der Regel ein einzelner Download pro Konto erfolgt.</p>
+
+<p>Wenn Sie ältere Video Cloud-Dienste verwenden, müssen Sie dennoch ein Anwendungszertifikat abrufen, um es mit Ihren Initialisierungsmethoden zu übergeben. Die <a href="Classes/BCOVFPSBrightcoveAuthProxy.html"><code>BCOVFPSBrightcoveAuthProxy</code></a> -Klasse bietet eine bequeme Methode, um dies von fps.brightcove.com abzurufen.</p>
+
+<p>Wenn Sie Ihr eigenes Bewerbungszertifikat aus der Ferne speichern, können Sie es mit einem normalen <code>NSURLSessionDataTask</code> Abrufen des Zertifikats als <code>NSData</code> Objekt. Sobald Sie das Zertifikat erhalten haben, können Sie es mit zu Ihrem Wiedergabe-Controller hinzufügen <code>[BCOVPlaybackController addFairPlayApplicationCertificate:identifier:]</code>. In den meisten Fällen würden Sie verwenden <code>kBCOVDefaultFairPlayApplicationCertificateIdentifier</code> als Kennung.</p>
+
+<h1>Verwenden eines FairPlay-Lizenzservers eines Drittanbieters</h1>
+
+<p>Die <a href="Classes/BCOVFPSBrightcoveAuthProxy.html"><code>BCOVFPSBrightcoveAuthProxy</code></a> soll mit arbeiten <code>fps.brightcove.com</code>. Wenn Sie einen anderen FairPlay-Lizenzserver verwenden müssen, können Sie entweder die <a href="Protocols/BCOVFPSAuthorizationProxy.html"><code>BCOVFPSAuthorizationProxy</code></a> Protokoll, um die Lizenzkommunikation abzuwickeln, oder wenn Ihre Anforderungen einfach sind, können Sie einige der <a href="Protocols/BCOVFPSAuthorizationProxy.html"><code>BCOVFPSAuthorizationProxy</code></a> Eigenschaften:</p>
+
+<pre><code>/** * Die Basis-URL für FairPlay-bezogene Lizenzanforderungen. Die Standard-URL verweist auf * fps.brightcove.com. * Wenn auf nil gesetzt, wird die Standard-NSURL, die auf fps.brightcove.com zeigt, neu erstellt. */ @property (nichtatomar, stark, null_resettable) NSURL *fpsBaseURL; /** * Die Schlüsselanforderungs-URL für FairPlay-bezogene Schlüsselanforderungen. * Normalerweise auf nil gesetzt. In diesem Fall wird die Schlüsselanforderungs-URL * aus der Antwort der Video Cloud-Wiedergabe-API abgerufen. */ @property (nichtatomar, stark, null_resettable) NSURL *keyRequestURL; </code></pre>
+
+<p>Die <code>fpsBaseURL</code> -Eigenschaft wird auch verwendet, um die Basis-URL für Anwendungszertifikatsanforderungen festzulegen. Zertifikate werden wie folgt angefordert:</p>
+
+<pre><code>[fpsBaseURL]/application_certificate/[publisherID]/[applicationID] </code></pre>
+
+<p>Ob Sie Video Cloud oder Ihren eigenen Server verwenden, Ihre <code>BCOVVideo</code> Objekt sollte a . enthalten <code>BCOVQuelle</code> -Objekt, dessen URL auf einige FairPlay-geschützte Inhalte verweist. Ungeschützte Video-URLs werden weiterhin in einem FairPlay-Workflow wiedergegeben.</p>
+						
+						
+					</div>
+					
+
+					<div class="index-container">
+						
+
+						
+						<div class="index-column">
+							<h2 class="index-title">Klassenreferenzen</h2>
+							<ul>
+								
+								<li>BCOVFPSBrightcoveAuthProxy<a href="Classes/BCOVFPSBrightcoveAuthProxy.html"></a></li>
+								
+							</ul>
+						</div>
+						
+
+						
+						<div class="index-column">
+							
+							<h2 class="index-title">Protokollreferenzen</h2>
+							<ul>
+								
+								<li>BCOVFPSAuthorizationProxy<a href="Protocols/BCOVFPSAuthorizationProxy.html"></a></li>
+								
+							</ul>
+							
+
+							
+
+							
+							<h2 class="index-title">Kategorie-Referenzen</h2>
+							<ul>
+								
+								<li><a href="Categories/BCOVPlayerSDKManager+BCOVFPSAdditions.html">BCOVPlayerSDKManager(BCOVFPSAZusätze)</a></li>
+								
+							</ul>
+							
+						</div>
+						
+					</div>
+
+					<footer>
+						<div class="footer-copyright">
+							
+							<p class="copyright">Urheberrechte © &copy; 2017 Brightcove. Alle Rechte vorbehalten. Aktualisiert: 2017-03-02</p>
+							
+							
+							<p class="generator">Erstellt von <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
+							
+						</div>
+					</footer>
+				</main>
+			</div>
+		</div>
+	</article>
+
+	<script src="js/script.js"></script>
+<script src="https://learning-services-media.brightcove.com/doc-assets/js/https-fix.js"></script>
+<script src="https://learning-services-media.brightcove.com/doc-assets/js/support-feedback.js"></script><script src="https://support.brightcove.com/site-assets/js/site/feedback-docs.js"></script>
+</body>
+</html>

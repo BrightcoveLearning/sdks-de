@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>BCOVSessionProviderExtension(BCOVSSAIAdditions) Kategoriereferenz</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title"> <a href="../index.html">Brightcove Native Player für iOS </a> </h1>
+
+			<p id="developer-home">
+				Brightcove<a href="../index.html"></a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li>Index<a href="../index.html"></a></li>
+<li><a href="../hierarchy.html">Hierarchie</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							Auf dieser Seite
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Springen zu…</option>
+	
+	<option value="overview">Überblick</option>
+	
+
+	
+	
+	<option value="tasks">Aufgaben</option>
+	
+	
+
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/ssai_canSeek">ssai_canSeek</option>
+		
+	</optgroup>
+	
+
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/ssai_absoluteTimeAtContentTime:">- ssai_absoluteTimeAtContentTime:</option>
+		
+		<option value="//api/name/ssai_contentTimeAtAbsoluteTime:">- ssai_contentTimeAtAbsoluteTime:</option>
+		
+		<option value="//api/name/ssai_seekToTime:completionHandler:">- ssai_seekToTime:completionHandler:</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">BCOVSessionProviderExtension(BCOVSSAIAdditions) Kategoriereferenz</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Deklariert in</th>
+	<td>BCOVSSAIComponent.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Überblick</h2>
+						<p>SSAI-spezifische Methoden für den Plugin-Kontext.</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/ssai_canSeek" title="ssai_canSeek"></a>
+	<h3 class="method-title"><code><a href="#//api/name/ssai_canSeek">&nbsp;&nbsp;ssai_canSeek</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Der Wert dieser Eigenschaft gibt an, ob der Empfänger <a href="#//api/name/ssai_seekToTime:completionHandler:"><code>ssai_seekToTime:completionHandler:</code></a> oder nicht. Der Wert ist NO, wenn entweder eine Anzeige in Bearbeitung ist oder der Empfänger noch eine vorherige Nachricht von . verarbeitet <a href="#//api/name/ssai_seekToTime:completionHandler:"><code>ssai_seekToTime:completionHandler:</code></a> ; andernfalls ist der Wert dieser Eigenschaft YES. Siehe auch <a href="#//api/name/ssai_seekToTime:completionHandler:"><code>ssai_seekToTime:completionHandler:</code></a>.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nichtatomar, schreibgeschützt) BOOL ssai_canSeek</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Diskussion</h4>
+				<p>Der Wert dieser Eigenschaft gibt an, ob der Empfänger <a href="#//api/name/ssai_seekToTime:completionHandler:"><code>ssai_seekToTime:completionHandler:</code></a> oder nicht. Der Wert ist NO, wenn entweder eine Anzeige in Bearbeitung ist oder der Empfänger noch eine vorherige Nachricht von . verarbeitet <a href="#//api/name/ssai_seekToTime:completionHandler:"><code>ssai_seekToTime:completionHandler:</code></a> ; andernfalls ist der Wert dieser Eigenschaft YES. Siehe auch <a href="#//api/name/ssai_seekToTime:completionHandler:"><code>ssai_seekToTime:completionHandler:</code></a>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Deklariert in</h4>
+				<p>BCOVSSAIComponent.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/ssai_seekToTime:completionHandler:" title="ssai_seekToTime:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/ssai_seekToTime:completionHandler:">&ndash;&nbsp;ssai_seekToTime:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Diese Methode implementiert das Standardsuchverhalten für das BCOVSSAI-Plugin. Diese Methode muss im Hauptthread aufgerufen werden. Der Empfänger ignoriert diese Nachricht, wenn entweder eine Anzeige läuft oder ein vorheriger Anruf an <code>ssai_seekToTime:completionHandler:</code> wird noch bearbeitet. Siehe auch <a href="#//api/name/ssai_canSeek"><code>ssai_canSeek</code></a>.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)ssai_seekToTime:(CMTime)<code><em>Zeit</em> CompletionHandler:(void ( ^ ) ( BOOL beendet ))<em>FertigstellungHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameter</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>Zeit</code></th>
+						<td><p>Der logische Zeitpunkt, um zu suchen</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>FertigstellungHandler</code></th>
+						<td><p>Der auszuführende Block, wenn die Suche ausgeführt wird</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Diskussion</h4>
+				<p>Diese Methode implementiert das Standardsuchverhalten für das BCOVSSAI-Plugin. Diese Methode muss im Hauptthread aufgerufen werden. Der Empfänger ignoriert diese Nachricht, wenn entweder eine Anzeige läuft oder ein vorheriger Anruf an <code>ssai_seekToTime:completionHandler:</code> wird noch bearbeitet. Siehe auch <a href="#//api/name/ssai_canSeek"><code>ssai_canSeek</code></a>.</p>
+
+<p>Die Regeln sind wie folgt:</p>
+
+<ul>
+<li>Wenn versucht wird, die Zeit des logischen Inhalts zu beenden, werden die Post-Rolls abgespielt.</li>
+<li>Wenn Sie über eine Anzeigensequenz suchen, wird die Anzeige abgespielt und der Abspielkopf wird dort fortgesetzt, wo die Suche versucht hatte, zu suchen.</li>
+<li>Wenn nach mehreren Anzeigensequenzen gesucht wird, wird nur die letzte Anzeigensequenz wiedergegeben.</li>
+<li>Wenn Sie rückwärts suchen, werden keine Anzeigen abgespielt.</li>
+<li>Wenn Sie nach bereits abgespielten Anzeigen suchen, werden diese erneut abgespielt.</li>
+</ul>
+
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Deklariert in</h4>
+				<p>BCOVSSAIComponent.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/ssai_absoluteTimeAtContentTime:" title="ssai_absoluteTimeAtContentTime:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/ssai_absoluteTimeAtContentTime:">&ndash;&nbsp;ssai_absoluteTimeAtContentTime:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Gibt die absolute Zeit zurück, die der angegebenen Inhaltszeit entspricht.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (CMTime)ssai_absoluteTimeAtContentTime:(CMTime)<code><em>InhaltZeit</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameter</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>InhaltZeit</code></th>
+						<td><p>Ein Zeitversatz in den Videoinhalt.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Rückgabewert</h4>
+				<p>Die absolute Zeit, die der angegebenen Inhaltszeit entspricht.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Diskussion</h4>
+				<p>Gibt die absolute Zeit zurück, die der angegebenen Inhaltszeit entspricht.</p>
+
+<p>Diese Methode wird verwendet, um eine absolute Streamzeit zu erhalten, die einer Zeit entspricht, die relativ zum Inhalt ist. Der Stream kann beispielsweise eine 30-Sekunden-Anzeigensequenz um enthalten <code>kCMTimeZero</code> , danach beginnt der Inhalt. In diesem Fall würde eine Content-Zeit von null einer absoluten Stream-Zeit von dreißig Sekunden entsprechen und eine Content-Zeit von 2:00 einer absoluten Stream-Zeit von 2:30 (vorausgesetzt, dass vor dieser Zeit keine anderen Anzeigensequenzen auftreten). .</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Deklariert in</h4>
+				<p>BCOVSSAIComponent.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/ssai_contentTimeAtAbsoluteTime:" title="ssai_contentTimeAtAbsoluteTime:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/ssai_contentTimeAtAbsoluteTime:">&ndash;&nbsp;ssai_contentTimeAtAbsoluteTime:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Gibt die Inhaltszeit zurück, die der angegebenen absoluten Zeit entspricht.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (CMTime)ssai_contentTimeAtAbsoluteTime:(CMTime)<code><em>absoluteZeit</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameter</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>absoluteZeit</code></th>
+						<td><p>Ein Zeitversatz in die Videonutzlast.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Rückgabewert</h4>
+				<p>Die Inhaltszeit, die der angegebenen absoluten Zeit entspricht.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Diskussion</h4>
+				<p>Gibt die Inhaltszeit zurück, die der angegebenen absoluten Zeit entspricht.</p>
+
+<p>Diese Methode wird verwendet, um eine Inhaltsstromzeit zu erhalten, die einer Zeit entspricht, die relativ zur Nutzlast ist. Der Stream kann beispielsweise um 1:30 Uhr eine 30-Sekunden-Anzeigensequenz enthalten, nach der der Inhalt beginnt.</p>
+
+<p>In diesem Fall würde eine Inhaltszeit von Null einer absoluten Streamzeit von Null entsprechen, eine Inhaltszeit von 2:00 würde einer absoluten Streamzeit von 2:30 entsprechen und eine Inhaltszeit von 1:30 würde einer beliebigen entsprechen absolute Streamzeit von 1:30 bis 2:00 Uhr.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Deklariert in</h4>
+				<p>BCOVSSAIComponent.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Urheberrechte © &copy; 2021 Brightcove. Alle Rechte vorbehalten. Aktualisiert: 2021-07-08</p>
+						
+						
+						<p class="generator">Erstellt von <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

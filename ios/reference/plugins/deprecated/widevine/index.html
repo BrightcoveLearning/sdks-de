@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>BCOVWidevine Referenz</title>
+
+	<link rel="stylesheet" href="css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title"> <a href="index.html">BCOVWidevine </a> </h1>
+
+			<p id="developer-home">
+				Brightcove<a href="index.html"></a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="hierarchy.html">Hierarchie</a></li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview-contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">BCOVWidevine Referenz</h1>
+
+					
+					<div class="section section-overview index-overview">
+						
+						
+						<h1>Widevine-Plug-in für Brightcove Player SDK für iOS, Version 2.1.4.358</h1> <h1>Unterstützte Plattformen</h1>
+
+<p>iOS 8.0 und 9.0. <strong>Widevine läuft nicht auf dem iOS-Simulator.</strong></p>
+
+<h1>Wichtig - Bitte beachten</h1>
+
+<p>Das Widevine-Plug-in für Brightcove Player SDK für iOS ist <strong>veraltet</strong>.</p>
+
+Installation<h1></h1>
+
+<p>Das Widevine-Plug-in für Brightcove Player SDK bietet ein statisches Bibliotheksframework für die Installation.</p>
+
+<h2>Kakaoschoten</h2>
+
+<p>Sie können verwenden <a href="http://cocoapods.org">Kakaobohnen</a> um das Widevine-Plug-in für Brightcove Player SDK zu Ihrem Projekt hinzuzufügen. Sie finden die neuesten <code>Brightcove-Player-SDK-Widevine</code> Podspec <a href="https://github.com/brightcove/BCOVSpecs/tree/master/Brightcove-Player-SDK-Widevine">Hier</a>. Um diese Spezifikation zu verwenden, fügen Sie oben in Podfile Folgendes hinzu:<code>Quelle '</code>https://github.com/brightcove/BCOVSpecs.git'<code></code> oder laufe <code>Pod-Repository BCOVSpecs hinzufügen </code>https://github.com/brightcove/BCOVSpecs.git<code></code>. CocoaPods 0.39 oder neuer ist erforderlich.</p>
+
+<p>Das Widevine-SDK <strong>ist nicht</strong> in diesem Pod enthalten. Du <strong>muss</strong> fügen Sie die Widevine-Bibliothek manuell zu Ihrem Projekt hinzu, auch wenn Sie Cocoapods verwenden. Der Pod fügt jedoch alle Bibliotheken hinzu, die von der Widevine-Bibliothek benötigt werden, wie z <code>libc++</code> , <code>libxml2</code> , <code>libresolv</code> , <code>libSystem</code> , und <code>libz</code>. <strong>Bitte wenden Sie sich an den Brightcove-Support, um Zugriff auf die Widevine-Bibliothek zu erhalten.</strong></p>
+
+<p>So installieren Sie die Widevine-Bibliothek manuell:</p>
+
+<ol>
+<li>Fordern Sie die Widevine-Bibliothek beim Brightcove-Support an.</li>
+<li>Fügen Sie den Inhalt des Pakets zu Ihrem Projekt hinzu.</li>
+<li>Auf der &ldquo;Build-Phasen&rdquo; Registerkarte Ihres Anwendungsziels, fügen Sie Folgendes zum &ldquo;Binärdateien mit Bibliotheken verknüpfen&rdquo; Phase:
+
+<ul>
+<li>libWViPhoneAPI.a<code></code></li>
+</ul>
+</li>
+<li>Auf der &ldquo;Build-Einstellungen&rdquo; Registerkarte Ihres Anwendungsziels:
+
+<ul>
+<li>Stellen Sie sicher, dass sich Widevine-Header in Ihrer Anwendung befinden&rsquo;S &ldquo;Header-Suchpfad&rdquo;.</li>
+<li>Sicher gehen, dass <code>-ObjC</code> wurde hinzugefügt &ldquo;Andere Linker-Flags&rdquo; Einstellung bauen.</li>
+</ul>
+</li>
+</ol>
+
+
+<p>Beispiel für ein statisches Framework:</p>
+
+<pre><code>Quelle 'https://github.com/CocoaPods/Specs.git' Quelle 'https://github.com/brightcove/BCOVSpecs.git' Pod 'Brightcove-Player-SDK-Widevine' </code></pre>
+
+<h2>Handbuch</h2>
+
+<p>So fügen Sie Ihrem Projekt das Widevine-Plug-in für Brightcove Player SDK manuell hinzu:</p>
+
+<ol>
+<li>Installieren Sie die neueste Version des <a href="https://github.com/brightcove/brightcove-player-sdk-ios">Brightcove Player-SDK</a>.</li>
+<li>Laden Sie die neueste gezippte Version des Plugins von unserem . herunter <a href="https://github.com/brightcove/brightcove-player-sdk-ios-widevine/releases">Release-Seite</a>.</li>
+<li>Fordern Sie die Widevine-Bibliothek vom Brightcove-Support an und fügen Sie sie Ihrem Projekt hinzu.</li>
+<li>Ergänzen Sie die &lsquo;BrightcoveWidevine.framework&rsquo; zu Ihrem Projekt.</li>
+<li>Auf der &ldquo;Build-Einstellungen&rdquo; Registerkarte Ihres Anwendungsziels stellen Sie sicher, dass die &ldquo;Framework-Suchpfade&rdquo; den Pfad zum Framework einschließen. Dies sollte automatisch erfolgen, es sei denn, das Framework ist in einem anderen Stammverzeichnis als Ihr Projekt gespeichert.</li>
+<li>Auf der &ldquo;Build-Phasen&rdquo; Registerkarte Ihres Anwendungsziels, fügen Sie Folgendes zum &ldquo;Binärdateien mit Bibliotheken verknüpfen&rdquo; Phase:
+
+<ul>
+<li>BrightcoveWidevine.framework<code></code></li>
+<li>libWViPhoneAPI.a<code></code></li>
+<li>libc++<code></code></li>
+<li>libxml2<code></code></li>
+<li>libresolv<code></code></li>
+<li>libSystem<code></code></li>
+<li>libz<code></code></li>
+</ul>
+</li>
+<li>Auf der &ldquo;Build-Einstellungen&rdquo; Registerkarte Ihres Anwendungsziels:
+
+<ul>
+<li>Sicher gehen, dass <code>-ObjC</code> wurde hinzugefügt &ldquo;Andere Linker-Flags&rdquo; Einstellung bauen.</li>
+<li>Stellen Sie sicher, dass sich Widevine-Header in Ihrer Anwendung befinden&rsquo;S &ldquo;Header-Suchpfad&rdquo;.</li>
+</ul>
+</li>
+</ol>
+
+
+<h1>Schnellstart</h1>
+
+<pre><code> NSString *token; // (Brightcove Media API-Token mit URL-Zugriff) NSString *playlistID; // (ID der Playlist, die Sie verwenden möchten) BCOVPlayerSDKManager *manager = [BCOVPlayerSDKManager sharedManager]; [1] id&lt;BCOVPlaybackController&gt; controller = [playbackManager createWidevinePlaybackControllerWithViewStrategy:nil]viewStrategy:nil]; [self.view addSubview:controller.view]; BCOVDatalogService *catalog = [[BCOVDatalogService alloc] initWithToken:token]; [2] [Katalog findWidevinePlaylistWithPlaylistID:playlistID Parameter:nil Vervollständigung:^(BCOVPlaylist *playlist, NSDictionary *jsonResponse, NSError *error) { [controller setVideos:playlist]; [controller play]; }]; </code></pre>
+
+<p>Lassen&rsquo;s zerlegen Sie diesen Code in Schritte, um ihn etwas einfacher zu verdauen:</p>
+
+<ol>
+<li>BCOVWidevine fügt dem BCOVPlaybackManager einige Kategoriemethoden hinzu. Die erste davon ist <code>-createWidevinePlaybackControllerWithViewStrategy</code>. Verwenden Sie diese Methode, um Ihren Wiedergabe-Controller zu erstellen. Alternativ (wenn Sie mehr als einen Sitzungsanbieter verwenden) können Sie eine <a href="Classes/BCOVWidevineSessionProvider.html">BCOVWidevineSessionProvider</a> und übergeben Sie dies an die Manager-Methode, die einen Wiedergabe-Controller mit Upstream-Sitzungsanbietern erstellt.*</li>
+<li>BCOVWidevine fügt BCOVPlaybackManager einige Kategoriemethoden hinzu, um Widevine-Wiedergaben aus dem Katalog abzurufen.</li>
+</ol>
+
+
+<p>* Beachten Sie, dass BCOVWidevineSessionProvider vor allen Anzeigensitzungsanbietern in der Kette stehen sollte, die beim Erstellen des Wiedergabe-Controllers an den Manager übergeben werden.</p>
+
+<p>Wenn Sie Fragen haben oder Hilfe benötigen, haben wir ein Support-Forum für Brightcove&rsquo;s native Player-SDKs unter <a href="https://groups.google.com/forum/">https://groups.google.com/forum/</a>#!forum/brightcove-native-player-sdks .</p>
+
+<h1>Anpassen des Plugin-Verhaltens</h1>
+
+<p>Sie können das Standardverhalten des Plugins anpassen, indem Sie eine Instanz von . erstellen <a href="Classes/BCOVWidevineSessionProviderOptions.html"><code>BCOVWidevineSessionProviderOptions</code></a> und Überschreiben der Standardeigenschaften. Um a . zu verwenden <code>BCOVWideSessionProviderOptions</code> options-Instanz müssen Sie die <code>BCOVWideSessionProvider</code> mit <code>[BCOVSDKManager createWidevineSessionProviderWithOptions:]</code>.</p>
+
+<pre><code> BCOVWidevineSessionProviderOptions *options = [[BCOVWidevineSessionProviderOptions alloc] init]; options.widevineSettings = @{ WVPlayerDrivenAdaptationKey: @0 } ; id&lt;BCOVPlaybackSessionProvider&gt; sessionProvider = [playbackManager createWidevineSessionProviderWithOptions:options]; id&lt;BCOVPlaybackController&gt;playbackController = [playbackManager createPlaybackControllerWithSessionProvider:sessionProvider viewStrategy:nil]; </code></pre>
+
+<h2>Quellenauswahl (WVM, HTTP/HTTPs)</h2>
+
+<p>Das Brightcove Player SDK für iOS bietet Clients die Möglichkeit, mehrere URLs und Übermittlungstypen (<code>BCOVQuelle</code> ) zu einem einzelnen Video (<code>BCOVVideo</code>). Wenn Ihre Videos beispielsweise vom Katalog- oder Wiedergabedienst abgerufen werden, kann es für ein einzelnes Video eine Mischung aus WVM-, HLS- oder MP4-Versionen sowie HTTP- und HTTPs-Versionen geben. Welche dieser Quellen ausgewählt wird, wird durch einen Quellenauswahlblock bestimmt. Die vom Widevine-Plugin verwendete Standard-Quellenauswahlrichtlinie wählt das erste Widevine . aus <code>BCOVQuelle</code> auf jeder <code>BCOVVideo</code> , unabhängig vom Schema.</p>
+
+<p>Die Quellenauswahl kann überschrieben werden, indem a . erstellt wird <a href="Classes/BCOVWidevineSessionProviderOptions.html"><code>BCOVWidevineSessionProviderOptions</code></a> und verwenden Sie es, um a . zu erstellen <a href="Classes/BCOVWidevineSessionProvider.html"><code>BCOVWidevineSessionProvider</code></a>. Zum Beispiel:</p>
+
+<pre><code>BCOVPlayerSDKManager *sdkManager = [BCOVPlayerSDKManager sharedManager]; BCOVWidevineSessionProviderOptions *options = [[BCOVWidevineSessionProviderOptions alloc] init]; options.sourceSelectionPolicy = &lt;policy&gt; id&lt;BCOVWidevineSessionProvider&gt; provider = [sdkManager createWidevineSessionProviderWithOptions:options]; id&lt;BCOVPlaybackController&gt;playbackController [sdkManager createPlaybackControllerWithSessionProvider:provider viewStrategy:nil]; </code></pre>
+
+<p>Wenn diese Standardauswahlrichtlinie für Sie nicht funktioniert, gibt es einige Alternativen zur Auswahl einer Quelle:</p>
+
+<ul>
+<li><p>Beim Abrufen von Videos aus Video Cloud über den Katalogdienst oder den Wiedergabedienst vor dem Anrufen <code>[BCOVPlaybackController setVideos:]</code> , verwenden Sie die Update-Methode auf dem <code>BCOVVideo</code> nur die gewünschte Quelle enthalten (siehe &ldquo;Werte&rdquo; Abschnitt für weitere Informationen).</p></li>
+<li><p>Wenn Sie HTTPS-Quellen bevorzugen, bietet das Widevine-Plugin zusätzliche Optionen zur Auswahl von Widevine-Quellen mit einem bestimmten Schema. <code>[BCOVWidevineSourceSelectionPolicy sourceSelectionWidevineWithScheme:kBCOVSourceURLSchemeHTTPS]</code> stellt eine Richtlinie zur Quellenauswahl bereit, die Widevine-Quellen bevorzugt, die HTTPS verwenden. Dadurch werden Nicht-HTTP-URLs nicht in HTTPs-URLs konvertiert. Wenn Sie HTTPs auswählen, stellen Sie sicher, dass Ihr CDN für HTTPs konfiguriert ist. Wenn das CDN für HTTPs konfiguriert ist, verwenden Sie <code>BCOVPlaybackService</code> Anstatt von <code>BCOV KatalogService</code> um Video-/Playlist-Metadaten abzurufen.</p></li>
+<li><p>Ähnlich wie beim Aktualisieren des Videoobjekts können Sie auch Ihren eigenen Quellenauswahlblock implementieren.</p>
+
+<pre><code> options.sourceSelectionPolicy = ^ BCOVSource *(BCOVVideo *video) { &lt;Video.sources auf Quelle prüfen&gt; </code></pre></li>
+</ul>
+
+						
+						
+					</div>
+					
+
+					<div class="index-container">
+						
+
+						
+						<div class="index-column">
+							<h2 class="index-title">Klassenreferenzen</h2>
+							<ul>
+								
+								<li>BCOVWidevineSessionProvider<a href="Classes/BCOVWidevineSessionProvider.html"></a></li>
+								
+								<li>BCOVWidevineSessionProviderOptions<a href="Classes/BCOVWidevineSessionProviderOptions.html"></a></li>
+								
+								<li>BCOVWidevineSourceSelectionPolicy<a href="Classes/BCOVWidevineSourceSelectionPolicy.html"></a></li>
+								
+							</ul>
+						</div>
+						
+
+						
+						<div class="index-column">
+							
+
+							
+
+							
+							<h2 class="index-title">Kategorie-Referenzen</h2>
+							<ul>
+								
+								<li><a href="Categories/BCOVCatalogService+BCOVWidevineAdditions.html">BCOVDatalogService(BCOVWidevineAdditions)</a></li>
+								
+								<li><a href="Categories/BCOVCatalogService+BCOVWidevineImperativeCallbacks.html">BCOVDatalogService(BCOVWidevineImperativeCallbacks)</a></li>
+								
+								<li>BCOVPlayerSDKManager(BCOVWidevineAdditions)<a href="Categories/BCOVPlayerSDKManager+BCOVWidevineAdditions.html"></a></li>
+								
+							</ul>
+							
+						</div>
+						
+					</div>
+
+					<footer>
+						<div class="footer-copyright">
+							
+							<p class="copyright">Urheberrechte © &copy; 2017 Brightcove. Alle Rechte vorbehalten. Aktualisiert: 2017-01-26</p>
+							
+							
+							<p class="generator">Erstellt von <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
+							
+						</div>
+					</footer>
+				</main>
+			</div>
+		</div>
+	</article>
+
+	<script src="js/script.js"></script>
+<script src="https://learning-services-media.brightcove.com/doc-assets/js/https-fix.js"></script>
+<script src="https://learning-services-media.brightcove.com/doc-assets/js/support-feedback.js"></script><script src="https://support.brightcove.com/site-assets/js/site/feedback-docs.js"></script>
+</body>
+</html>

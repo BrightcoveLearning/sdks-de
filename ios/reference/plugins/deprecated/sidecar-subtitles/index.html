@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>BCOVSidecarSubtitles Reference</title>
+
+	<link rel="stylesheet" href="css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title"> <a href="index.html">BCOVSidecarUntertitel </a> </h1>
+
+			<p id="developer-home">
+				Brightcove<a href="index.html"></a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="hierarchy.html">Hierarchie</a></li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview-contents" class="container">
+			<div id="content">
+				<main role="main">
+					BCOVSidecarSubtitles Reference<h1 class="title"></h1>
+
+					
+					<div class="section section-overview index-overview">
+						
+						
+						<h1>Sidecar-Untertitel-Plug-in für Brightcove Player SDK für iOS und tvOS, Version 2.1.6.129</h1> <h1>Unterstützte Plattformen</h1>
+
+<p>iOS 8.0 und höher.</p>
+
+<p>tvOS 9.0 und höher.</p>
+
+Installation<h1></h1>
+
+<p>Das Sidecar-Untertitel-Plug-in für Brightcove Player SDK bietet zwei Installationspakete für iOS; ein statisches Bibliotheks-Framework und ein dynamisches Framework. Für tvOS bietet das Sidecar Subtitles-Plugin nur ein dynamisches Framework.</p>
+
+<h2>Kakaoschoten</h2>
+
+<p>Sie können verwenden <a href="http://cocoapods.org">Kakaoschoten</a> um das Sidecar Subtitles Plugin für Brightcove Player SDK zu Ihrem Projekt hinzuzufügen. Sie finden die neuesten <code>Brightcove-Player-SDK-SidecarSubtitles</code> Podspec <a href="https://github.com/CocoaPods/Specs/tree/master/Specs/9/5/e/Brightcove-Player-SDK-SidecarSubtitles">Hier</a>.</p>
+
+<p>Angeben des Standard-Pods <code>Brightcove-Player-SDK-SidecarSubtitles</code> installiert das statische Bibliotheksframework. Um das dynamische Framework zu installieren, deklarieren Sie den Pod mit dem <code>dynamisch</code> Unterspezifikation: <code>Brightcove-Player-SDK-SidecarUntertitel/dynamisch</code></p>
+
+<p>Beispiel für ein statisches Framework:</p>
+
+<pre><code>Pod 'Brightcove-Player-SDK-SidecarSubtitles' </code></pre>
+
+<p>Beispiel für ein dynamisches Framework:</p>
+
+<pre><code>Pod 'Brightcove-Player-SDK-SidecarUntertitel/dynamisch' </code></pre>
+
+<p>Die Pflege eines aktuellen Master-Podspec-Repositorys ist erforderlich, um sicherzustellen, dass Sie immer die neuesten Versionen der Brightcove-Software verwenden. Ab CocoaPods 1.0.0 sind Podspec-Repository-Updates keine automatische Funktion mehr. Um Ihr Master-Repository zu aktualisieren, führen Sie Folgendes auf der Befehlszeile aus:</p>
+
+<pre><code>Pod-Repository-Update </code></pre>
+
+<h2>Handbuch</h2>
+
+<p>So fügen Sie Ihrem Projekt das Sidecar-Untertitel-Plug-in für Brightcove Player SDK manuell hinzu:</p>
+
+<ol>
+<li>Installieren Sie die neueste Version des <a href="https://github.com/brightcove/brightcove-player-sdk-ios">Brightcove Player-SDK</a>.</li>
+<li>Laden Sie die neueste gezippte Version des BrightcoveSidecarSubtitles-Plugins von unserem . herunter <a href="https://github.com/brightcove/brightcove-player-sdk-ios-sidecarsubtitles/releases">Release-Seite</a>.</li>
+<li>Hinzufügen <code>BrightcoveSidecarSubtitles.framework</code> zu Ihrem Projekt.</li>
+<li>Auf der &ldquo;Build-Einstellungen&rdquo; Registerkarte Ihres Anwendungsziels stellen Sie sicher, dass die &ldquo;Framework-Suchpfade&rdquo; den Pfad zum Framework einschließen. Dies sollte automatisch erfolgen, es sei denn, das Framework ist in einem anderen Stammverzeichnis als Ihr Projekt gespeichert.</li>
+<li>(Nur dynamisches Framework) Auf dem &ldquo;Allgemein&rdquo; Registerkarte Ihres Anwendungsziels, fügen Sie hinzu &lsquo;BrightcoveSidecarSubtitles.framework&rsquo; zum &ldquo;Eingebettete Binärdateien&rdquo; Sektion.</li>
+<li>(Nur dynamisches Framework) Auf dem &ldquo;Build-Phasen&rdquo; Registerkarte, fügen Sie ein &ldquo;Skript ausführen&rdquo; Phase mit dem Befehl <code>Schlag ${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/BrightcoveSidecarSubtitles.framework/strip-frameworks.sh</code>. Prüfen &ldquo;Skript nur bei der Installation ausführen&rdquo;. Dadurch werden nicht benötigte Architekturen aus dem Build entfernt, was für die Einreichung im App Store wichtig ist.</li>
+<li>(nur statisches Framework) Auf dem &ldquo;Build-Einstellungen&rdquo; Registerkarte Ihres Anwendungsziels, fügen Sie hinzu <code>-ObjC</code> zum &ldquo;Andere Linker-Flags&rdquo; Einstellung bauen.</li>
+</ol>
+
+
+<h2>Importe</h2>
+
+<p>Das Brightcove Player SDK für iOS kann auf verschiedene Arten in Code importiert werden:</p>
+
+<ul>
+<li>@import BrightcoveSidecarSubtitles;<code></code></li>
+<li>#import &lt;BrightcoveSidecarSubtitles/BrightcoveSidecarSubtitles.h&gt;<code></code></li>
+<li><code>#import &lt;BrightcoveSidecarSubtitles/[spezifische Klasse].h&gt;</code>.</li>
+</ul>
+
+
+<h1>Schnellstart</h1>
+
+<pre><code> NSString *policyKey = &lt;Ihr-Richtlinien-Schlüssel&gt;; NSString *accountId = &lt;Ihre-Konto-ID&gt;; NSString *videoID = &lt;Ihre-Video-ID&gt;; BCOVPlayerSDKManager *manager = [BCOVPlayerSDKManager sharedManager]; [1] id&lt;BCOVPlaybackController&gt; controller = [playbackManager createSidecarSubtitlesPlaybackControllerWithViewStrategy:nil]; [self.view addSubview:controller.view]; BCOVPlaybackService *playbackService = [[BCOVPlaybackService alloc] initWithAccountId:accoundId policyKey:policyKey]; [2] [playbackService findVideoWithVideoID:videoID Parameter:nil Vervollständigung:^(BCOVVideo *video, NSDictionary *jsonResponse, NSError *error) { [controller setVideos:@[ video ]]; [controller play]; }]; </code></pre>
+
+<p>BCOVSidecarSubtitles fügt dem BCOVPlaybackManager einige Kategoriemethoden hinzu. Die erste davon ist <code>-createSidecarSubtitlesPlaybackControllerWithViewStrategie:</code>. Verwenden Sie diese Methode, um Ihren Wiedergabe-Controller zu erstellen. Alternativ (wenn Sie mehr als einen Sitzungsanbieter verwenden) können Sie einen BCOVSSSessionProvider erstellen und diesen an die Manager-Methode übergeben, die einen Wiedergabe-Controller mit Upstream-Sitzungsanbietern erstellt.* Wenn Sie für tvOS entwickeln, muss die an createSidecarSubtitlesPlaybackControllerWithViewStrategy übergebene ViewStrategy . sein Null.</p>
+
+<p>* Beachten Sie, dass <code>BCOVSSSessionProvider</code> sollte vor allen Sitzungsanbietern in der Kette stehen, die beim Erstellen des Wiedergabe-Controllers an den Manager übergeben werden. Dieses Plugin ist <strong>nicht kompatibel</strong> mit dem Widevine-Plugin.</p>
+
+<p>Wenn Sie Fragen haben oder Hilfe benötigen, besuchen Sie das Supportforum für Brightcove Native Player SDKs unter <a href="https://groups.google.com/forum/">https://groups.google.com/forum/</a>#!forum/brightcove-native-player-sdks .</p>
+
+<h2>Verwenden der integrierten PlayerUI-Steuerelemente</h2>
+
+<p>Das obige Code-Snippet stellt einen Videoplayer ohne Steuerelemente dar. Sie können Ihrem Code auf diese Weise Wiedergabesteuerelemente hinzufügen.</p>
+
+<p>Fügen Sie eine Eigenschaft hinzu, um den Überblick zu behalten <code>BCOVPUIPlayerView</code>:</p>
+
+<pre><code>// Player-View von PlayerUI @property (nonatomic) BCOVPUIPlayerView *playerView; </code></pre>
+
+<p>Erstellen Sie die <code>BCOVPUIBasicControlView</code> , und dann die <code>BCOVPUIPlayerView</code>. Hier verbinden wir den Playback-Controller (und damit alle abgespielten Videos) mit den Steuerelementen. Stellen Sie die Player-Ansicht so ein, dass sie dem Video-Container aus Ihrem Layout entspricht (<code>deinVideoView</code> ) bei der Größenänderung.</p>
+
+<pre><code>BCOVPUIBasicControlView *controlView = [BCOVPUIBasicControlView basicControlViewWithVODLayout]; self.playerView = [[BCOVPUIPlayerView alloc] initWithPlaybackController:controller options:nil controlView:controlView]; // Größe der übergeordneten Ansicht anpassen self.playerView.frame = self.yourVideoView.bounds; self.playerView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth; // BCOVPUIPlayerView zu Ihrer Videoansicht hinzufügen. [self.yourVideoView addSubview:self.playerView]; </code></pre>
+
+<p>Wenn Sie den BCOVPUIPlayerView verwenden, müssen Sie auch eine Zeile darüber entfernen:</p>
+
+<pre><code>[self.view addSubview:controller.view]; // wird bei Verwendung von PlayerUI nicht mehr benötigt </code></pre>
+
+<p>Wenn Sie den Player mit einem anderen Playback-Controller wiederverwenden möchten, können Sie einfach eine neue Zuweisung vornehmen:</p>
+
+<pre><code>self.playerView.playbackController = otherPlaybackController; </code></pre>
+
+<p>Die Player-Ansicht fügt automatisch den Wiedergabe-Controller hinzu&rsquo;s-Ansicht in eine eigene Ansichtshierarchie.</p>
+
+<p>Bitte lesen Sie das Brightcove Native Player SDK&rsquo;s README für weitere Informationen zum Hinzufügen und Anpassen von PlayerUI-Steuerelementen in Ihrer App.</p>
+
+<p>Wenn Sie Fragen haben oder Hilfe benötigen, besuchen Sie die <a href="https://groups.google.com/forum/#!forum/brightcove-native-player-sdks">Brightcove Native Player SDK-Supportforum</a>.</p>
+
+<h1>Untertiteldaten manuell ausfüllen</h1>
+
+<p>Das BCOVSidecarSubtitle-Plugin sucht nach einem Array von Untertitel-Metadaten in der <code>BCOVVideo</code> Objekteigenschaften, verschlüsselt von <code>kBCOVSSVideoPropertiesKeyTextTracks</code>. Wenn Sie verwenden <code>BCOVPlaybackService</code> um Videos abzurufen und diesen Videos sind Textspuren zugeordnet, dies wird automatisch ausgefüllt.</p>
+
+<p>Wenn Sie Ihre eigenen Videos bereitstellen oder ein Perform-Kunde sind, müssen Sie die Daten wie folgt strukturieren:</p>
+
+<pre><code>NSArray *Untertitel = @[ @{ kBCOVSSTextTracksKeySource: ..., // required kBCOVSSTextTracksKeySourceLanguage: ..., // required kBCOVSSTextTracksKeyLabel: ..., // required kBCOVSSTextTracksKeyDuration: ..., // required/optional [1] kBCOVSSTextTracksKeyKind: kBCOVSSTextTracksKindSubtitles or kBCOVSSTextTracksKindCaptions, // required kBCOVSSTextTracksKeyDefault: ..., // optional kBCOVSSTextTracksKeyMIMEType: ..., // optional } , @{...} , // Wörterbuch der zweiten Textspur @{...} , // Wörterbuch der dritten Textspur ]; BCOVVideo *video = [BCOVVideo alloc] initWithSource:&lt;source&gt; cuePoints:&lt;cuepoints&gt; properties:@{ kBCOVSSVideoPropertiesKeyTextTracks:subtitles }]; </code></pre>
+
+<p>Die <code>kBCOVSSTextTracksKeySource</code> key enthält die Quell-URL Ihres Untertiteltracks und kann entweder als WebVTT-URL oder als M3U8-Wiedergabelisten-URL bereitgestellt werden.</p>
+
+<p>WebVTT-Dateien sollten a . haben &ldquo;.vtt&rdquo; Erweiterung und M3U8-Dateien sollten eine &ldquo;.M3U8&rdquo; Verlängerung. Wenn Sie diese Konventionen nicht einhalten können, müssen Sie ein <code>kBCOVSSTextTracksKeySourceType</code> Schlüssel, und geben Sie entweder <code>kBCOVSSTextTracksKeySourceTypeWebVTTURL</code> oder <code>kBCOVSSTextTracksKeySourceTypeM3U8URL</code> um den Dateityp anzugeben, auf den die URL verweist.</p>
+
+<p>Wenn Sie einem aus Video Cloud abgerufenen Video Spuren bereitstellen, sollten Sie <strong>hinzufügen</strong> Ihre Untertitel zu allen vorhandenen Tracks anstatt <strong>überschreiben</strong> Sie. Dieser Code zeigt, wie Sie einem vorhandenen Video Tracks hinzufügen können:</p>
+
+<pre><code>BCOVVideo *updatedVideo = [Video-Update:^(id&lt;BCOVMutableVideo&gt; mutableVideo) { // Save the current tracks NSArray *originalTracks = video.properties[kBCOVSSVideoPropertiesKeyTextTracks]; // Create your text track dictionary NSArray *subtitles = @[ @{ kBCOVSSTextTracksKeySource: ..., // required kBCOVSSTextTracksKeySourceLanguage: ..., // required kBCOVSSTextTracksKeyLabel: ..., // required kBCOVSSTextTracksKeyDuration: ..., // required/optional [1] kBCOVSSTextTracksKeyKind: kBCOVSSTextTracksKindSubtitles or kBCOVSSTextTracksKindCaptions, // required kBCOVSSTextTracksKeyDefault: ..., // optional kBCOVSSTextTracksKeyMIMEType: ..., // optional } , @{...} , // Wörterbuch der zweiten Textspur @{...} , // Wörterbuch der dritten Textspur ]; // Neue Spuren an die Originalspuren anhängen, falls vorhanden NSArray *combinedTextTracks = ((originalTracks != nil) ? [originalTracks arrayByAddingObjectsFromArray:subtitles] : subtitles); // Aktualisieren Sie das aktuelle Wörterbuch (wir möchten die bereits enthaltenen Eigenschaften nicht verlieren) NSMutableDictionary *updatedDictionary = [mutableVideo.properties mutableCopy]; // Textspuren in der Eigenschaft Textspuren speichern updatedDictionary[kBCOVSSVideoPropertiesKeyTextTracks] = CombinedTextTracks; mutableVideo.properties = aktualisiertes Wörterbuch; }]; </code></pre>
+
+<h1>Anmerkungen</h1>
+
+<ul>
+<li><code>kBCOVSSTextTracksKeyDuration</code> ist ein erforderlicher Schlüssel, wenn Sie Untertiteldateien mit der Erweiterung .vtt verwenden. <code>kBCOVSSTextTracksKeyDuration</code> ist ein optionaler Schlüssel, wenn Sie Untertiteldateien mit der Erweiterung .m3u8 verwenden.</li>
+</ul>
+
+
+<p>Weitere Informationen zur Verwendung dieser Schlüssel finden Sie in der Codedokumentation in der Headerdatei BCOVSSComponent.h.</p>
+
+<h1>Bekannte Probleme</h1>
+
+<ul>
+<li><p>Untertitel werden beim Betrachten von 360-Grad-Videos nicht angezeigt.</p></li>
+<li><p>Dieses Plug-in unterstützt derzeit nicht die Integration mit dem Widevine-Plug-in für Brightcove Brightcove Player SDK für iOS.</p></li>
+<li><p>Beim Abrufen Ihrer Videos über die Brightcove-Wiedergabe-API müssen Ihre Wiedergaben eine Master-M3U8-Wiedergabeliste enthalten. Das Sidecar-Untertitel-Plugin funktioniert nicht mit M3U8-Wiedergabelisten mit einer einzigen Wiedergabe.</p></li>
+<li><p>Wenn Sie dem Plugin eine Untertitel-Wiedergabeliste bereitstellen und diese Untertitel-Wiedergabeliste Links zu Web-VTT-Dateien enthält, die als 404 antworten, schlägt die Wiedergabe fehl. Dies ist ein Fehler bei Apple&rsquo;s AVPlayer.</p></li>
+</ul>
+
+						
+						
+					</div>
+					
+
+					<div class="index-container">
+						
+
+						
+
+						
+						<div class="index-column">
+							
+
+							
+
+							
+							<h2 class="index-title">Kategorie-Referenzen</h2>
+							<ul>
+								
+								<li>BCOVPlayerSDKManager(BCOVSSAdditions)<a href="Categories/BCOVPlayerSDKManager+BCOVSSAdditions.html"></a></li>
+								
+								<li>BCOVPlayerSDKManager(BCOVSSAdditionsDepricated)<a href="Categories/BCOVPlayerSDKManager+BCOVSSAdditionsDepricated.html"></a></li>
+								
+							</ul>
+							
+						</div>
+						
+					</div>
+
+					<footer>
+						<div class="footer-copyright">
+							
+							<p class="copyright">Urheberrechte © &copy; 2017 Brightcove. Alle Rechte vorbehalten. Aktualisiert: 2017-01-30</p>
+							
+							
+							<p class="generator">Erstellt von <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
+							
+						</div>
+					</footer>
+				</main>
+			</div>
+		</div>
+	</article>
+
+	<script src="js/script.js"></script>
+<script src="https://learning-services-media.brightcove.com/doc-assets/js/https-fix.js"></script>
+<script src="https://learning-services-media.brightcove.com/doc-assets/js/support-feedback.js"></script><script src="https://support.brightcove.com/site-assets/js/site/feedback-docs.js"></script>
+</body>
+</html>

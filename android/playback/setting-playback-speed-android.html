@@ -1,0 +1,147 @@
+---
+title: Beschreibung der Einstellung der Wiedergabegeschwindigkeit auf Android-Geräten: In diesem Thema erfahren Sie, wie Sie Apps mit dem Brightcove Native SDK für Android Funktionen für die Wiedergabe mit variabler Geschwindigkeit hinzufügen.
+parent: Playback 
+grandparent: Android Development
+---
+ <h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary>
+
+<section class="bcls-section">
+<h2 id="Introduction">Einführung</h2>
+
+<p>Für einige Ihrer Apps möchten Sie dem Benutzer möglicherweise die Möglichkeit bieten, die Wiedergabegeschwindigkeit zu ändern, während er Videos ansieht (z. B. eLearning-Umgebungen). Sie können diese Funktionalität mit dem Native SDK für Android hinzufügen.</p>
+<p>In Ihrer Player-Aktivitätsklasse können Sie ein Dialogmenü erstellen, um aus einer gewünschten Liste von Wiedergabegeschwindigkeiten auszuwählen.</p>
+
+</section>
+
+<section class="bcls-section">
+<h2 id="Implementation">Implementierung</h2>
+
+<p>Führen Sie die folgenden Schritte aus, um Ihrer Android-App eine Wiedergabe mit variabler Geschwindigkeit hinzuzufügen:</p>
+<ol class="bcls-tasklist">
+  <li>
+    <p>Erstellen Sie zunächst das Menü, in dem Sie eine Geschwindigkeit auswählen können. Hier verwenden wir a <code translate="No">TextView</code> die beim Antippen das Menü mit den Geschwindigkeitswerten öffnet. Andere Menüoptionen umfassen Spinner.</p>
+    <pre><code class="language-java" translate="No">private TextView playbackSpeed;</code></pre>
+    <p>Fügen Sie dann die <code translate="No">TextView</code> zu deinem <code translate="No">Activity</code> Layout:</p>
+    <pre class="line-numbers"><code class="language-java" translate="No">&lt;com.brightcove.player.view.BrightcoveExoPlayerVideoView
+   android:id=&quot;@+id/brightcove_video_view&quot;
+   android:layout_width=&quot;match_parent&quot;
+   android:layout_height=&quot;280dp&quot;
+   android:layout_gravity=&quot;center_horizontal|top&quot;/&gt;
+
+&lt;LinearLayout
+   android:layout_width=&quot;match_parent&quot;
+   android:layout_height=&quot;wrap_content&quot;
+   android:orientation=&quot;horizontal&quot;
+   android:layout_gravity=&quot;center_vertical&quot;
+   android:layout_below=&quot;@id/brightcove_video_view&quot;
+   android:padding=&quot;20dp&quot;&gt;
+
+   &lt;TextView
+       android:id=&quot;@+id/playbackSpeed&quot;
+       android:layout_width=&quot;match_parent&quot;
+       android:layout_height=&quot;wrap_content&quot;
+       android:gravity=&quot;end&quot;
+       android:padding=&quot;20dp&quot;
+       android:text=&quot;Change Speed&quot;
+       android:textAlignment=&quot;textEnd&quot; /&gt;
+
+&lt;/LinearLayout&gt;</code></pre>
+  </li>
+  <li>
+    <p>Fügen Sie Ihrem Player die Steuerung der Wiedergabegeschwindigkeit hinzu <code translate="No">Activity</code>:</p>
+    <pre class="line-numbers"><code class="language-java" translate="No">playbackSpeed = (TextView) findViewById(R.id.playbackSpeed);
+playbackSpeed.setVisibility(View.VISIBLE);</code></pre>
+  </li>
+  <li>
+    <p>Stellen Sie ein <code translate="No">onClick</code> Hörer auf dem <code translate="No">TextView</code>:</p>
+    <pre class="line-numbers"><code class="language-java" translate="No">playbackSpeed.setOnClickListener(new View.OnClickListener() {
+   @Override
+   public void onClick(View v) {
+       showPlayerSpeedDialog();
+   }
+});
+</code></pre>
+  </li>
+  <li>
+    <p>Fügen Sie eine Methode hinzu, um den Player-Geschwindigkeitsdialog anzuzeigen:</p>
+    <pre class="line-numbers"><code class="language-java" translate="No">private void showPlayerSpeedDialog() {
+   String[] playerSpeedArrayLabels = {&quot;0.8x&quot;, &quot;1.0x&quot;, &quot;1.2x&quot;, &quot;1.5x&quot;, &quot;1.8x&quot;, &quot;2.0x&quot;};
+
+   PopupMenu popupMenu = new PopupMenu(MainActivity.this, playbackSpeed);
+   for (int i = 0; i &lt; playerSpeedArrayLabels.length; i++) {
+       popupMenu.getMenu().add(i, i, i, playerSpeedArrayLabels[i]);
+   }
+   popupMenu.setOnMenuItemClickListener(item -&gt; {
+       int id = item.getItemId();
+       CharSequence itemTitle = item.getTitle();
+       float playbackSpeed = Float.parseFloat(itemTitle.subSequence(0, 3).toString());
+       changePlayerSpeed(playbackSpeed, itemTitle.subSequence(0, 3).toString());
+       return false;
+   });
+   popupMenu.show();
+}
+</code></pre>
+  </li>
+  <li>
+    <p>Fügen Sie eine Methode hinzu, um die Spielergeschwindigkeit auf den im Menü ausgewählten Wert zu ändern. Außerdem kann die Methode den ausgewählten Wert in das Etikett für die <code translate="No">TextView</code>:</p>
+    <pre class="line-numbers"><code class="language-java" translate="No">private void changePlayerSpeed(float speed, String speedLabel) {
+   // Set playback speed
+   ((ExoPlayerVideoDisplayComponent) brightcoveVideoView.getVideoDisplay()).getExoPlayer().setPlaybackParameters(new PlaybackParameters(speed, 1.0f));
+   // Set playback speed label
+   playbackSpeed.setText(&quot;Speed: &quot; + speedLabel + &quot;x&quot;);
+}
+</code></pre>
+  </li>
+</ol>
+</section>
+
+<section class="bcls-section">
+<h2 id="Handling_playback_problems">Handhabung von Wiedergabeproblemen</h2>
+<p>Wenn Sie Probleme beim Einstellen höherer oder niedrigerer Wiedergabegeschwindigkeiten haben, sollten Sie die Anzeige der Wiedergabegeschwindigkeitssteuerung oder die verfügbaren Geschwindigkeiten einschränken, basierend auf:</p>
+
+<ul>
+  <li>
+    <p>Betriebssystemebene mit:</p>
+    <pre><code class="language-java" translate="No">Build.VERSION_CODES.&lt;API_LEVEL&gt;</code></pre>
+  </li>
+  <li>
+    <p>Hersteller verwendet: (Zuverlässigkeit nicht garantiert)</p>
+    <pre><code class="language-java" translate="No">Build.MANUFACTURER
+or
+Build.BRAND
+</code></pre>
+  </li>
+  <li>
+    <p>Hardwareprofil (TV oder Telefon/Mobiltelefon) durch Prüfen des booleschen Wertes von:</p>
+    <pre><code class="language-java" translate="No">BrightcoveMediaController.checkTvMode(Context context)</code></pre>
+  </li>
+</ul>
+</section>
+
+<section class="bcls-section">
+<h2 id="Limitations">Einschränkungen</h2>
+<p>Es ist wichtig zu beachten, dass es zwar möglich ist, die Wiedergabegeschwindigkeit mit dem ExoPlayer und dem Brightcove Native SDK für Android einzustellen, dies jedoch nicht garantiert, dass die Einstellung einer bestimmten Wiedergabegeschwindigkeit ein nahtloses Wiedergabe- und Hörerlebnis bietet.</p>
+<p>Tests haben gezeigt, dass es möglich ist, eine Wiedergabegeschwindigkeit einzustellen, die für ältere Betriebssystemversionen und Geräte mit niedrigeren Spezifikationen zu hoch ist, um ohne eine inakzeptable Verschlechterung der Audio- und Videoqualität zu verarbeiten.</p>
+
+<p>Wenn Sie die Steuerung der Wiedergabegeschwindigkeit implementieren möchten, sollten Sie Folgendes beachten:</p>
+<ul>
+  <li>Was ist die älteste Android-Betriebssystemversion, für die meine Anwendung bestimmt ist?
+    <ul>
+      <li>Ältere Betriebssysteme verfügen möglicherweise nicht über die richtige Codec-Unterstützung für höhere oder niedrigere Wiedergabegeschwindigkeiten als normal</li>
+      <li>Ältere Betriebssysteme haben möglicherweise ältere Chipsätze, die die Video- und Audiodaten nicht performant verarbeiten können</li>
+    </ul>
+  </li>
+  <li>Sind meine Inhalte DRM-geschützt? 
+    <ul>
+      <li>Da Tests einige DRM-bezogene Probleme mit der Wiedergabegeschwindigkeit ergeben haben, möchten wir die Möglichkeit von Entschlüsselungsproblemen beim Spielen mit höheren oder niedrigeren Geschwindigkeiten als normal nicht ausschließen</li>
+    </ul></li>
+  <li>Verwendet mein Inhalt Untertitel oder mehrere Audiospuren? 
+    <ul>
+      <li>Das Aktivieren oder Deaktivieren von Untertiteln oder das Wechseln zwischen Untertiteln, insbesondere auf älteren Geräten oder Betriebssystemversionen, ist ein zu berücksichtigender Umstand.</li>
+    </ul></li>
+</ul>
+</section>
+
+</article>

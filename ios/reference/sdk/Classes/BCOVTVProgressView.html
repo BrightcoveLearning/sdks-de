@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>BCOVTVProgressView-Klassenreferenz</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title"> <a href="../index.html">Brightcove Native Player für iOS </a> </h1>
+
+			<p id="developer-home">
+				Brightcove<a href="../index.html"></a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li>Index<a href="../index.html"></a></li>
+<li><a href="../hierarchy.html">Hierarchie</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							Auf dieser Seite
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Springen zu…</option>
+	
+	<option value="overview">Überblick</option>
+	
+
+	
+	
+	<option value="tasks">Aufgaben</option>
+	
+	
+
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/advertisingMaximumTrackTintColor">WerbungMaximumTrackTintColor</option>
+		
+		<option value="//api/name/advertisingMinimumTrackTintColor">WerbungMinimumTrackTintColor</option>
+		
+		<option value="//api/name/advertisingMode">Werbemodus</option>
+		
+		<option value="//api/name/bufferProgress">PufferFortschritt</option>
+		
+		<option value="//api/name/bufferProgressTintColor">PufferProgressTintColor</option>
+		
+		<option value="//api/name/bufferTrackAdMarkerColor">BufferTrackAdMarkerColor</option>
+		
+		<option value="//api/name/bufferTrackMarkerColor">PufferTrackMarkerColor</option>
+		
+		<option value="//api/name/duration">Dauer</option>
+		
+		<option value="//api/name/maximumTrackAdMarkerColor">maximumTrackAdMarkerColor</option>
+		
+		<option value="//api/name/maximumTrackMarkerColor">maximumTrackMarkerColor</option>
+		
+		<option value="//api/name/maximumTrackTintColor">maximumTrackTintColor</option>
+		
+		<option value="//api/name/minimumTrackAdMarkerColor">minimumTrackAdMarkerColor</option>
+		
+		<option value="//api/name/minimumTrackMarkerColor">minimumTrackMarkerColor</option>
+		
+		<option value="//api/name/minimumTrackTintColor">minimumTrackTintColor</option>
+		
+		<option value="//api/name/progress">Fortschritt</option>
+		
+		<option value="//api/name/trackHeight">trackHeight</option>
+		
+	</optgroup>
+	
+
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/addMarkerAt:duration:isAd:color:">- addMarkerAt:duration:isAd:color:</option>
+		
+		<option value="//api/name/removeAdMarkers">- AdMarker entfernen</option>
+		
+		<option value="//api/name/removeAllMarkers">- AlleMarker entfernen</option>
+		
+		<option value="//api/name/removeGenericMarkers">- GenerischeMarker entfernen</option>
+		
+		<option value="//api/name/removeMarkerAtPosition:">- MarkerAtPosition entfernen:</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">BCOVTVProgressView-Klassenreferenz</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Erbt von</th>
+	<td>UIView</td>
+</tr><tr>
+	<th>Deklariert in</th>
+	<td>BCOVTVProgressView.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Überblick</h2>
+						<p>Eine Unterklasse von UIView, die a &ldquo;gepuffert&rdquo; Spur mit Markierungen für Werbung oder allgemeine Verwendung, plus ein &ldquo;Werbemodus&rdquo; verwendet, um anzuzeigen <a href="#//api/name/progress">Fortschritt</a> von Anzeigen.</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/trackHeight" title="trackHeight"></a>
+	<h3 class="method-title"><code><a href="#//api/name/trackHeight">&nbsp;&nbsp;trackHeight</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Höhe des Spurbereichs Der Standardwert ist 10.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nichtatomar, readwrite) CGFloat trackHeight</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Diskussion</h4>
+				<p>Höhe des Spurbereichs Der Standardwert ist 10.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Deklariert in</h4>
+				<p>BCOVTVProgressView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/progress" title="progress"></a>
+	<h3 class="method-title"><code><a href="#//api/name/progress">&nbsp;&nbsp;Fortschritt</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Der Videofortschritt in Sekunden.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nichtatomar, readwrite) doppelter Fortschritt</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Diskussion</h4>
+				<p>Der Videofortschritt in Sekunden.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Deklariert in</h4>
+				<p>BCOVTVProgressView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/bufferProgress" title="bufferProgress"></a>
+	<h3 class="method-title"><code><a href="#//api/name/bufferProgress">&nbsp;&nbsp;PufferFortschritt</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Die Puffermenge in Sekunden.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nichtatomar, readwrite) double bufferProgress</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Diskussion</h4>
+				<p>Die Puffermenge in Sekunden.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Deklariert in</h4>
+				<p>BCOVTVProgressView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/duration" title="duration"></a>
+	<h3 class="method-title"><code><a href="#//api/name/duration">&nbsp;&nbsp;Dauer</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Die Dauer (in Sekunden), die die <a href="#//api/name/progress">Fortschritt</a> Ansicht darstellt. Der Standardwert ist 30, sollte jedoch auf die Länge des zugehörigen Videos eingestellt werden. Die Dauer wird automatisch für die <a href="#//api/name/progress">Fortschritt</a> view in der TV Player-Benutzeroberfläche unter playerView.controlsView.progressView installiert.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nichtatomar, readwrite) doppelte Dauer</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Diskussion</h4>
+				<p>Die Dauer (in Sekunden), die die <a href="#//api/name/progress">Fortschritt</a> Ansicht darstellt. Der Standardwert ist 30, sollte jedoch auf die Länge des zugehörigen Videos eingestellt werden. Die Dauer wird automatisch für die <a href="#//api/name/progress">Fortschritt</a> view in der TV Player-Benutzeroberfläche unter playerView.controlsView.progressView installiert.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Deklariert in</h4>
+				<p>BCOVTVProgressView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/advertisingMode" title="advertisingMode"></a>
+	<h3 class="method-title"><code><a href="#//api/name/advertisingMode">&nbsp;&nbsp;Werbemodus</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Stellen Sie auf JA ein, um die <a href="#//api/name/progress">Fortschritt</a> Aussicht&rsquo;s UI zum Werbemodus. Im Werbemodus blendet dies die Pufferanzeige und Markierungen aus und setzt die Min/Max-Spurfarben auf <a href="#//api/name/advertisingMinimumTrackTintColor">WerbungMinimumTrackTintColor</a> und <a href="#//api/name/advertisingMaximumTrackTintColor">WerbungMaximumTrackTintColor</a>.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite) BOOL AdvertisingMode</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Diskussion</h4>
+				<p>Stellen Sie auf JA ein, um die <a href="#//api/name/progress">Fortschritt</a> Aussicht&rsquo;s UI zum Werbemodus. Im Werbemodus blendet dies die Pufferanzeige und Markierungen aus und setzt die Min/Max-Spurfarben auf <a href="#//api/name/advertisingMinimumTrackTintColor">WerbungMinimumTrackTintColor</a> und <a href="#//api/name/advertisingMaximumTrackTintColor">WerbungMaximumTrackTintColor</a>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Deklariert in</h4>
+				<p>BCOVTVProgressView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/minimumTrackTintColor" title="minimumTrackTintColor"></a>
+	<h3 class="method-title"><code><a href="#//api/name/minimumTrackTintColor">&nbsp;&nbsp;minimumTrackTintColor</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Die Tönungsfarbe, die für den minimalen Spurbereich verwendet wird, der normales Video darstellt <a href="#//api/name/progress">Fortschritt</a>. Die Standardmindestspurfarbe ist Magenta. Auf nil setzen, um die Standardfarbe wiederherzustellen.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nichtatomar) UIColor *minimumTrackTintColor</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Diskussion</h4>
+				<p>Die Tönungsfarbe, die für den minimalen Spurbereich verwendet wird, der normales Video darstellt <a href="#//api/name/progress">Fortschritt</a>. Die Standardmindestspurfarbe ist Magenta. Auf nil setzen, um die Standardfarbe wiederherzustellen.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Deklariert in</h4>
+				<p>BCOVTVProgressView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/maximumTrackTintColor" title="maximumTrackTintColor"></a>
+	<h3 class="method-title"><code><a href="#//api/name/maximumTrackTintColor">&nbsp;&nbsp;maximumTrackTintColor</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Die Tönungsfarbe, die für den maximalen Spurbereich verwendet wird, der normales Video darstellt <a href="#//api/name/progress">Fortschritt</a>. Die standardmäßige Mindestspurfarbe für Werbung ist dunkelgrau. Auf nil setzen, um die Standardfarbe wiederherzustellen.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nichtatomar) UIColor *maximumTrackTintColor</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Diskussion</h4>
+				<p>Die Tönungsfarbe, die für den maximalen Spurbereich verwendet wird, der normales Video darstellt <a href="#//api/name/progress">Fortschritt</a>. Die standardmäßige Mindestspurfarbe für Werbung ist dunkelgrau. Auf nil setzen, um die Standardfarbe wiederherzustellen.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Deklariert in</h4>
+				<p>BCOVTVProgressView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/bufferProgressTintColor" title="bufferProgressTintColor"></a>
+	<h3 class="method-title"><code><a href="#//api/name/bufferProgressTintColor">&nbsp;&nbsp;PufferProgressTintColor</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Die für den gepufferten Bereich verwendete Tönungsfarbe. Die Standardfarbe der Pufferspur ist weiß. Auf nil setzen, um die Standardfarbe wiederherzustellen.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nichtatomar) UIColor *bufferProgressTintColor</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Diskussion</h4>
+				<p>Die für den gepufferten Bereich verwendete Tönungsfarbe. Die Standardfarbe der Pufferspur ist weiß. Auf nil setzen, um die Standardfarbe wiederherzustellen.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Deklariert in</h4>
+				<p>BCOVTVProgressView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/advertisingMinimumTrackTintColor" title="advertisingMinimumTrackTintColor"></a>
+	<h3 class="method-title"><code><a href="#//api/name/advertisingMinimumTrackTintColor">&nbsp;&nbsp;WerbungMinimumTrackTintColor</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Die im Werbemodus für die minimale Spurfläche verwendete Tönungsfarbe. Diese Farbe wird auch für Anzeigenmarkierungen im normalen Modus verwendet. Die standardmäßige Mindestspurfarbe für Werbung ist Gelb. Auf nil setzen, um die Standardfarbe wiederherzustellen.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nichtatomar) UIColor *WerbungMinimumTrackTintColor</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Diskussion</h4>
+				<p>Die im Werbemodus für die minimale Spurfläche verwendete Tönungsfarbe. Diese Farbe wird auch für Anzeigenmarkierungen im normalen Modus verwendet. Die standardmäßige Mindestspurfarbe für Werbung ist Gelb. Auf nil setzen, um die Standardfarbe wiederherzustellen.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Deklariert in</h4>
+				<p>BCOVTVProgressView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/advertisingMaximumTrackTintColor" title="advertisingMaximumTrackTintColor"></a>
+	<h3 class="method-title"><code><a href="#//api/name/advertisingMaximumTrackTintColor">&nbsp;&nbsp;WerbungMaximumTrackTintColor</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Die im Werbemodus für die maximale Spurfläche verwendete Tönungsfarbe. Die standardmäßige Mindestspurfarbe für Werbung ist dunkelgrau. Auf nil setzen, um die Standardfarbe wiederherzustellen.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nichtatomar) UIColor *advertisingMaximumTrackTintColor</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Diskussion</h4>
+				<p>Die im Werbemodus für die maximale Spurfläche verwendete Tönungsfarbe. Die standardmäßige Mindestspurfarbe für Werbung ist dunkelgrau. Auf nil setzen, um die Standardfarbe wiederherzustellen.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Deklariert in</h4>
+				<p>BCOVTVProgressView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/minimumTrackAdMarkerColor" title="minimumTrackAdMarkerColor"></a>
+	<h3 class="method-title"><code><a href="#//api/name/minimumTrackAdMarkerColor">&nbsp;&nbsp;minimumTrackAdMarkerColor</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Farbe der Anzeigenmarkierung für den minimalen Track, die Seite des <a href="#//api/name/progress">Fortschritt</a> links neben der aktuellen Zeitanzeige. Der Standardwert (wird verwendet, wenn <a href="#//api/name/minimumTrackMarkerColor">minimumTrackMarkerColor</a> Null ist) ist RGB (0,425, 0,075, 0,26).</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nichtatomar) UIColor *minimumTrackAdMarkerColor</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Diskussion</h4>
+				<p>Farbe der Anzeigenmarkierung für den minimalen Track, die Seite des <a href="#//api/name/progress">Fortschritt</a> links neben der aktuellen Zeitanzeige. Der Standardwert (wird verwendet, wenn <a href="#//api/name/minimumTrackMarkerColor">minimumTrackMarkerColor</a> Null ist) ist RGB (0,425, 0,075, 0,26).</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Deklariert in</h4>
+				<p>BCOVTVProgressView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/bufferTrackAdMarkerColor" title="bufferTrackAdMarkerColor"></a>
+	<h3 class="method-title"><code><a href="#//api/name/bufferTrackAdMarkerColor">&nbsp;&nbsp;BufferTrackAdMarkerColor</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Farbe der Anzeigenmarkierung für die Pufferspur. Der Standardwert (wird verwendet, wenn <a href="#//api/name/bufferTrackMarkerColor">PufferTrackMarkerColor</a> ist null) ist weiß.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nichtatomar) UIColor *bufferTrackAdMarkerColor</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Diskussion</h4>
+				<p>Farbe der Anzeigenmarkierung für die Pufferspur. Der Standardwert (wird verwendet, wenn <a href="#//api/name/bufferTrackMarkerColor">PufferTrackMarkerColor</a> ist null) ist weiß.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Deklariert in</h4>
+				<p>BCOVTVProgressView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/maximumTrackAdMarkerColor" title="maximumTrackAdMarkerColor"></a>
+	<h3 class="method-title"><code><a href="#//api/name/maximumTrackAdMarkerColor">&nbsp;&nbsp;maximumTrackAdMarkerColor</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Farbe der Anzeigenmarkierung für die maximale Spur, ganz rechts von der <a href="#//api/name/progress">Fortschritt</a> Aussicht. Der Standardwert (wird verwendet, wenn <a href="#//api/name/bufferTrackMarkerColor">PufferTrackMarkerColor</a> ist null) ist weiß.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nichtatomar) UIColor *maximumTrackAdMarkerColor</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Diskussion</h4>
+				<p>Farbe der Anzeigenmarkierung für die maximale Spur, ganz rechts von der <a href="#//api/name/progress">Fortschritt</a> Aussicht. Der Standardwert (wird verwendet, wenn <a href="#//api/name/bufferTrackMarkerColor">PufferTrackMarkerColor</a> ist null) ist weiß.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Deklariert in</h4>
+				<p>BCOVTVProgressView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/minimumTrackMarkerColor" title="minimumTrackMarkerColor"></a>
+	<h3 class="method-title"><code><a href="#//api/name/minimumTrackMarkerColor">&nbsp;&nbsp;minimumTrackMarkerColor</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Markierungsfarbe für die minimale Spur, die Seite des <a href="#//api/name/progress">Fortschritt</a> links neben der aktuellen Zeitanzeige. Der Standardwert (wird verwendet, wenn minimumTrackMarkerColor nil ist) ist RGB(0,425, 0,075, 0,26).</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nichtatomar) UIColor *minimumTrackMarkerColor</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Diskussion</h4>
+				<p>Markierungsfarbe für die minimale Spur, die Seite des <a href="#//api/name/progress">Fortschritt</a> links neben der aktuellen Zeitanzeige. Der Standardwert (wird verwendet, wenn minimumTrackMarkerColor nil ist) ist RGB(0,425, 0,075, 0,26).</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Deklariert in</h4>
+				<p>BCOVTVProgressView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/bufferTrackMarkerColor" title="bufferTrackMarkerColor"></a>
+	<h3 class="method-title"><code><a href="#//api/name/bufferTrackMarkerColor">&nbsp;&nbsp;PufferTrackMarkerColor</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Markierungsfarbe für die Pufferspur. Der Standardwert (wird verwendet, wenn bufferTrackMarkerColor den Wert nil hat) ist weiß.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nichtatomar) UIColor *bufferTrackMarkerColor</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Diskussion</h4>
+				<p>Markierungsfarbe für die Pufferspur. Der Standardwert (wird verwendet, wenn bufferTrackMarkerColor den Wert nil hat) ist weiß.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Deklariert in</h4>
+				<p>BCOVTVProgressView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/maximumTrackMarkerColor" title="maximumTrackMarkerColor"></a>
+	<h3 class="method-title"><code><a href="#//api/name/maximumTrackMarkerColor">&nbsp;&nbsp;maximumTrackMarkerColor</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Markierungsfarbe für die maximale Spur, die ganz rechte Seite des <a href="#//api/name/progress">Fortschritt</a> Aussicht. Der Standardwert (wird verwendet, wenn <a href="#//api/name/bufferTrackMarkerColor">PufferTrackMarkerColor</a> ist null) ist weiß.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nichtatomar) UIColor *maximumTrackMarkerColor</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Diskussion</h4>
+				<p>Markierungsfarbe für die maximale Spur, die ganz rechte Seite des <a href="#//api/name/progress">Fortschritt</a> Aussicht. Der Standardwert (wird verwendet, wenn <a href="#//api/name/bufferTrackMarkerColor">PufferTrackMarkerColor</a> ist null) ist weiß.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Deklariert in</h4>
+				<p>BCOVTVProgressView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/addMarkerAt:duration:isAd:color:" title="addMarkerAt:duration:isAd:color:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/addMarkerAt:duration:isAd:color:">&ndash;&nbsp;addMarkerAt:duration:isAd:color:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Fügen Sie eine Markierung hinzu, die auf dem . angezeigt wird <a href="#//api/name/progress">Fortschritt</a> an einem bestimmten Ort ansehen.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)addMarkerAt:(double)<code><em>Position</em> Dauer: (doppelt)<em>Dauer</em> isAd:(BOOL)<em>isAd</em> Farbe: (UIColor *)<em>Farbe</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameter</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>Position</code></th>
+						<td><p>Die Position (in Sekunden) im <a href="#//api/name/progress">Fortschritt</a> sehen Sie, wo der Marker platziert werden soll. Siehe die &ldquo;Dauer&rdquo; Eigenschaft für verwandte Details.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>Dauer</code></th>
+						<td><p>Die <a href="#//api/name/duration">Dauer</a> in Sekunden, dargestellt durch die Markierung; kann auf Null gesetzt werden, um die kleinste Markierung (einen Kreis) zu zeichnen.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name">isAd<code></code></th>
+						<td><p>JA bedeutet, dass diese Markierung eine Anzeige darstellt. NO zeigt an, dass es sich um einen generischen Marker handelt (standardmäßig weiß gezeichnet). Im Allgemeinen sollten Sie für diesen Wert NO übergeben, da Anzeigenmarkierungen jedes Mal entfernt und neu hinzugefügt werden, wenn Sie zu einer neuen Sitzung wechseln.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>Farbe</code></th>
+						<td><p>Eine UIColor, die zum Zeichnen des Markers verwendet wird. Kann auf Null gesetzt werden.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Diskussion</h4>
+				<p>Fügen Sie eine Markierung hinzu, die auf dem . angezeigt wird <a href="#//api/name/progress">Fortschritt</a> an einem bestimmten Ort ansehen.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Deklariert in</h4>
+				<p>BCOVTVProgressView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/removeMarkerAtPosition:" title="removeMarkerAtPosition:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/removeMarkerAtPosition:">&ndash;&nbsp;removeMarkerAtPosition:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Entfernen Sie alle Markierungen an der angegebenen Position.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)removeMarkerAtPosition:(double)<code><em>Position</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameter</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>Position</code></th>
+						<td><p>Die Lage im <a href="#//api/name/progress">Fortschritt</a> Ansicht (in Sekunden) des zu entfernenden Markers.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Diskussion</h4>
+				<p>Entfernen Sie alle Markierungen an der angegebenen Position.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Deklariert in</h4>
+				<p>BCOVTVProgressView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/removeAllMarkers" title="removeAllMarkers"></a>
+	<h3 class="method-title"><code><a href="#//api/name/removeAllMarkers">&ndash;&nbsp;AlleMarker entfernen</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Entfernen Sie alle Markierungen aus dem <a href="#//api/name/progress">Fortschritt</a> Aussicht.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)AlleMarker entfernen</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Diskussion</h4>
+				<p>Entfernen Sie alle Markierungen aus dem <a href="#//api/name/progress">Fortschritt</a> Aussicht.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Deklariert in</h4>
+				<p>BCOVTVProgressView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/removeGenericMarkers" title="removeGenericMarkers"></a>
+	<h3 class="method-title"><code><a href="#//api/name/removeGenericMarkers">&ndash;&nbsp;EntfernenGenerischeMarker</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Entfernen Sie alle generischen Marker aus dem <a href="#//api/name/progress">Fortschritt</a> Aussicht.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)entferneGenerischeMarker</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Diskussion</h4>
+				<p>Entfernen Sie alle generischen Marker aus dem <a href="#//api/name/progress">Fortschritt</a> Aussicht.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Deklariert in</h4>
+				<p>BCOVTVProgressView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/removeAdMarkers" title="removeAdMarkers"></a>
+	<h3 class="method-title"><code><a href="#//api/name/removeAdMarkers">&ndash;&nbsp;AdMarker entfernen</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Entfernen Sie alle Anzeigenmarkierungen aus dem <a href="#//api/name/progress">Fortschritt</a> Aussicht.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)AdMarkers entfernen</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Diskussion</h4>
+				<p>Entfernen Sie alle Anzeigenmarkierungen aus dem <a href="#//api/name/progress">Fortschritt</a> Aussicht.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Deklariert in</h4>
+				<p>BCOVTVProgressView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Urheberrechte © &copy; 2021 Brightcove. Alle Rechte vorbehalten. Aktualisiert: 2021-07-08</p>
+						
+						
+						<p class="generator">Erstellt von <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

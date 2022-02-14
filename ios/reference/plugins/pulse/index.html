@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Brightcove Native Player für iOS-Referenz</title>
+
+	<link rel="stylesheet" href="css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title"> <a href="index.html">Brightcove Native Player für iOS </a> </h1>
+
+			<p id="developer-home">
+				Brightcove<a href="index.html"></a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="hierarchy.html">Hierarchie</a></li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview-contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">Brightcove Native Player für iOS-Referenz</h1>
+
+					
+					<div class="section section-overview index-overview">
+						
+						
+						<h1>Pulse-Plug-in für Brightcove Player SDK für iOS, Version 6.9.0.1697</h1> <h1>Anforderungen</h1>
+
+<ul>
+<li>Xcode 11.0+</li>
+<li>BOGEN</li>
+</ul>
+
+
+<h1>Unterstützte Plattformen</h1>
+
+<p>iOS 11.0 und höher. tvOS 11.0 und höher</p>
+
+Installation<h1></h1>
+
+<p>Pulse Plugin für Brightcove Player SDK bietet ein dynamisches Bibliotheksframework für die Installation.</p>
+
+<p>Das Pulse-Plugin unterstützt INVIDI Technologies Pulse SDK Version 2.5.20.1.0 für iOS und Version 2.5.19.9.0 für tvOS, <a href="http://pulse-sdks.videoplaza.com/ios_2/latest/">Pulse iOS- und tvOS-SDK-Referenz</a>. Die Podspec für das Pulse-Plug-in für Brightcove Player SDK-Referenzen <a href="http://pulse-sdks.videoplaza.com/ios_2/latest/changelog.html">Pulse SDK-Versionsverlauf</a>.</p>
+
+<h2>Kakaoschoten</h2>
+
+<p>Sie können verwenden <a href="http://cocoapods.org">Kakaoschoten</a> um das Pulse-Plug-in für Brightcove Player SDK zu Ihrem Projekt hinzuzufügen. Sie finden die neuesten <code>Brightcove-Player-Puls</code> Podspec <a href="https://github.com/brightcove/BrightcoveSpecs/tree/master/Brightcove-Player-Pulse">Hier</a>. Das PulseSDK muss zu Ihrem Projekt hinzugefügt werden, laden Sie die neueste Version herunter <a href="https://github.com/INVIDITechnologies/pulse-sdk-ios-2.x-sample">Hier</a>. CocoaPods 1.0 oder neuer ist erforderlich.</p>
+
+<p>Beispiel für eine CocoaPod-Poddatei:</p>
+
+<pre><code>Quelle 'https://github.com/CocoaPods/Specs' Quelle 'https://github.com/brightcove/BrightcoveSpecs.git' Plattform: ios, '11.0' use_frameworks! Ziel "Meine App"' do Pod 'Brightcove-Player-Pulse' Ende </code></pre>
+
+<h2>Handbuch</h2>
+
+<p>So fügen Sie Ihrem Projekt das Pulse-Plug-in für Brightcove Player SDK manuell hinzu:</p>
+
+<ol>
+<li>Laden Sie das neueste gezippte Brightcove Player SDK-Framework von der <a href="https://github.com/brightcove/brightcove-player-sdk-ios/releases">Veröffentlichungsseite</a>.</li>
+<li>Laden Sie das neueste gezippte Pulse-Plug-in für das Brightcove Player SDK-Framework von der <a href="https://github.com/brightcove/brightcove-player-sdk-ios-pulse/releases">Veröffentlichungsseite</a>.</li>
+<li>Laden Sie die . herunter <a href="https://github.com/INVIDITechnologies/pulse-sdk-ios-2.x-sample">PulseSDK</a> Rahmen.</li>
+<li>Auf der &ldquo;Allgemein&rdquo; Registerkarte Ihres Anwendungsziels, fügen Sie die <strong>dynamisch</strong> Framework, BrightcovePlayerSDK.framework, aus dem Brightcove Player SDK-Download zur Liste der <strong>Frameworks, Bibliotheken und eingebettete Inhalte</strong>. Das dynamische Framework BrightcovePlayerSDK.framework befindet sich im Verzeichnis ios/dynamic des Downloads. Die <em>Einbetten</em> Einstellung für den Rahmen muss &ldquo;<em>Einbetten &amp; Signieren</em>.&rdquo;</li>
+<li>Auf der &ldquo;Allgemein&rdquo; Registerkarte Ihres Anwendungsziels, fügen Sie BrightcovePulse.framework aus dem Pulse-Plug-in für den Brightcove Player SDK-Download zur Liste der <strong>Frameworks, Bibliotheken und eingebettete Inhalte</strong>. Die <em>Einbetten</em> Einstellung für den Rahmen muss &ldquo;<em>Einbetten &amp; Signieren</em>.&rdquo;</li>
+<li>Auf der &ldquo;Allgemein&rdquo; Registerkarte Ihres Anwendungsziels, fügen Sie PulseSDK.framework aus dem INVIDI Technologies-Download zur Liste der <strong>Frameworks, Bibliotheken und eingebettete Inhalte</strong>. Die <em>Einbetten</em> Einstellung für den Rahmen muss &ldquo;<em>Einbetten &amp; Signieren</em>.&rdquo;</li>
+<li>Auf der &ldquo;Build-Einstellungen&rdquo; Registerkarte Ihres Anwendungsziels stellen Sie sicher, dass die &ldquo;Framework-Suchpfade&rdquo; die Pfade zu den Frameworks einschließen. Dies sollte automatisch erfolgen, es sei denn, das Framework ist in einem anderen Stammverzeichnis als Ihr Projekt gespeichert.</li>
+<li>Auf der &ldquo;Build-Einstellungen&rdquo; Registerkarte Ihres Anwendungsziels:
+
+<ul>
+<li>Sicher gehen, dass <code>-ObjC</code> wurde hinzugefügt &ldquo;Andere Linker-Flags&rdquo; Einstellung bauen.</li>
+</ul>
+</li>
+</ol>
+
+
+<h2>Importe</h2>
+
+<p>Das Pulse-Plug-in für Brightcove Player SDK kann auf verschiedene Weise in Code importiert werden. <code>@import BrightcovePulse;</code> , <code>#import &lt;BrightcovePulse/BrightcovePulse.h&gt;</code> oder <code>#import &lt;BrightcovePulse/[spezifische Klasse].h&gt;</code>. Sie können die importieren <code>PulseSDK</code> und <code>BrightcovePlayerSDK</code> Module in ähnlicher Weise.</p>
+
+<h1>Schnellstart</h1>
+
+<p>Das BrightcovePulse-Plugin ist eine Brücke zwischen <a href="https://github.com/INVIDITechnologies/pulse-sdk-ios-2.x-sample">PulseSDK</a> und der <a href="https://github.com/brightcove/brightcove-player-sdk-ios">Brightcove Player-SDK für iOS</a>. Dieses Snippet zeigt seine grundlegende Verwendung mit serverseitigen Anzeigenregeln.</p>
+
+<pre><code>[1] OOContentMetadata *contentMetadata = [OOContentMetadata neu]; contentMetadata.category = &lt;Kategorie&gt;; contentMetadata.tags = @[ &lt;tag1&gt;, &lt;tag2&gt;, ..., &lt;tagN&gt; ]; contentMetadata.flags = @[ &lt;flag1&gt;, &lt;flag2&gt;, ..., &lt;flagN&gt; ]; OORequestSettings *requestSettings = [OORequestSettings neu]; requestSettings.linearPlaybackPositions = @[ @(position1), @(position2), ..., @(positionN) ]; NSString *pulseHost = &lt;pulse domain&gt;; [2] NSDictionary *pulseOptions = @{ kBCOVPulseOptionPulsePlaybackSessionDelegateKey: self, kBCOVPulseOptionPulsePersistentIdKey: [NSUUID.UUID UUIDString] } ; BCOVPlayerSDKManager *manager = [BCOVPlayerSDKManager sharedManager]; id&lt;BCOVPlaybackController&gt; controller = [3] [manager createPulsePlaybackControllerWithPulseHost:pulseHost contentMetadata:contentMetadata requestSettings:requestSettings adContainer:self.playerView.contentOverlayView CompanionSlots:nil viewStrategy:nil options:pulseOptions]; controller.delegate = selbst; [videoContainerView addSubview:controller.view]; NSString *policyKey = &lt;Ihr-Richtlinien-Schlüssel&gt;; NSString *accountId = &lt;Ihre-Konto-ID&gt;; NSString *videoID = &lt;Ihre-Video-ID&gt;; BCOVPlaybackService *playbackService = [[BCOVPlaybackService alloc] initWithAccountId:accountID policyKey:policyKey]; [playbackService findVideoWithVideoID:videoID Parameter:nil Vervollständigung:^(BCOVVideo *video, NSDictionary *jsonResponse, NSError *error) { [controller setVideos:@[ video ]]; [controller play]; }]; </code></pre>
+
+<p>Den Code in Schritte zerlegen:</p>
+
+<ol>
+<li>Erstelle das gleiche <a href="http://pulse-sdks.videoplaza.com/ios_2/latest/Classes/OOContentMetadata.html">OOContentMetadaten</a> , <a href="http://pulse-sdks.videoplaza.com/ios_2/latest/Classes/OORequestSettings.html">OORequestSettings</a> die Sie erstellen würden, wenn Sie INVIDI Technologies verwenden würden&rsquo;s Pulse iOS SDK direkt. Das Pulse-Plug-in erfordert eine gültige Domain und einen UIView-Container, um die Anzeigen anzuzeigen.</li>
+<li>Optional kann das Plugin ein NSDictionary mit Eigenschaften erhalten, die im Plugin verwendet werden sollen. Die verfügbaren Schlüssel sind <code>kBCOVPulseOptionPulsePlaybackSessionDelegateKey</code> , <code>kBCOVPulseOptionPulseDeviceContainerKey</code> und <code>kBCOVPulseOptionPulsePersistentIdKey</code>. Um die Pulse Session zu überschreiben, muss das PulsePlaybackSessionDelegate implementiert werden, wobei die <code>kBCOVPulseOptionPulsePlaybackSessionDelegateKey</code> mit der Klasse, die die Methode implementiert.</li>
+<li>BrightcovePulse fügt BCOVPlaybackManager einige Kategoriemethoden hinzu. Die erste davon ist <code>-createPulsePlaybackControllerWithPulseHost:contentMetadata:requestSettings:adContainer:companionSlots:viewStrategy:Optionen:</code>. Verwenden Sie diese Methode, um Ihren Wiedergabe-Controller zu erstellen.</li>
+</ol>
+
+
+<h1>Spielen und pausieren</h1>
+
+<p>Das Brightcove Pulse-Plug-in implementiert eine benutzerdefinierte Wiedergabe- und Pausenlogik, um ein möglichst reibungsloses Anzeigenerlebnis zu gewährleisten. Daher müssen Sie sicherstellen, dass Sie die Wiedergabemethode auf dem <code>BCOVPlaybackController</code> oder der <code>[BCOVSessionProviderExtension pulse_play]</code> oder <code>[BCOVSessionProviderExtension pulse_pause]</code> (<a href="https://github.com/brightcove/brightcove-player-sdk-ios-pulse/blob/master/ios/BrightcovePulse.framework/Headers/BCOVPulseComponent.h">BCOVSessionProviderErweiterung</a> und nicht der AVPlayer.</p>
+
+<p>Als Beispiel: Aufruf von Play zum ersten Mal auf <code>BCOVPlaybackController</code> ermöglicht BCOVPulse, Preroll-Anzeigen zu verarbeiten, ohne dass der Inhalt vor dem Preroll abgespielt wird. Weitere Informationen dazu, wie BCOVPulse den Standard überschreibt <code>BCOVPlaybackController</code> Methoden, bitte überprüfen Sie aus <a href="https://github.com/brightcove/brightcove-player-sdk-ios-pulse/blob/master/ios/BrightcovePulse.framework/Headers/BCOVPulseComponent.h">BCOVSessionProviderErweiterung</a>.</p>
+
+<h1>Verwenden der integrierten PlayerUI</h1>
+
+<p>In deiner <code>UIViewController</code> , ein ... kreieren <code>BCOVPUIPlayerView</code> -Eigenschaft namens Player-Ansicht, die die Wiedergabesteuerelemente, die Videoinhaltsansicht und eine spezielle Ansicht enthält, in der Pulse seine Anzeigen anzeigen kann.</p>
+
+<pre><code>// Player-View von PlayerUI @property (nonatomic) BCOVPUIPlayerView *playerView; </code></pre>
+
+<p>Erstellen Sie dann Ihre Spieleransicht; liefern einen Null-Wiedergabe-Controller, der später hinzugefügt wird. Diese Playeransicht enthält sowohl die Videoinhaltsansicht als auch die Ansicht, die Wiedergabesteuerelemente und Anzeigensteuerelemente anzeigt. Dieses Setup ist gleich, egal welches Plugin Sie verwenden. Richten Sie die Player-Ansicht so ein, dass sie dem Video-Container aus Ihrem Layout entspricht (<code>videoView</code> ) bei der Größenänderung.</p>
+
+<pre><code>// Kontrollansicht erstellen und konfigurieren. BCOVPUIBasicControlView *controlView = [BCOVPUIBasicControlView basicControlViewWithVODLayout]; // Erstellen Sie die Player-Ansicht mit einem Null-Wiedergabe-Controller. self.playerView = [[BCOVPUIPlayerView alloc] initWithPlaybackController:nil options:nil controlView:controlView]; // BCOVPUIPlayerView zu Ihrer Videoansicht hinzufügen. [self.videoView addSubview:self.playerView]; </code></pre>
+
+<p>Du&rsquo;Sie müssen das Layout für die Player-Ansicht einrichten, Sie können dies mit Auto Layout oder der älteren Springs &amp; Struts-Methode tun.</p>
+
+<p><strong>Federn &amp; Streben</strong> <code> self.playerView.frame = self.videoView.bounds; self.playerView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth; </code></p>
+
+<p><strong>Automatisches Layout</strong> <code> self.playerView.translatesAutoresizingMaskIntoConstraints = NEIN; [NSLayoutConstraint activateConstraints:@[ [self.playerView.topAnchor ConstraintEqualToAnchor:self.videoView.topAnchor], [self.playerView.rightAnchor ConstraintEqualToAnchor:self.videoView.rightAnchor], [self.playerView.leftAnchor ConstraintEqualToAnchor:self.videoView.leftAnchor] , [self.playerView.bottomAnchor-EinschränkungEqualToAnchor:self.videoView.bottomAnchor], ]]; </code></p>
+
+<p>Das Erstellen des Playback-Controllers ist spezifisch für Pulse. Erstellen Sie Ihren Wiedergabe-Controller wie oben, aber übergeben Sie anstelle Ihrer Video-Container-Ansicht die <code>contentOverlayView</code> aus der Spieleransicht als dein <code>AnzeigenContainer</code>. Die <code>contentOverlayView</code> ist eine spezielle Ansicht, die zum Überlagern von Ansichten über den Hauptvideoinhalt verwendet wird. Sie sollten auch verwenden <code>Null</code> Anstatt von <code>[Manager defaultControlsViewStrategy]</code> wenn du das als dein benutzt hättest <code>AnsichtStrategie</code> (Dies war die ältere Methode zur Verwendung integrierter Steuerelemente).</p>
+
+<pre><code>// Erstellen Sie den Wiedergabecontroller. id&lt;BCOVPlaybackController&gt; controller = [Manager createPulsePlaybackControllerWithPulseHost:pulseHost contentMetadata:contentMetadata requestSettings:requestSettings adContainer:self.playerView.contentOverlayView CompanionSlots:nil viewStrategy:nil options:nil]; controller.delegate = selbst; // Weisen Sie der Player-Ansicht einen neuen Playback-Controller zu. // Dies verknüpft die Sitzung des PlayerControllers mit der PlayerUI. // Sie können diese Player-Ansicht beibehalten und ihm neue // Wiedergabe-Controller zuweisen, während sie erstellt werden. self.playerView.playbackController = self.playbackController; </code></pre>
+
+<p>Wenn Sie jetzt Videos mit Anzeigen abspielen, sehen Sie beim Abspielen von Videoinhalten die PlayerUI-Steuerelemente sowie Anzeigenmarkierungen auf dem Timeline-Scrubber.</p>
+
+<p>Die PlayerUI ist hochgradig anpassbar. Weitere Informationen und Beispielcode finden Sie unter <strong>Benutzerdefinierte Layouts</strong> Abschnitt in der Datei README.md der <a href="https://github.com/brightcove/brightcove-player-sdk-ios">Brightcove Native Player SDK-Repository</a>.</p>
+
+<h1>Anpassen des Plugin-Verhaltens</h1>
+
+<p>Es gibt einige Konfigurationspunkte in BCOVPulse. Sie können BCOVPulse mit einem anderen Plug-in für das Brightcove Player SDK für iOS kombinieren, eine benutzerdefinierte Ansichtsstrategie erstellen und die aktuelle Anzeigenanfrage überschreiben.</p>
+
+<h2>BCOVPulsePlaybackSessionDelegate<a href="Protocols/BCOVPulsePlaybackSessionDelegate.html"></a></h2>
+
+<p>Die <a href="Protocols/BCOVPulsePlaybackSessionDelegate.html"><code>BCOVPulsePlaybackSessionDelegate</code></a> Protokoll bietet eine Möglichkeit für das BrightcovePulse-Plug-in, mit der Hostanwendung zu kommunizieren. Mit diesem Delegaten können Sie die Inhaltsmetadaten überschreiben und Einstellungen anfordern, bevor die Sitzung beginnt.</p>
+
+<p>Die <code>UIViewController</code> muss das übernehmen <a href="Protocols/BCOVPulsePlaybackSessionDelegate.html"><code>BCOVPulsePlaybackSessionDelegate</code></a> Protokoll.</p>
+
+<pre><code>@interface ViewController () &lt;BCOVPulsePlaybackSessionDelegate&gt; </code></pre>
+
+<p>Erstellen Sie ein NSDictionary, das die <code>kBCOVPulseOptionPulsePlaybackSessionDelegateKey</code> mit der Klasse, die die Methode zum Überschreiben der Sitzung implementiert.</p>
+
+<pre><code>NSDictionary *pulseOptions = @{ kBCOVPulseOptionPulsePlaybackSessionDelegateKey: self } ; </code></pre>
+
+<p>Ein ... kreieren <code>BCOVPlaybackSessionProvider</code> oder <code>BCOVPlaybackController</code> für Pulse mit den Methoden in <code>BCOVPlaybackManager</code> , denken Sie daran, das im vorherigen Schritt erstellte Wörterbuch zu übergeben. In diesem Beispiel wird ein Wiedergabecontroller verwendet.</p>
+
+<pre><code>BCOVPlayerSDKManager *manager = [BCOVPlayerSDKManager sharedManager]; id&lt;BCOVPlaybackController&gt; controller = [manager createPulsePlaybackControllerWithPulseHost:pulseHost contentMetadata:[OOContentMetadata new] requestSettings:[OORequestSettings new] adContainer:self.playerView.contentOverlayView CompanionSlots:nil viewStrategy:nil options:pulseOptions]; </code></pre>
+
+<p>Die <code>createSessionForVideo:withPulseHost:contentMetadata:requestSettings:</code> -Methode liefert das aktuelle Video, die Host-Domain, <a href="http://pulse-sdks.videoplaza.com/ios_2/latest/Classes/OOContentMetadata.html">Inhaltsmetadaten</a> und <a href="http://pulse-sdks.videoplaza.com/ios_2/latest/Classes/OORequestSettings.html">Einstellungen anfordern</a> für die Sitzung. In diesem Beispiel waren die vorherigen Objekte leer und werden mit einem neuen überschrieben <a href="http://pulse-sdks.videoplaza.com/ios_2/latest/Classes/OOContentMetadata.html#/c:objc(cs)OOContentMetadata(py)category">Kategorie</a> und <a href="http://pulse-sdks.videoplaza.com/ios_2/latest/Classes/OORequestSettings.html#/c:objc(cs)OORequestSettings(py)linearPlaybackPositions">lineare Wiedergabepositionen</a> Array.</p>
+
+<pre><code>- (id&lt;OOPulseSession&gt;)createSessionForVideo:(BCOVVideo *)video withPulseHost:(NSString *)pulseHost contentMetadata:(OOContentMetadata *)contentMetadata requestSettings:(OORequestSettings *)requestSettings { // Override the content metadata. contentMetadata.category = @"new_category_for_midrolls"; // Override the request settings. requestSettings.linearPlaybackPositions = @[ @(15) ]; return [OOPulse sessionWithContentMetadata:contentMetadata requestSettings:requestSettings]; } </code></pre>
+
+<h2>Strategie anzeigen</h2>
+
+<p>Sie können dem BCOVPlaybackManager eine benutzerdefinierte Ansichtsstrategie bereitstellen, wenn Sie Ihren Wiedergabecontroller oder Sitzungsanbieter erstellen, anstatt die defaultControlsViewStrategy direkt anzugeben. Mit einer benutzerdefinierten Ansichtsstrategie können die Anzeigen-Container-Ansicht und die Anzeigen-Companion-Slots mit der Video-Content-Ansicht verknüpft werden. Dies ist ein Beispiel für eine benutzerdefinierte Ansichtsstrategie.</p>
+
+<pre><code>BCOVPlaybackControllerViewStrategy customViewStrategy = ^UIView* (UIView *view, id&lt;BCOVPlaybackController&gt;playbackController){ BCOVPlaybackControllerViewStrategy defaultControlsViewStrategy = [playbackManager defaultControlsViewStrategy]; UIView *contentAndDefaultControlsView = defaultControlsViewStrategy(view, playbackController); [&lt;UIView of video container&gt; addSubview:contentAndDefaultControlsView]; return &lt;UIView of video container&gt;; } ; </code></pre>
+
+<h2>Sitzungsanbieter erstellen</h2>
+
+<p>Wenn Sie mehr als ein Plug-in für das Brightcove Player SDK für iOS verwenden, das einen benutzerdefinierten Wiedergabe-Controller erstellen muss, müssen Sie stattdessen eine Kette von Sitzungsanbietern zusammenstellen und den endgültigen Sitzungsanbieter an den <code>[BCOVPlayerSDKManager createPlaybackControllerWithSessionProvider:viewStrategy:]</code> Methode.</p>
+
+<p>Beim Erstellen von Sitzungsanbietern kann das Vorladen der Sitzung aktiviert werden von <a href="https://github.com/brightcove/brightcove-player-sdk-ios/blob/fd5e766693e533854f202f270d3d62e32ceaae04/ios/dynamic/BrightcovePlayerSDK.framework/Headers/BCOVBasicSessionProvider.h#L31-L46"><code>BCOVBasicSessionProvider</code></a>.</p>
+
+<h1>Häufig gestellte Fragen</h1>
+
+<p><em>Ich kann die Werbung hören, aber ich kann&rsquo;Ich sehe sie nicht spielen.</em></p>
+
+<p>Dies geschieht normalerweise, wenn sich die Anzeigencontaineransicht nicht in der Ansichtshierarchie befindet oder wenn die Anzeigenansicht (die eine Unteransicht der Anzeigencontaineransicht ist) von anderen Ansichten verdeckt wird.</p>
+
+<h1>Unterstützung</h1>
+
+<p>Wenn Sie Fragen haben, Hilfe benötigen oder Feedback geben möchten, verwenden Sie bitte die <a href="https://supportportal.brightcove.com/s/login/">Support-Portal</a> oder wenden Sie sich an Ihren Account Manager. Um Benachrichtigungen über neue SDK-Softwareversionen zu erhalten, abonnieren Sie die Brightcove Native Player SDKs <a href="https://groups.google.com/g/brightcove-native-player-sdks">Google-Gruppe</a>.</p>
+						
+						
+					</div>
+					
+
+					<div class="index-container">
+						
+
+						
+						<div class="index-column">
+							<h2 class="index-title">Klassenreferenzen</h2>
+							<ul>
+								
+								<li>BCOVPulseCompanionSlot<a href="Classes/BCOVPulseCompanionSlot.html"></a></li>
+								
+								<li><a href="Classes/BCOVPulseComponent.html">BCOVPulseKomponente</a></li>
+								
+								<li>BCOVPulseSessionProvider<a href="Classes/BCOVPulseSessionProvider.html"></a></li>
+								
+							</ul>
+						</div>
+						
+
+						
+						<div class="index-column">
+							
+							<h2 class="index-title">Protokollreferenzen</h2>
+							<ul>
+								
+								<li>BCOVPulsePlaybackSessionDelegate<a href="Protocols/BCOVPulsePlaybackSessionDelegate.html"></a></li>
+								
+							</ul>
+							
+
+							
+
+							
+							<h2 class="index-title">Kategorie-Referenzen</h2>
+							<ul>
+								
+								<li>BCOVPlayerSDKManager(BCOVPulseAdditions)<a href="Categories/BCOVPlayerSDKManager-BCOVPulseAdditions.html"></a></li>
+								
+								<li>BCOVSessionProviderExtension(BCOVPulseAdditions)<a href="Categories/BCOVSessionProviderExtension-BCOVPulseAdditions.html"></a></li>
+								
+							</ul>
+							
+						</div>
+						
+					</div>
+
+					<footer>
+						<div class="footer-copyright">
+							
+							<p class="copyright">Urheberrechte © &copy; 2021 Brightcove. Alle Rechte vorbehalten. Aktualisiert: 2021-07-08</p>
+							
+							
+							<p class="generator">Erstellt von <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
+							
+						</div>
+					</footer>
+				</main>
+			</div>
+		</div>
+	</article>
+
+	<script src="js/script.js"></script>
+</body>
+</html>

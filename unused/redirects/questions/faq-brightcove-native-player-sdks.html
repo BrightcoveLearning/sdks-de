@@ -1,0 +1,80 @@
+---
+title: 'Häufig gestellte Fragen zu den Brightcove Native Player-SDKs'
+description: In diesem Thema können Sie die Antworten auf eine Reihe häufig gestellter Fragen anzeigen.
+parent: Questions and Issues 
+grandparent: Developer Support
+---
+
+
+<!-- The location of this document has changed. Please update your bookmark. You should be redirected to the new document location. 
+      DO NOT UPDATE THIS DOCUMENT. Instead, find the new location and update there. 
+      There is redirect code at the bottom of this document. -->
+      
+<h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary>
+
+<section class="bcls-section" id="top">
+<p>Unten finden Sie eine Liste mit häufig gestellten Fragen zu den Brightcove Native Player SDKs. Haben Sie eine Frage, die Sie hier nicht sehen? <a href="mailto:training@brightcove.com">Lass uns wissen!</a></p>
+</section>
+
+<section class="bcls-section">
+<h2 id="General_questions">Allgemeine Fragen</h2>
+
+<p class="bcls-question">Werden Untertitel unterstützt?</p>
+
+<p class="bcls-answer">Die Player-SDKs unterstützen In-Manifest-WebVTT(HLS) sowie Sidecar-WebVTT und 608/708-Untertitel. Weitere Informationen zum Support finden Sie im <a href="/features/video-formats-and-captioning-native-sdks.html">Videoformate und Untertitel</a> dokumentieren.</p>
+
+<p class="bcls-question">Kann ich die Suchleiste anpassen?</p>
+
+<p class="bcls-answer">Jawohl. Wenn Sie die Brightcove Native Player-Steuerelemente verwenden, können Sie die Elemente anpassen, einschließlich der Suchleiste. Weitere Informationen finden Sie im <a href="/features/brightcove-native-player-controls.html">Native Player-Steuerelemente von Brightcove</a> dokumentieren.</p>
+
+<p class="bcls-question">Kann ich das Video mit benutzerdefinierten Steuerelementen überlagern?</p>
+
+<p class="bcls-answer">Die Player-SDKs zwingen Sie nicht, ihre Steuerelemente zu verwenden. Sie können wählen, ob Sie sie verwenden möchten oder nicht. Wenn Sie die Brightcove Native Player-Steuerelemente verwenden, können Sie die Elemente anpassen. Weitere Informationen finden Sie im <a href="/features/brightcove-native-player-controls.html">Native Player-Steuerelemente von Brightcove</a> dokumentieren.</p>
+
+<p class="bcls-question">Kann ich 10sec ff/rew Videofunktionalität hinzufügen?</p>
+
+<p class="bcls-answer">Die Player-SDKs unterstützen das Suchen, sodass Sie diese Funktionalität implementieren können.</p>
+
+<p class="bcls-question">Wird Chromecast unterstützt?</p>
+
+<p class="bcls-answer">Die Brightcove Native SDKs unterstützen das Streamen von Videos auf mit Chromecast verbundene Fernseher.<br />
+Verwenden Sie für Android-Geräte die <a href="/android/tv/cast-plugin-native-sdk-android.html">Cast-Plugin für das Native SDK für Android</a>.<br />
+Verwenden Sie für iOS-Geräte die <a href="https://github.com/brightcove/brightcove-player-sdk-ios-googlecast">Cast-Plug-in für Native SDK für iOS</a>.</p>
+
+<p class="bcls-question">Werden Wiedergabelisten unterstützt?</p>
+
+<p class="bcls-answer">Ja, die Brightcove Native SDKs bieten Methoden zum Abrufen eines Videos oder einer Playlist von der Playback API. Einzelheiten finden Sie unter:<br />
+<a href="https://github.com/BrightcoveOS/android-player-samples/tree/master/brightcove-exoplayer/VideoListSampleApp">VideoListSampleApp für das native SDK für Android</a><br />
+<a href="https://github.com/brightcove/brightcove-player-sdk-ios#retrieving-brightcove-assets-using-the-playback-service-">Abrufen von Brightcove-Assets mit dem Wiedergabedienst für das native SDK für iOS</a></p>
+</section>
+
+<section class="bcls-section">
+<h2 id="Android_specific">Android-spezifisch</h2>
+
+<p class="bcls-question">Wie kann ich HLS auf Android zum Laufen bringen?</p>
+
+<p class="bcls-answer">Das Player SDK von Brightcove für Android bietet HLS-Wiedergabefunktionen für Android 4.1 und höher.</p>
+
+<p class="bcls-question">Was ist mit HLSe?</p>
+
+<p class="bcls-answer">Das Player SDK von Brightcove für Android unterstützt die Wiedergabe mit HLSe.</p>
+</section>
+
+<section class="bcls-section">
+<h2 id="iOS_specific">iOS-spezifisch</h2>
+
+<p class="bcls-question">Wird AirPlay unterstützt?</p>
+
+<p class="bcls-answer">Das Player SDK für iOS unterstützt AirPlay, solange Sie keine Werbung haben. <a href="https://support.apple.com/en-us/HT204289">Apples AirPlay</a> ermöglicht es Ihnen, Inhalte von Ihren Apple-Geräten drahtlos zu streamen.</p>
+
+<p class="bcls-question">Wird Apple TV unterstützt?</p>
+
+<p class="bcls-answer">Die neueste Version des Player SDK für iOS unterstützt das tvOS-Betriebssystem von Apple TV.</p>
+</section>
+</article>
+<script>
+  var h1 = document.querySelector('h1'), path = location.pathname, new_location = path.replace('support', 'developer-support'), message = '<h3>Diese Seite ist umgezogen nach <a href="https://sdks.support.brightcove.com' + new_location + '">https://sdks.support.brightcove.com' + new_location + '</a>. Bitte aktualisieren Sie Ihr Lesezeichen! Sie werden in 5 Sekunden weitergeleitet.<h3>'; console.log('neuer_Standort', neuer_Standort); h1.insertAdjacentHTML('Nachende', Nachricht); umleiten(); Funktion umleiten() { var t = window.setTimeout(go_to_new_location, 5000); } Funktion go_to_new_location() { window.location.pathname = new_location; }
+
+</script>

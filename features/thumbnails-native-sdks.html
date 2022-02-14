@@ -1,0 +1,174 @@
+---
+title: Thumbnail-Suche mit der Beschreibung der nativen SDKs: In diesem Thema erfahren Sie mehr über die Suche nach Miniaturansichten mit den Brightcove Native SDKs.
+parent: Features 
+grandparent: Home
+---
+ <h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary>
+
+<section class="bcls-section">
+<h2 id="Overview">Überblick</h2>
+
+<p>Mit der Miniaturansichtssuche können Benutzer den Abspielkopf entlang der Zeitachse ziehen und Miniaturansichten als Vorschau des zugehörigen Inhalts anzeigen. Dies gibt Benutzern die Möglichkeit, schnell durch eine Videodatei zu navigieren und den Inhalt zu finden, an dem sie interessiert sind.</p>
+<figure class="bcls-figure">
+  <img
+    class="bcls-image--no-border"
+    alt="Thumbnail seeking"
+    src="/assets/images/features/thumbnail-scrubbing.png"
+  />
+</figure>
+
+<h5>Wann werden Bilder generiert?</h5>
+<p>Brightcove generiert die Bilder auf Wunsch dynamisch. Für jedes mit Dynamic Delivery aufgenommene Video werden Bilder bei der ersten Anfrage generiert. Dadurch wird sichergestellt, dass keine Bilder für nicht verwendete Videos erstellt werden. Nach der Generierung werden Bilder lokal und auf dem CDN zwischengespeichert, um sie wie jedes andere Bild wiederholt anzuzeigen.</p>
+<h5>Welche Bildfrequenz hat ein Video?</h5>
+<p>Bilder werden alle 5 Sekunden für Inhalte &lt; 1 Stunde und alle 10 Sekunden für Inhalte &gt; 1 Stunde generiert.</p>
+</section>
+
+<section class="bcls-section">
+<h2 id="Requirements">Anforderungen</h2>
+
+<p>Die folgenden Anforderungen sind für die Miniaturansichtssuche mit den Brightcove Native SDKs erforderlich:</p>
+<p>Diese Funktion erfordert die Verwendung der Playback API v2.</p>
+<h3>Gerätebetriebssystemversion</h3>
+<ul>
+  <li>
+    Android 6.0+
+  </li>
+  <li>
+    iOS 11.0+
+  </li>
+</ul>
+
+<h3>Brightcove Native SDK-Version</h3>
+<ul>
+  <li>
+    Natives SDK für Android 6.12.0+
+  </li>
+  <li>
+    Natives SDK für iOS 6.7.4+
+  </li>
+</ul>
+</section>
+
+<section class="bcls-section">
+<h2 id="Getting_started">Einstieg</h2>
+
+<p>Diese Funktion ist für jeden mit einem Brightcove Video Cloud-Konto verfügbar.</p>
+  <p>
+    Stellen Sie sicher, dass Ihre Videos für die dynamische Bereitstellung aufgenommen werden.
+  </p>
+</section>
+
+<section class="bcls-section">
+<h2 id="Android_Implementation">Android-Implementierung</h2>
+
+<p>Gehen Sie folgendermaßen vor, um die Miniaturansichtssuche mit dem Native SDK für Android zu verwenden:</p>
+<ol class="bcls-tasklist">
+  <li>
+    <p>
+      In dem <strong>build.gradle</strong> fügen Sie die folgende Gradle-Abhängigkeit hinzu:
+    </p>
+    <pre><code class="language-java" translate="No">implementation &quot;com.brightcove.player:android-thumbnail-plugin:6.13.0&quot;</code></pre>
+  </li>
+  <li>
+    <p>
+      In dem <strong>MainActivity.java</strong> -Datei erstellen Sie eine Instanz der <code translate="No">ThumbnailComponent</code>.
+    </p>
+    <pre><code class="language-java" translate="No">ThumbnailComponent thumbnailComponent = new ThumbnailComponent(brightcoveVideoView);</code></pre>
+  </li>
+  <li>
+    <p>
+      Richten Sie den Vorschau-Mediencontroller ein.
+    </p>
+    <pre><code class="language-java" translate="No">thumbnailComponent.setupPreviewThumbnailController();</code></pre>
+  </li>
+  <li>
+    Ein vollständiges Codebeispiel finden Sie im <a href="https://github.com/BrightcoveOS/android-player-samples/tree/master/brightcove-exoplayer/ThumbnailScrubberSampleApp/src/main">ThumbnailScrubberSampleApp</a>
+  </li>
+</ol>
+
+<h3>Zusätzliche Schritte für SSAI</h3>
+<p>
+  Wenn Sie Server-Side Ad Insertion (SSAI) verwenden, sind zusätzliche Schritte erforderlich.
+</p>
+<p>
+  Um das Thumbnail-Plugin mit dem SSAI-Plugin zu verwenden, müssen Sie Offsets berücksichtigen, die durch die zusammengefügten Anzeigen im Inhalt eingeführt werden.
+</p>
+<ol class="bcls-tasklist">
+  <li>
+    Kehre zu deinem zurück <strong>MainActivity.java</strong> Datei.
+  </li>
+  <li>
+    Hören Sie auf die <code translate="No">SSAIEventType.AD_DATA_READY</code> Veranstaltung.
+  </li>
+  <li>
+    Rufen Sie das Zeitachsenobjekt des SSAI-Videos ab.
+  </li>
+  <li>
+    <p>
+      Erstellen Sie eine Instanz von <code translate="No">SSAIThumbnailDocumentCreatorWrapper</code> mit folgenden Parametern:
+    </p>
+    <ul>
+      <li>
+        EIN <code translate="No">ThumbnailDocumentCreator</code>. Du kannst den ... benutzen <code translate="No">DefaultThumbnailDocumentCreator</code>.
+      </li>
+      <li>
+        Das Zeitachsenobjekt des SSAI-Videos.
+      </li>
+      <li>
+        Stellen Sie die <code translate="No">ThumbnailDocumentCreator</code> zum <code translate="No">ThumbnailPlugin</code>.
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>
+      Hier ist ein Codebeispiel:
+    </p>
+    <pre class="line-numbers"><code class="language-java" translate="No">eventEmitter.once(AD_DATA_READY, event -&gt; {
+  Timeline timeline = event.getProperty(SSAIEvent.VMAP_TIMELINE, Timeline.class);
+  ThumbnailDocumentCreator creator = new SSAIThumbnailDocumentCreatorWrapper(new   DefaultThumbnailDocumentCreator(), timeline);
+  thumbnailComponent.setThumbnailDocumentCreator(creator);
+});</code></pre>
+  </li>
+</ol>
+</section>
+
+<section class="bcls-section">
+<h2 id="iOS_Implementation">iOS-Implementierung</h2>
+<p>Gehen Sie wie folgt vor, um die Miniaturansichtssuche mit dem Native SDK für iOS zu verwenden</p>
+<ol class="bcls-tasklist-restart">
+  <li>
+    <p>Da ist ein neues <code translate="No">BCOVPlaybackController</code> -Eigenschaft, die die Miniaturansichtssuche für den Wiedergabe-Controller aktiviert oder deaktiviert. Einzelheiten finden Sie im <a href="/ios/reference/sdk/Protocols/BCOVPlaybackController.html#//api/name/thumbnailScrubbingEnabled">Referenz zum nativen SDK für iOS</a>.
+  </li>
+  <li>
+    <p>
+      Der Standardwert ist <code translate="No">YES</code>. Um die Miniaturbildsuche zu deaktivieren, setzen Sie den Wert auf <code translate="No">NO</code>.</p>
+<pre class="line-numbers"><code class="language-objectivec" translate="No">/**
+ * Enables or disables thumbnail seeking for this playback controller.
+ *
+ * Default value is YES
+ */
+@property (nonatomic, readwrite, assign) BOOL thumbnailScrubbingEnabled;</code></pre>
+    </p>
+  </li>
+  <!-- <li>
+    For a complete code example, see the <a href="https://github.com/BrightcoveOS/android-player-samples/tree/master/brightcove-exoplayer/ThumbnailScrubberSampleApp/src/main">ThumbnailScrubberSampleAp</a>
+  </li> -->
+</ol>
+
+
+</section>
+
+<section class="bcls-section">
+<h2 id="Notes">Anmerkungen</h2>
+
+<p>Die folgenden Hinweise gelten für die Thumbnail-Suche mit den Native SDKs:.</p>
+<ul>
+  <li>
+    Die Suche nach Miniaturansichten wird bei der Offline-Wiedergabe nicht unterstützt
+  </li>
+</ul>
+</section>
+
+</article>
